@@ -52,7 +52,7 @@ public class Main {
         }
         if (!flag)
             ans.addAll(set2);
-        set2.forEach((k) -> {
+        set1.forEach((k) -> {
             ans.remove(k);
         });
         if (ans.isEmpty()) {
