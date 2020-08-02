@@ -13,5 +13,8 @@ public class Main {
             folder = new File(path);
             fileReader.listFilesForFolder(folder);
         }
+
+        Tokenizer tokenizer = new Tokenizer();
+        tokenizer.init(fileReader);
     }
 }
