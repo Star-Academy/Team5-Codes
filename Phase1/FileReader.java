@@ -11,7 +11,7 @@ public class FileReader {
     private static Map<String, ArrayList<String>> documentsWords = new HashMap<>();
     
     public void listFilesForFolder(final File folder) {
-        for (final File file : folder.listFiles()) {
+        for (final File file : folder.listFiles()) { 
             if (file.isDirectory()) {
                 listFilesForFolder(file);
             } else {
