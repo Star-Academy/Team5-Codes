@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-        FileReader fileReader = new FileReader();
-        Scanner scanner = new Scanner(System.in);
+    public static void main(final String[] args) {
+        final FileReader fileReader = new FileReader();
+        final Scanner scanner = new Scanner(System.in);
         File folder;
         System.out.println("Enter the folders paths (Enter -1 for end)");
         String path;

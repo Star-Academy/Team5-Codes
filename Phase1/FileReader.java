@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 
 public class FileReader {
-    private Map<String, ArrayList<String>> documentsWords = new HashMap<>();
+    private static Map<String, ArrayList<String>> documentsWords = new HashMap<>();
     
     public void listFilesForFolder(final File folder) {
         for (final File file : folder.listFiles()) {
