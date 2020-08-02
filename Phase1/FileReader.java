@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+
 public class FileReader {
     private Map<String, ArrayList<String>> documentsWords = new HashMap<>();
     
