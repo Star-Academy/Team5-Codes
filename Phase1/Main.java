@@ -8,31 +8,25 @@ public class Main {
     public static void main(final String[] args) {
         final FileReader fileReader = new FileReader();
         final Scanner scanner = new Scanner(System.in);
-        File folder;
-        // System.out.println("Enter the folders paths (Enter -1 for end)");
-        String path;
-        // while(!(path = scanner.nextLine()).equals("-1")) {
-        //     folder = new File(path);
-        //     fileReader.listFilesForFolder(folder);
-        // }// terminal ejazeye write dari 
-
         fileReader.listFilesForFolder(new File("Docs"));
-
+ 
         Tokenizer tokenizer = new Tokenizer();
         tokenizer.init(fileReader);
-
-        System.out.println("Enter the word to search for (enter -1 for ending the process)");
+ 
+        System.out.println("Enter the phrase to search for");
+        String input = scanner.nextLine();
         Set<String> set = new HashSet<String>();
-        while(!(path = scanner.next()).equals("-1")) {
-            if (tokenizer.getHashMap().containsKey(path))
-                set.addAll(tokenizer.getHashMap().get(path));
+        String[] splitInput = input.split("\\s");
+        for (String str : splitInput) {
+            set.addAll(tokenizer.getHashMap().get(str));
         }
         if (set.isEmpty()) {
             System.out.println("search un available");
             System.exit(0);
+        } else {
+            set.forEach((k -> {
+                System.out.println(k);
+            }));
         }
-        set.forEach((k -> {
-            System.out.println(k);
-        }));
     }
 }
