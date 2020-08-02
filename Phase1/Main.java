@@ -8,7 +8,7 @@ public class Main {
     public static void main(final String[] args) {
         final FileReader fileReader = new FileReader();
         final Scanner scanner = new Scanner(System.in);
-        fileReader.listFilesForFolder(new File(".\\Phase1\\Docs"));
+        fileReader.listFilesForFolder(new File("Docs"));
  
         Tokenizer tokenizer = new Tokenizer();
         tokenizer.init(fileReader);
@@ -18,7 +18,8 @@ public class Main {
         Set<String> set = new HashSet<String>();
         String[] splitInput = input.split("\\s");
         for (String str : splitInput) {
-            set.addAll(tokenizer.getHashMap().get(str));
+            if (tokenizer.getHashMap().containsKey(str.toLowerCase()))
+                set.addAll(tokenizer.getHashMap().get(str.toLowerCase()));
         }
         if (set.isEmpty()) {
             System.out.println("search un available");
