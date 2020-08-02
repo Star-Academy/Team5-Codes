@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -24,7 +25,9 @@ public class FileReader {
             Scanner myReader = new Scanner(file);
             while (myReader.hasNextLine()) {
               String data = myReader.nextLine();
-              words.add(data.toLowerCase());
+              data = data.toLowerCase();
+              String[] splitWords = data.split("\\s");
+              words.addAll(Arrays.asList(splitWords));
             }
             myReader.close();
           } catch (FileNotFoundException e) {
