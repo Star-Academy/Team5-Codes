@@ -35,7 +35,7 @@ public class FileReader {
             System.out.println("An error occurred.");
             e.printStackTrace();
           }
-          documentsWords.put(file.getPath(), words);
+          documentsWords.put(file.getName(), words);
     }
 
     public Map<String, ArrayList<String>> getDocumentsWords() {

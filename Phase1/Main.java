@@ -18,7 +18,8 @@ public class Main {
         Set<String> set = new HashSet<String>();
         String[] splitInput = input.split("\\s");
         for (String str : splitInput) {
-            set.addAll(tokenizer.getHashMap().get(str.toLowerCase()));
+            if (tokenizer.getHashMap().containsKey(str.toLowerCase()))
+                set.addAll(tokenizer.getHashMap().get(str.toLowerCase()));
         }
         if (set.isEmpty()) {
             System.out.println("search un available");
