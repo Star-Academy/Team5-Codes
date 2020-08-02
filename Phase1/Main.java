@@ -9,7 +9,7 @@ public class Main {
     public static void main(final String[] args) {
         final FileReader fileReader = new FileReader();
         final Scanner scanner = new Scanner(System.in);
-        fileReader.listFilesForFolder(new File(".\\Phase1\\Docs"));
+        fileReader.listFilesForFolder(new File("..\\Phase1\\Docs"));
  
         Tokenizer tokenizer = new Tokenizer();
         tokenizer.init(fileReader);
@@ -34,12 +34,12 @@ public class Main {
                     set1.addAll(tokenizer.getHashMap().get(str2.toLowerCase()));
                     break;
                 default:
-                    if (set2.isEmpty() && tokenizer.getHashMap().containsKey(str2.toLowerCase())) {
-                        set2.addAll(tokenizer.getHashMap().get(str2.toLowerCase()));
+                    if (set2.isEmpty() && tokenizer.getHashMap().containsKey(str.toLowerCase())) {
+                        set2.addAll(tokenizer.getHashMap().get(str.toLowerCase()));
                         break;
                     }
                     Set<String> temp = new HashSet<>();
-                    ArrayList<String> tmp = tokenizer.getHashMap().get(str2.toLowerCase());
+                    ArrayList<String> tmp = tokenizer.getHashMap().get(str.toLowerCase());
                     if (tmp == null) {
                         flag = true;
                         break;
