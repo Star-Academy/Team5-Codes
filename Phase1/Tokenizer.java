@@ -12,9 +12,7 @@ public class Tokenizer {
         hashMap = new HashMap<>();
     }
 
-    public void init() {
-        final FileReader fileReader = new FileReader();
-        fileReader.listFilesForFolder(new File("Docs"));
+    public void init(FileReader fileReader) {
         final Map<String, ArrayList<String>> documents = fileReader.getDocumentsWords();// {doc, word}
         documents.forEach((k, v) -> {
             for (final String str : v) {
