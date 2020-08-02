@@ -24,10 +24,13 @@ public class Main {
         System.out.println("Enter the word to search for (enter -1 for ending the process)");
         Set<String> set = new HashSet<String>();
         while(!(path = scanner.next()).equals("-1")) {
-            set.addAll(tokenizer.getHashMap().get(path));
+            if (tokenizer.getHashMap().containsKey(path))
+                set.addAll(tokenizer.getHashMap().get(path));
         }
-        //salam 
-        // ok e hamechi ?
+        if (set.isEmpty()) {
+            System.out.println("search un available");
+            System.exit(0);
+        }
         set.forEach((k -> {
             System.out.println(k);
         }));
