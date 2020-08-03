@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
-import java.lang.*;
 
 public class Main {
     public static void main(final String[] args) {
@@ -43,10 +42,10 @@ public class Main {
             String[] splitInput = input.split("\\s");
 
             Set<String> negativeSet = new HashSet<String>();
-            Set<String> noSingSet = new HashSet<String>();
-            boolean flag = modifySets(splitInput, data, answer, negativeSet, noSingSet);
+            Set<String> noSignSet = new HashSet<String>();
+            boolean flag = modifySets(splitInput, data, answer, negativeSet, noSignSet);
             if (!flag)
-                answer.addAll(noSingSet);
+                answer.addAll(noSignSet);
             negativeSet.forEach((k) -> {
                 answer.remove(k);
             });
@@ -60,7 +59,7 @@ public class Main {
         }
 
         private static boolean modifySets(String[] splitInput, Tokenizer data, Set<String> answer,
-                Set<String> negativeSet, Set<String> noSingSet) {
+                Set<String> negativeSet, Set<String> noSignSet) {
             boolean flag = false;
             for (String wordToSearch : splitInput) {
                 String wordToSearchWithoutSign = wordToSearch.substring(1);
@@ -74,8 +73,8 @@ public class Main {
                             negativeSet.addAll(data.getInvertedIndexMap().get(wordToSearchWithoutSign.toLowerCase()));
                         break;
                     default: // if no special character occurs.
-                        if (noSingSet.isEmpty() && data.getInvertedIndexMap().containsKey(wordToSearch.toLowerCase())) {
-                            noSingSet.addAll(data.getInvertedIndexMap().get(wordToSearch.toLowerCase()));
+                        if (noSignSet.isEmpty() && data.getInvertedIndexMap().containsKey(wordToSearch.toLowerCase())) {
+                            noSignSet.addAll(data.getInvertedIndexMap().get(wordToSearch.toLowerCase()));
                             break;
                         }
                         Set<String> afterAndResult = new HashSet<>();
@@ -86,9 +85,9 @@ public class Main {
                             break;
                         }
                         for (String string : result)
-                            if (noSingSet.contains(string))
+                            if (noSignSet.contains(string))
                                 afterAndResult.add(string);
-                        noSingSet = afterAndResult;
+                        noSignSet = afterAndResult;
                         break;
                 }
             }

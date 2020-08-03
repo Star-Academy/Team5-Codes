@@ -1,17 +1,17 @@
-import java.io.File;
 import java.util.*;
 
 public class Tokenizer {
     /**
-     * this hashMap contains the keys and values for searching 
-     * keys are the words that occured in the docs and values are the addresses
-     * of the docs that the word occured.
+     * this hashMap contains the keys and values for searching keys are the words
+     * that occured in the docs and values are the addresses of the docs that the
+     * word occured.
      */
     private final HashMap<String, ArrayList<String>> invertedIndexMap;
 
     /**
      * a getter for hashMap
-     * @return the hashMap 
+     * 
+     * @return the hashMap
      */
     public HashMap<String, ArrayList<String>> getInvertedIndexMap() {
         return invertedIndexMap;
@@ -25,7 +25,9 @@ public class Tokenizer {
     }
 
     /**
-     * this method will initialize the document words and will process them in order for use.
+     * this method will initialize the document words and will process them in order
+     * for use.
+     * 
      * @param fileReader contains the readed docs.
      */
     public void init(FileReader fileReader) {
@@ -40,9 +42,11 @@ public class Tokenizer {
     }
 
     /**
-     * this method will add the words in array of string with the documentary name of key to the hashMap
+     * this method will add the words in array of string with the documentary name
+     * of key to the hashMap
+     * 
      * @param strings is Array of Words in the document
-     * @param key is the document name.
+     * @param key     is the document name.
      */
     private void add(final String[] strings, final String key) {
         for (final String str : strings) {
@@ -52,8 +56,8 @@ public class Tokenizer {
     }
 
     /**
-     * this method will make the addresses for each word unique.
-     * means that there won't be duplicates in the doc adresses in hashMap.
+     * this method will make the addresses for each word unique. means that there
+     * won't be duplicates in the doc adresses in hashMap.
      */
     private void makeThemReady() {
         invertedIndexMap.forEach((k, v) -> {
