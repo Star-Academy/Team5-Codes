@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.lang.*;
 
 public class Main {
     public static void main(final String[] args) {
@@ -10,7 +11,7 @@ public class Main {
         manager.start();
     }
 
-    private static class Manager implements Runnable {
+    private static class Manager extends Thread {
 
         private static Set<String> answer = new HashSet<>();
 
