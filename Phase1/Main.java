@@ -18,7 +18,7 @@ public class Main {
         @Override
         public void run() {
             final FileReader fileReader = new FileReader();
-            fileReader.listFilesForFolder(new File("..\\Phase1\\Docs"));
+            fileReader.listFilesForFolder(new File(".\\Phase1\\Docs"));
 
             Tokenizer data = new Tokenizer();
             data.init(fileReader);
