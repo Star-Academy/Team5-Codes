@@ -5,10 +5,10 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Main {
-    private static Scanner scanner;
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final File file = new File(".\\Phase1\\Docs");
 
     public static void main(final String[] args) {
-        scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Enter -1 when you want to finish the process.");
             Manager manager = new Manager();
@@ -22,7 +22,7 @@ public class Main {
 
         public void run() {
             final FileReader fileReader = new FileReader();
-            fileReader.listFilesForFolder(new File(".\\Phase1\\Docs"));
+            fileReader.listFilesForFolder(file);
 
             Tokenizer data = new Tokenizer();
             data.init(fileReader);
