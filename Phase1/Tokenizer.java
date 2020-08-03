@@ -30,24 +30,24 @@ public class Tokenizer {
      */
     public void init(FileReader fileReader) {
         final Map<String, ArrayList<String>> documents = fileReader.getDocumentsWords();// {doc, word}
-        documents.forEach((k, v) -> {
-            for (final String str : v) {
+        documents.forEach((key, value) -> {
+            for (final String str : value) {
                 final String[] strings = str.split(" ");
-                add(strings, k);
+                add(strings, key);
             }
         });
         makeThemReady();
     }
 
     /**
-     * this method will add the words in array of string with the documentary address of k to the hashMap
+     * this method will add the words in array of string with the documentary name of key to the hashMap
      * @param strings is Array of Words in the document
-     * @param k is the document address.
+     * @param key is the document name.
      */
-    private void add(final String[] strings, final String k) {
+    private void add(final String[] strings, final String key) {
         for (final String str : strings) {
             invertedIndexMap.putIfAbsent(str, new ArrayList<String>());
-            invertedIndexMap.get(str).add(k);
+            invertedIndexMap.get(str).add(key);
         }
     }
 
