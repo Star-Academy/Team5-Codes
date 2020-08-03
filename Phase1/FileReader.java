@@ -12,7 +12,14 @@ public class FileReader {
      * the name of the document and value is an array list of the words in that
      * document.
      */
-    private static Map<String, ArrayList<String>> documentsWords = new HashMap<>();
+    private static Map<String, ArrayList<String>> documentsWords;
+
+    /**
+     * a simple constructor for the class that initializes the map.
+     */
+    public FileReader() {
+        documentsWords = new HashMap<>();
+    }
 
     /**
      * this method will get the words in the documents in a specific folder
