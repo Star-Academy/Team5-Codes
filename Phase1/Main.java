@@ -9,6 +9,7 @@ public class Main {
     private static final File file = new File(".\\Phase1\\Docs");
 
     public static void main(final String[] args) {
+        Manager.initialize();
         while (true) {
             System.out.println("Enter -1 when you want to finish the process.");
             Manager manager = new Manager();
@@ -19,23 +20,27 @@ public class Main {
     private static class Manager {
 
         private Set<String> answer;
+        private static Tokenizer data;
 
         public Manager() {
             answer = new HashSet<>();
         }
 
-        public void run() {
+        static void initialize() {
             final FileReader fileReader = new FileReader();
             fileReader.listFilesForFolder(file);
             fileReader.initWords();
 
-            Tokenizer data = new Tokenizer();
+            data = new Tokenizer();
             data.init(fileReader);
+        }
 
+        public void run() {
             answer = generateSearch(data);
 
-            if (answer.isEmpty() || answer.contains("block this set, cuz there is no search result common between all of the words.")) {
-                System.out.println("search un available");
+            if (answer.isEmpty() || answer
+                    .contains("block this set, cuz there is no search result common between all of the words.")) {
+                System.out.println("search unavailable");
             } else {
                 answer.forEach((k -> {
                     System.out.println(k);
