@@ -13,12 +13,14 @@ public class FileReader {
      * document.
      */
     private static Map<String, ArrayList<String>> documentsWords;
+    private static ArrayList<File> files;
 
     /**
      * a simple constructor for the class that initializes the map.
      */
     public FileReader() {
         documentsWords = new HashMap<>();
+        files = new ArrayList<>();
     }
 
     /**
@@ -30,8 +32,15 @@ public class FileReader {
         for (final File file : folder.listFiles())
             if (file.isDirectory())
                 listFilesForFolder(file);
-            else
-                getWordsInDocument(file);
+            else {
+                files.add(file);
+            }
+    }
+
+    public void initWords() {
+        files.forEach((doc -> {
+            getWordsInDocument(doc);
+        }));
     }
 
     /**
@@ -40,17 +49,14 @@ public class FileReader {
      * 
      * @param file is the document that it's words should be extracted.
      */
-    private void getWordsInDocument(File file) {
+    private static void getWordsInDocument(File file) {
         ArrayList<String> words = new ArrayList<>();
-        try {
-            Scanner myReader = new Scanner(file);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                data = data.toLowerCase();
-                String[] splitWords = data.split("\\s");
-                words.addAll(Arrays.asList(splitWords));
+        try (Scanner myReader = new Scanner(file)) {
+            while (myReader.hasNext()) {
+                String singleWord = myReader.next();
+                singleWord = singleWord.toLowerCase();
+                words.add(singleWord);
             }
-            myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();

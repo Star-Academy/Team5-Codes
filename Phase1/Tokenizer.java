@@ -33,33 +33,29 @@ public class Tokenizer {
     public void init(FileReader fileReader) {
         final Map<String, ArrayList<String>> documents = fileReader.getDocumentsWords();// {doc, word}
         documents.forEach((key, value) -> {
-            for (final String str : value) {
-                final String[] strings = str.split(" ");
-                add(strings, key);
-            }
+            for (final String str : value)
+                add(str, key);
         });
-        makeThemReady();
+        removeDuplicates();
     }
 
     /**
      * this method will add the words in array of string with the documentary name
      * of key to the hashMap
      * 
-     * @param strings is Array of Words in the document
-     * @param key     is the document name.
+     * @param word       is the word that will be updated
+     * @param docAddress is the document name.
      */
-    private void add(final String[] strings, final String key) {
-        for (final String str : strings) {
-            invertedIndexMap.putIfAbsent(str, new ArrayList<String>());
-            invertedIndexMap.get(str).add(key);
-        }
+    private void add(String word, final String docAddress) {
+        invertedIndexMap.putIfAbsent(word, new ArrayList<String>());
+        invertedIndexMap.get(word).add(docAddress);
     }
 
     /**
      * this method will make the addresses for each word unique. means that there
      * won't be duplicates in the doc adresses in hashMap.
      */
-    private void makeThemReady() {
+    private void removeDuplicates() {
         invertedIndexMap.forEach((k, v) -> {
             Set<String> set = new HashSet<String>(v);
             v = new ArrayList<>();
