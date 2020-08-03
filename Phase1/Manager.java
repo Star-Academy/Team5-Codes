@@ -7,7 +7,7 @@ import java.util.Set;
 public class Manager {
     private Set<String> answer;
     private static Tokenizer data;
-    private static final File file = new File(".\\Phase1\\Docs");
+    private static final File file = new File("..\\Phase1\\Docs");
     private static final Scanner scanner = new Scanner(System.in);
 
     public Manager() {
