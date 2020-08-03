@@ -26,20 +26,20 @@ public class Main {
             String str2 = str.substring(1);
             switch (str.charAt(0)) {
                 case '+':
-                if (tokenizer.getHashMap().containsKey(str2.toLowerCase()))
-                    ans.addAll(tokenizer.getHashMap().get(str2.toLowerCase()));
+                if (tokenizer.getInvertedIndexMap().containsKey(str2.toLowerCase()))
+                    ans.addAll(tokenizer.getInvertedIndexMap().get(str2.toLowerCase()));
                     break;
                 case '-':
-                if (tokenizer.getHashMap().containsKey(str2.toLowerCase()))
-                    set1.addAll(tokenizer.getHashMap().get(str2.toLowerCase()));
+                if (tokenizer.getInvertedIndexMap().containsKey(str2.toLowerCase()))
+                    set1.addAll(tokenizer.getInvertedIndexMap().get(str2.toLowerCase()));
                     break;
                 default:
-                    if (set2.isEmpty() && tokenizer.getHashMap().containsKey(str.toLowerCase())) {
-                        set2.addAll(tokenizer.getHashMap().get(str.toLowerCase()));
+                    if (set2.isEmpty() && tokenizer.getInvertedIndexMap().containsKey(str.toLowerCase())) {
+                        set2.addAll(tokenizer.getInvertedIndexMap().get(str.toLowerCase()));
                         break;
                     }
                     Set<String> temp = new HashSet<>();
-                    ArrayList<String> tmp = tokenizer.getHashMap().get(str.toLowerCase());
+                    ArrayList<String> tmp = tokenizer.getInvertedIndexMap().get(str.toLowerCase());
                     if (tmp == null) {
                         flag = true;
                         break;

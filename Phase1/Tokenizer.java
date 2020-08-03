@@ -7,21 +7,21 @@ public class Tokenizer {
      * keys are the words that occured in the docs and values are the addresses
      * of the docs that the word occured.
      */
-    private final HashMap<String, ArrayList<String>> hashMap;
+    private final HashMap<String, ArrayList<String>> invertedIndexMap;
 
     /**
      * a getter for hashMap
      * @return the hashMap 
      */
-    public HashMap<String, ArrayList<String>> getHashMap() {
-        return hashMap;
+    public HashMap<String, ArrayList<String>> getInvertedIndexMap() {
+        return invertedIndexMap;
     }
 
     /**
      * the public constructor of the class
      */
     public Tokenizer() {
-        hashMap = new HashMap<>();
+        invertedIndexMap = new HashMap<>();
     }
 
     /**
@@ -46,8 +46,8 @@ public class Tokenizer {
      */
     private void add(final String[] strings, final String k) {
         for (final String str : strings) {
-            hashMap.putIfAbsent(str, new ArrayList<String>());
-            hashMap.get(str).add(k);
+            invertedIndexMap.putIfAbsent(str, new ArrayList<String>());
+            invertedIndexMap.get(str).add(k);
         }
     }
 
@@ -56,7 +56,7 @@ public class Tokenizer {
      * means that there won't be duplicates in the doc adresses in hashMap.
      */
     private void makeThemReady() {
-        hashMap.forEach((k, v) -> {
+        invertedIndexMap.forEach((k, v) -> {
             Set<String> set = new HashSet<String>(v);
             v = new ArrayList<>();
             v.addAll(set);
