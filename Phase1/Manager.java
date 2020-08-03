@@ -107,6 +107,10 @@ public class Manager {
             noSignSet.add("block this set, cuz there is no search result common between all of the words.");
             return;
         }
+        takeTheCommonDocs(noSignSet, result);
+    }
+
+    private static void takeTheCommonDocs(Set<String> noSignSet, ArrayList<String> result) {
         Set<String> afterAndResult = new HashSet<>();
         for (String string : result)
             if (noSignSet.contains(string))
