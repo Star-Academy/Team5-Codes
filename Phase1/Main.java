@@ -5,64 +5,81 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Main {
+    private static Set<String> answer = new HashSet<>();
 
     public static void main(final String[] args) {
         final FileReader fileReader = new FileReader();
-        final Scanner scanner = new Scanner(System.in);
         fileReader.listFilesForFolder(new File("..\\Phase1\\Docs"));
- 
-        Tokenizer tokenizer = new Tokenizer();
-        tokenizer.init(fileReader);
- 
-        System.out.println("Enter the phrase to search for");
-        String input = scanner.nextLine();
-        Set<String> ans = new HashSet<>();
-        Set<String> set1 = new HashSet<String>();
-        Set<String> set2 = new HashSet<String>();
-        boolean flag = false;
-        String[] splitInput = input.split("\\s");
 
-        for (String str : splitInput) {
-            String str2 = str.substring(1);
-            switch (str.charAt(0)) {
-                case '+':
-                if (tokenizer.getInvertedIndexMap().containsKey(str2.toLowerCase()))
-                    ans.addAll(tokenizer.getInvertedIndexMap().get(str2.toLowerCase()));
-                    break;
-                case '-':
-                if (tokenizer.getInvertedIndexMap().containsKey(str2.toLowerCase()))
-                    set1.addAll(tokenizer.getInvertedIndexMap().get(str2.toLowerCase()));
-                    break;
-                default:
-                    if (set2.isEmpty() && tokenizer.getInvertedIndexMap().containsKey(str.toLowerCase())) {
-                        set2.addAll(tokenizer.getInvertedIndexMap().get(str.toLowerCase()));
-                        break;
-                    }
-                    Set<String> temp = new HashSet<>();
-                    ArrayList<String> tmp = tokenizer.getInvertedIndexMap().get(str.toLowerCase());
-                    if (tmp == null) {
-                        flag = true;
-                        break;
-                    }
-                    for (String string : tmp)
-                        if (set2.contains(string))
-                            temp.add(string);
-                    set2 = temp; 
-                    break;
-            }
-        }
-        if (!flag)
-            ans.addAll(set2);
-        set1.forEach((k) -> {
-            ans.remove(k);
-        });
-        if (ans.isEmpty()) {
+        Tokenizer data = new Tokenizer();
+        data.init(fileReader);
+
+        answer = generateSearch(data);
+        
+        if (answer.isEmpty()) {
             System.out.println("search un available");
             System.exit(0);
         } else {
-            ans.forEach((k -> {
+            answer.forEach((k -> {
                 System.out.println(k);
             }));
         }
+    }
+
+    private static Set<String> generateSearch(Tokenizer data) {
+        final Scanner scanner = new Scanner(System.in);
+        String input = takeInput(scanner);
+
+        String[] splitInput = input.split("\\s");
+        
+        Set<String> negativeSet = new HashSet<String>();
+        Set<String> noSingSet = new HashSet<String>();
+        boolean flag = modifySets(splitInput, data, answer, negativeSet, noSingSet);
+        if (!flag)
+            answer.addAll(noSingSet);
+        negativeSet.forEach((k) -> {
+            answer.remove(k);
+        });
+        return answer;
+    }
+
+    private static String takeInput(final Scanner scanner) {
+        System.out.println("Enter the phrase to search for");
+        String input = scanner.nextLine();
+        return input;
+    }
+
+    private static boolean modifySets(String[] splitInput, Tokenizer data, Set<String> answer, Set<String> negativeSet, Set<String> noSingSet) {
+        boolean flag = false;
+        for (String wordToSearch : splitInput) {
+            String wordToSearchWithoutSign = wordToSearch.substring(1);
+            switch (wordToSearch.charAt(0)) {
+                case '+': // for or operation
+                    if (data.getInvertedIndexMap().containsKey(wordToSearchWithoutSign.toLowerCase()))
+                        answer.addAll(data.getInvertedIndexMap().get(wordToSearchWithoutSign.toLowerCase()));
+                    break;
+                case '-': // for erasing the search results 
+                    if (data.getInvertedIndexMap().containsKey(wordToSearchWithoutSign.toLowerCase()))
+                        negativeSet.addAll(data.getInvertedIndexMap().get(wordToSearchWithoutSign.toLowerCase()));
+                    break; 
+                default: // if no special character occurs.
+                    if (noSingSet.isEmpty() && data.getInvertedIndexMap().containsKey(wordToSearch.toLowerCase())) {
+                        noSingSet.addAll(data.getInvertedIndexMap().get(wordToSearch.toLowerCase()));
+                        break;
+                    }
+                    Set<String> afterAndResult = new HashSet<>();
+                    ArrayList<String> result = data.getInvertedIndexMap().get(wordToSearch.toLowerCase());
+                    if (result == null) { // we don't want to get in into the first if of this section twice.
+                        flag = true; // if the flag went true then it means there is no result for this search except ones from the other two cases.
+                        break;
+                    }
+                    for (String string : result)
+                        if (noSingSet.contains(string))
+                            afterAndResult.add(string);
+                    noSingSet = afterAndResult;
+                    break;
+            }
+        }
+        return flag;
     }
 }
