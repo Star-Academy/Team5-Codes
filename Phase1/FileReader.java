@@ -49,18 +49,20 @@ public class FileReader {
      * @param file is the document that it's words should be extracted.
      */
     private static void getWordsInDocument(File file) {
+        ArrayList<String> words = extractWordsFromDoc(file);
+        documentsWords.put(file.getName(), words);
+    }
+
+    private static ArrayList<String> extractWordsFromDoc(File file) {
         ArrayList<String> words = new ArrayList<>();
         try (Scanner myReader = new Scanner(file)) {
-            while (myReader.hasNext()) {
-                String singleWord = myReader.next();
-                singleWord = singleWord.toLowerCase();
-                words.add(singleWord);
-            }
+            while (myReader.hasNext()) 
+                words.add(myReader.next().toLowerCase());
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.err.println("An error occurred.");
             e.printStackTrace();
         }
-        documentsWords.put(file.getName(), words);
+        return words;
     }
 
     /**
