@@ -1,62 +1,62 @@
-import java.io.File;
 import java.util.*;
 
 public class Tokenizer {
     /**
-     * this hashMap contains the keys and values for searching 
-     * keys are the words that occured in the docs and values are the addresses
-     * of the docs that the word occured.
+     * this hashMap contains the keys and values for searching keys are the words
+     * that occured in the docs and values are the addresses of the docs that the
+     * word occured.
      */
-    private final HashMap<String, ArrayList<String>> hashMap;
+    private final HashMap<String, ArrayList<String>> invertedIndexMap;
 
     /**
      * a getter for hashMap
-     * @return the hashMap 
+     * 
+     * @return the hashMap
      */
-    public HashMap<String, ArrayList<String>> getHashMap() {
-        return hashMap;
+    public HashMap<String, ArrayList<String>> getInvertedIndexMap() {
+        return invertedIndexMap;
     }
 
     /**
      * the public constructor of the class
      */
     public Tokenizer() {
-        hashMap = new HashMap<>();
+        invertedIndexMap = new HashMap<>();
     }
 
     /**
-     * this method will initialize the document words and will process them in order for use.
+     * this method will initialize the document words and will process them in order
+     * for use.
+     * 
      * @param fileReader contains the readed docs.
      */
     public void init(FileReader fileReader) {
         final Map<String, ArrayList<String>> documents = fileReader.getDocumentsWords();// {doc, word}
-        documents.forEach((k, v) -> {
-            for (final String str : v) {
-                final String[] strings = str.split(" ");
-                add(strings, k);
-            }
+        documents.forEach((key, value) -> {
+            for (final String str : value)
+                add(str, key);
         });
-        makeThemReady();
+        removeDuplicates();
     }
 
     /**
-     * this method will add the words in array of string with the documentary address of k to the hashMap
-     * @param strings is Array of Words in the document
-     * @param k is the document address.
+     * this method will add the words in array of string with the documentary name
+     * of key to the hashMap
+     * 
+     * @param word       is the word that will be updated
+     * @param docAddress is the document name.
      */
-    private void add(final String[] strings, final String k) {
-        for (final String str : strings) {
-            hashMap.putIfAbsent(str, new ArrayList<String>());
-            hashMap.get(str).add(k);
-        }
+    private void add(String word, final String docAddress) {
+        invertedIndexMap.putIfAbsent(word, new ArrayList<String>());
+        invertedIndexMap.get(word).add(docAddress);
     }
 
     /**
-     * this method will make the addresses for each word unique.
-     * means that there won't be duplicates in the doc adresses in hashMap.
+     * this method will make the addresses for each word unique. means that there
+     * won't be duplicates in the doc adresses in hashMap.
      */
-    private void makeThemReady() {
-        hashMap.forEach((k, v) -> {
+    private void removeDuplicates() {
+        invertedIndexMap.forEach((k, v) -> {
             Set<String> set = new HashSet<String>(v);
             v = new ArrayList<>();
             v.addAll(set);
