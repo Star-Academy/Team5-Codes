@@ -6,8 +6,8 @@ import java.util.Set;
 
 public class Manager {
     private Set<String> answer;
-    private static Tokenizer data;
-    private static final File file = new File(".\\Team5-Codes\\Phase1\\Docs");
+    private static InvertedIndexSearch data;
+    private static final File file = new File("Docs");
     private static final Scanner scanner = new Scanner(System.in);
     private static Set<String> mustContainWords;
 
@@ -20,11 +20,11 @@ public class Manager {
     }
 
     static void initialize() {
-        final FileReader fileReader = new FileReader();
+        final DataCollector fileReader = new DataCollector();
         fileReader.listFilesForFolder(file);
         fileReader.initWords();
 
-        data = new Tokenizer();
+        data = new InvertedIndexSearch();
         data.init(fileReader);
     }
 
@@ -44,7 +44,7 @@ public class Manager {
 
     }
 
-    private Set<String> generateSearch(Tokenizer data) {
+    private Set<String> generateSearch(InvertedIndexSearch data) {
         String input = takeInput();
         if (input.equals("-1"))
             System.exit(0);
@@ -69,7 +69,7 @@ public class Manager {
         return input;
     }
 
-    private static void modifySets(String[] splitInput, Tokenizer data, Set<String> answer, Set<String> notContainWords) {
+    private static void modifySets(String[] splitInput, InvertedIndexSearch data, Set<String> answer, Set<String> notContainWords) {
         for (String wordToSearch : splitInput) {
             String wordToSearchWithoutSign = wordToSearch.substring(1);
             switch (wordToSearch.charAt(0)) {
@@ -97,7 +97,7 @@ public class Manager {
      * @param wordToSearch     is the word that should be searched based on the
      *                         input.
      */
-    private static void updateResultOfNoSignedWords(Tokenizer data, String wordToSearch) {
+    private static void updateResultOfNoSignedWords(InvertedIndexSearch data, String wordToSearch) {
         if (mustContainWords.contains("block this set, cuz there is no search result common between all of the words."))
             return;
         if (mustContainWords.isEmpty() && data.getInvertedIndexMap().containsKey(wordToSearch.toLowerCase())) {
@@ -131,7 +131,7 @@ public class Manager {
      * @param wordToSearchWithoutSign is the word that we want to search for in our
      *                                data.
      */
-    private static void updateResultForAppropriateSet(Tokenizer data, Set<String> answer,
+    private static void updateResultForAppropriateSet(InvertedIndexSearch data, Set<String> answer,
             String wordToSearchWithoutSign) {
         if (data.getInvertedIndexMap().containsKey(wordToSearchWithoutSign.toLowerCase()))
             answer.addAll(data.getInvertedIndexMap().get(wordToSearchWithoutSign.toLowerCase()));

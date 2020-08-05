@@ -5,11 +5,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-
 /**
- * this class implements a simple 
+ * this class implements a simple dataReader for reading the document datas that
+ * were putted in the folder Docs in the project directory. here we gatter the
+ * necessary information for building the InvertedIndex search data structure
+ * but we don't organize them. organizing datas are all been managed in
+ * InvertedIndexSearch class because this class is only responsible for
+ * collecting datas from given documents.
  */
-public class DataReader {
+public class DataCollector {
     /**
      * this map contains the words that have been found in the fileReader. key is
      * the name of the document and value is an array list of the words in that
@@ -21,7 +25,7 @@ public class DataReader {
     /**
      * a simple constructor for the class that initializes the map.
      */
-    public DataReader() {
+    public DataCollector() {
         documentsWords = new HashMap<>();
         files = new ArrayList<>();
     }
