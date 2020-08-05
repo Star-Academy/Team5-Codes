@@ -9,8 +9,11 @@ public class Manager {
     private static Tokenizer data;
     private static final File file = new File(".\\Team5-Codes\\Phase1\\Docs");
     private static final Scanner scanner = new Scanner(System.in);
-    private static Set<String> mustContainWords = new HashSet<String>();
+    private static Set<String> mustContainWords;
 
+    {
+        mustContainWords = new HashSet<String>(); 
+    }
 
     public Manager() {
         answer = new HashSet<>();
