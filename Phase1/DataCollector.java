@@ -43,6 +43,9 @@ public class DataCollector {
                 files.add(file);
     }
 
+    /**
+     * this method calls getWordsInDocument for each document that we saw in Docs folder.
+     */
     public void initWords() {
         files.forEach((doc -> {
             getWordsInDocument(doc);
