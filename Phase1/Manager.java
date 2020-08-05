@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Manager {
-    private Set<String> answer;
+    private Set<String> answer; 
     private static InvertedIndexSearch data;
     private static final File file = new File("Docs");
     private static final Scanner scanner = new Scanner(System.in);
