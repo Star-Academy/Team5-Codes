@@ -1,6 +1,7 @@
 /**
  * The main class of the project which contains the starting point of the
  * program.
+ * @see Manager 
  */
 
 public class Main {
