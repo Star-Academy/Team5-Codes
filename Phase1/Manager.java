@@ -7,7 +7,7 @@ import java.util.Set;
 public class Manager {
     private Set<String> answer;
     private static Tokenizer data;
-    private static final File file = new File("..\\Phase1\\Docs");
+    private static final File file = new File(".\\Team5-Codes\\Phase1\\Docs");
     private static final Scanner scanner = new Scanner(System.in);
 
     public Manager() {
@@ -31,6 +31,7 @@ public class Manager {
                 || answer.contains("block this set, cuz there is no search result common between all of the words.")) {
             System.out.println("search un available");
         } else {
+            System.out.println("Number of results: " + answer.size());
             answer.forEach((k -> {
                 System.out.println(k);
             }));
@@ -44,15 +45,15 @@ public class Manager {
             System.exit(0);
         String[] splitInput = input.split("\\s");
 
-        Set<String> negativeWordsSet = new HashSet<String>();
-        Set<String> noSignWordsSet = new HashSet<String>();
+        Set<String> notContainWords = new HashSet<String>();
+        Set<String> mustContainWords = new HashSet<String>();
 
-        modifySets(splitInput, data, answer, negativeWordsSet, noSignWordsSet);
+        modifySets(splitInput, data, answer, notContainWords, mustContainWords);
 
-        if (!noSignWordsSet.isEmpty())
-            answer.addAll(noSignWordsSet);
+        if (!mustContainWords.isEmpty())
+            answer.addAll(mustContainWords);
 
-        negativeWordsSet.forEach((k) -> {
+        notContainWords.forEach((k) -> {
             answer.remove(k);
         });
         return answer;
@@ -64,8 +65,8 @@ public class Manager {
         return input;
     }
 
-    private static void modifySets(String[] splitInput, Tokenizer data, Set<String> answer, Set<String> negativeSet,
-            Set<String> noSignSet) {
+    private static void modifySets(String[] splitInput, Tokenizer data, Set<String> answer, Set<String> notContainWords,
+            Set<String> mustContainWords) {
         for (String wordToSearch : splitInput) {
             String wordToSearchWithoutSign = wordToSearch.substring(1);
             switch (wordToSearch.charAt(0)) {
@@ -73,11 +74,10 @@ public class Manager {
                     updateResultForAppropriateSet(data, answer, wordToSearchWithoutSign);
                     break;
                 case '-': // for erasing the search results, update the negativeSet
-                    updateResultForAppropriateSet(data, negativeSet, wordToSearchWithoutSign);
+                    updateResultForAppropriateSet(data, notContainWords, wordToSearchWithoutSign);
                     break;
                 default: // if no special character occurs.
-                    updateResultOfNoSignedWords(data, noSignSet, wordToSearch);
-                    break;
+                    updateResultOfNoSignedWords(data, mustContainWords, wordToSearch);
             }
         }
     }
@@ -87,35 +87,35 @@ public class Manager {
      * update the noSignSet that contains the & of search result of previous no
      * singed words.
      * 
-     * @param data         is the data that the client gave program
-     * @param noSignSet    is the set that contains the & of previous search results
-     *                     and the elements of this set should operate & operation
-     *                     between them and the new search results.
-     * @param wordToSearch is the word that should be searched based on the input.
+     * @param data             is the data that the client gave program
+     * @param mustContainWords is the set that contains the & of previous search
+     *                         results and the elements of this set should operate &
+     *                         operation between them and the new search results.
+     * @param wordToSearch     is the word that should be searched based on the
+     *                         input.
      */
-    private static void updateResultOfNoSignedWords(Tokenizer data, Set<String> noSignSet, String wordToSearch) {
-        if (noSignSet.contains("block this set, cuz there is no search result common between all of the words."))
+    private static void updateResultOfNoSignedWords(Tokenizer data, Set<String> mustContainWords, String wordToSearch) {
+        if (mustContainWords.contains("block this set, cuz there is no search result common between all of the words."))
             return;
-        if (noSignSet.isEmpty() && data.getInvertedIndexMap().containsKey(wordToSearch.toLowerCase())) {
-            System.out.println(data.getInvertedIndexMap().get(wordToSearch.toLowerCase()).size());
-            noSignSet.addAll(data.getInvertedIndexMap().get(wordToSearch.toLowerCase()));
+        if (mustContainWords.isEmpty() && data.getInvertedIndexMap().containsKey(wordToSearch.toLowerCase())) {
+            mustContainWords.addAll(data.getInvertedIndexMap().get(wordToSearch.toLowerCase()));
             return;
         }
         ArrayList<String> result = data.getInvertedIndexMap().get(wordToSearch.toLowerCase());
         if (result == null) {
-            noSignSet.clear();
-            noSignSet.add("block this set, cuz there is no search result common between all of the words.");
+            mustContainWords.clear();
+            mustContainWords.add("block this set, cuz there is no search result common between all of the words.");
             return;
         }
-        takeTheCommonDocs(noSignSet, result);
+        mustContainWords = takeTheCommonDocs(mustContainWords, result);
     }
 
-    private static void takeTheCommonDocs(Set<String> noSignSet, ArrayList<String> result) {
+    private static Set<String> takeTheCommonDocs(Set<String> mustContainWords, ArrayList<String> result) {
         Set<String> afterAndResult = new HashSet<>();
         for (String string : result)
-            if (noSignSet.contains(string))
+            if (mustContainWords.contains(string))
                 afterAndResult.add(string);
-        noSignSet = afterAndResult;
+        return afterAndResult;
     }
 
     /**
