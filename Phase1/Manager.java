@@ -9,6 +9,8 @@ public class Manager {
     private static Tokenizer data;
     private static final File file = new File(".\\Team5-Codes\\Phase1\\Docs");
     private static final Scanner scanner = new Scanner(System.in);
+    private static Set<String> mustContainWords = new HashSet<String>();
+
 
     public Manager() {
         answer = new HashSet<>();
@@ -46,9 +48,8 @@ public class Manager {
         String[] splitInput = input.split("\\s");
 
         Set<String> notContainWords = new HashSet<String>();
-        Set<String> mustContainWords = new HashSet<String>();
 
-        modifySets(splitInput, data, answer, notContainWords, mustContainWords);
+        modifySets(splitInput, data, answer, notContainWords);
 
         if (!mustContainWords.isEmpty())
             answer.addAll(mustContainWords);
@@ -65,8 +66,7 @@ public class Manager {
         return input;
     }
 
-    private static void modifySets(String[] splitInput, Tokenizer data, Set<String> answer, Set<String> notContainWords,
-            Set<String> mustContainWords) {
+    private static void modifySets(String[] splitInput, Tokenizer data, Set<String> answer, Set<String> notContainWords) {
         for (String wordToSearch : splitInput) {
             String wordToSearchWithoutSign = wordToSearch.substring(1);
             switch (wordToSearch.charAt(0)) {
@@ -77,7 +77,7 @@ public class Manager {
                     updateResultForAppropriateSet(data, notContainWords, wordToSearchWithoutSign);
                     break;
                 default: // if no special character occurs.
-                    updateResultOfNoSignedWords(data, mustContainWords, wordToSearch);
+                    updateResultOfNoSignedWords(data, wordToSearch);
             }
         }
     }
@@ -94,7 +94,7 @@ public class Manager {
      * @param wordToSearch     is the word that should be searched based on the
      *                         input.
      */
-    private static void updateResultOfNoSignedWords(Tokenizer data, Set<String> mustContainWords, String wordToSearch) {
+    private static void updateResultOfNoSignedWords(Tokenizer data, String wordToSearch) {
         if (mustContainWords.contains("block this set, cuz there is no search result common between all of the words."))
             return;
         if (mustContainWords.isEmpty() && data.getInvertedIndexMap().containsKey(wordToSearch.toLowerCase())) {
