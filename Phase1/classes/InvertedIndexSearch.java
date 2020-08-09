@@ -69,6 +69,7 @@ public class InvertedIndexSearch {
             Set<String> set = new HashSet<String>(value); // with set we can remove duplicates in the value
             value = new ArrayList<>();
             value.addAll(set);
+            invertedIndexMap.replace(key, value);
         });
     } 
 }

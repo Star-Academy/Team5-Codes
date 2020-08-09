@@ -38,8 +38,8 @@ public class InvertedIndexTest {
         invertedIndex.init(dataCollector);
         ArrayList<String> actualValue = invertedIndex.getInvertedIndexMap().get("this");
         ArrayList<String> expectedValue = new ArrayList<>();
-        expectedValue.add("sampleText1.txt");
         expectedValue.add("sampleText2.txt");
+        expectedValue.add("sampleText1.txt");
         assertEquals(expectedValue, actualValue);
     }
 
