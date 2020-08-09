@@ -3,7 +3,6 @@ package classes;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -16,8 +15,7 @@ import java.util.Set;
 public class Manager {
     private Set<String> answer;
     private static InvertedIndexSearch data;
-    private static final File file = new File("Docs");
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final File file = new File(".\\Team5-Codes\\Phase1\\Docs");
     private static Set<String> mustContainWords;
     /**
      * this will take the input from the console 
@@ -32,15 +30,9 @@ public class Manager {
     /**
      * this is a public constructor for our class.
      */
-    public Manager() {
+    public Manager(MyScanner myScanner) {
         answer = new HashSet<>();
-        myScanner = new MyScanner(){
-            public String takeInput() {
-                System.out.println("Enter the phrase to search for");
-                final String input = scanner.nextLine();
-                return input;
-            }
-        };
+        this.myScanner = myScanner;
     }
 
     /**

@@ -22,10 +22,9 @@ public class ManagerTest {
 
     @Test
     public void testManager() {
-        Manager myManager = new Manager();
         MyScanner myScanner = mock(MyScanner.class);
         when(myScanner.takeInput()).thenReturn("i have a cold");
-        myManager.setMyScanner(myScanner);
+        Manager myManager = new Manager(myScanner);
         String[] expectedArray = {"58812", "59637", "59632", "59256", "59300", "59629", "58827", "59284"};
         Set<String> expected = new HashSet<>(Arrays.asList(expectedArray));
         Set<String> actual = myManager.run();
