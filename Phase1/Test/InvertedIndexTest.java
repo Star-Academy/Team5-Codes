@@ -25,12 +25,30 @@ public class InvertedIndexTest {
     }
 
     @Test
-    public void testInitMethod() {
+    public void testInitMethodSingDoc() {
         invertedIndex.init(dataCollector);
         ArrayList<String> actualValue = invertedIndex.getInvertedIndexMap().get("java");
         ArrayList<String> expectedValue = new ArrayList<>();
         expectedValue.add("sampleText2.txt");
         assertEquals(expectedValue, actualValue);
     }
+
+    @Test
+    public void testInitMethodMultiDoc() {
+        invertedIndex.init(dataCollector);
+        ArrayList<String> actualValue = invertedIndex.getInvertedIndexMap().get("this");
+        ArrayList<String> expectedValue = new ArrayList<>();
+        expectedValue.add("sampleText1.txt");
+        expectedValue.add("sampleText2.txt");
+        assertEquals(expectedValue, actualValue);
+    }
+
+    @Test
+    public void testInitMethodNotContain() {
+        invertedIndex.init(dataCollector);
+        ArrayList<String> actualValue = invertedIndex.getInvertedIndexMap().get("code");
+        assertEquals(null, actualValue);
+    }
+
 
 }
