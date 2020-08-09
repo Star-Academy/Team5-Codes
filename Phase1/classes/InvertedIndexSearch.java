@@ -72,5 +72,5 @@ public class InvertedIndexSearch {
             value.addAll(set);
             invertedIndexMap.replace(key, value);
         });
-    }
+    } 
 }
