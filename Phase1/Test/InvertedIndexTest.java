@@ -21,7 +21,7 @@ public class InvertedIndexTest {
     public void setDataCollectorForTest() {
         dataCollector = new DataCollector();
         invertedIndex = new InvertedIndexSearch();
-        File folder = new File("Team5-Codes\\Phase1\\Test\\sampleFolder");
+        File folder = new File("Test\\sampleFolder");
         dataCollector.listFilesForFolder(folder);
         dataCollector.initWords();
     }
@@ -51,6 +51,5 @@ public class InvertedIndexTest {
         ArrayList<String> actualValue = invertedIndex.getInvertedIndexMap().get("code");
         assertEquals(null, actualValue);
     }
-
 
 }

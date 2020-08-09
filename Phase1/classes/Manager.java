@@ -16,7 +16,7 @@ import java.util.Set;
 public class Manager {
     private Set<String> answer;
     private static InvertedIndexSearch data;
-    private static final File file = new File("Team5-Codes\\Phase1\\Docs");
+    private static final File file = new File("Docs");
     private static final Scanner scanner = new Scanner(System.in);
     private static Set<String> mustContainWords;
     /**
