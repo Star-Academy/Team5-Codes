@@ -1,5 +1,5 @@
 package classes;
 
-public abstract class MyScanner {
-    public abstract String takeInput();
+public interface MyScanner {
+    public String takeInput();
 }
