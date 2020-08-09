@@ -70,5 +70,5 @@ public class InvertedIndexSearch {
             value = new ArrayList<>();
             value.addAll(set);
         });
-    }
+    } 
 }
