@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -36,8 +39,8 @@ public class InvertedIndexTest {
     @Test
     public void testInitMethodMultiDoc() {
         invertedIndex.init(dataCollector);
-        ArrayList<String> actualValue = invertedIndex.getInvertedIndexMap().get("this");
-        ArrayList<String> expectedValue = new ArrayList<>();
+        Set<String> actualValue = new HashSet<>(invertedIndex.getInvertedIndexMap().get("this"));
+        Set<String> expectedValue = new HashSet<>();
         expectedValue.add("sampleText1.txt");
         expectedValue.add("sampleText2.txt");
         assertEquals(expectedValue, actualValue);
