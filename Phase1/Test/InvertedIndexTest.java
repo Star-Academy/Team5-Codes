@@ -38,10 +38,10 @@ public class InvertedIndexTest {
     @Test
     public void testInitMethodMultiDoc() {
         invertedIndex.init(dataCollector);
-        Set<String> actualValue = new HashSet<>(invertedIndex.getInvertedIndexMap().get("this"));
-        Set<String> expectedValue = new HashSet<>();
-        expectedValue.add("sampleText1.txt");
+        ArrayList<String> actualValue = invertedIndex.getInvertedIndexMap().get("this");
+        ArrayList<String> expectedValue = new ArrayList<>();
         expectedValue.add("sampleText2.txt");
+        expectedValue.add("sampleText1.txt");
         assertEquals(expectedValue, actualValue);
     }
 
