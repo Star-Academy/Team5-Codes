@@ -6,6 +6,7 @@ import java.util.*;
  * this class will implement a simple InvertedIndexSearch class for usage. this
  * class will get it's data from fileReader class so its usefull to read it's
  * documents too.
+ * 
  * @see DataCollector
  */
 public class InvertedIndexSearch {
@@ -65,10 +66,11 @@ public class InvertedIndexSearch {
      */
     private void removeDuplicates() {
         invertedIndexMap.forEach((key, value) -> { // iterating over the words and removing their duplicate results with
-                                                   // Set.
+            // Set.
             Set<String> set = new HashSet<String>(value); // with set we can remove duplicates in the value
             value = new ArrayList<>();
             value.addAll(set);
+            invertedIndexMap.replace(key, value);
         });
     }
 }
