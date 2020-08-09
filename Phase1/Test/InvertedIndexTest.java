@@ -6,7 +6,6 @@ import java.io.File;
 import java.util.ArrayList;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import classes.DataCollector;
@@ -20,7 +19,7 @@ public class InvertedIndexTest {
     public void setDataCollectorForTest() {
         dataCollector = new DataCollector();
         invertedIndex = new InvertedIndexSearch();
-        File folder = new File("Team5-Codes\\Phase1\\Test\\sampleFolder");
+        File folder = new File("Test\\sampleFolder");
         dataCollector.listFilesForFolder(folder);
         dataCollector.initWords();
     }
@@ -34,14 +33,13 @@ public class InvertedIndexTest {
         assertEquals(expectedValue, actualValue);
     }
 
-    @Ignore
     @Test
     public void testInitMethodMultiDoc() {
         invertedIndex.init(dataCollector);
         ArrayList<String> actualValue = invertedIndex.getInvertedIndexMap().get("this");
         ArrayList<String> expectedValue = new ArrayList<>();
-        expectedValue.add("sampleText1.txt");
         expectedValue.add("sampleText2.txt");
+        expectedValue.add("sampleText1.txt");
         assertEquals(expectedValue, actualValue);
     }
 
@@ -51,6 +49,5 @@ public class InvertedIndexTest {
         ArrayList<String> actualValue = invertedIndex.getInvertedIndexMap().get("code");
         assertEquals(null, actualValue);
     }
-
 
 }
