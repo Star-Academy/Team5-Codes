@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import classes.DataCollector;
@@ -33,6 +34,7 @@ public class InvertedIndexTest {
         assertEquals(expectedValue, actualValue);
     }
 
+    @Ignore
     @Test
     public void testInitMethodMultiDoc() {
         invertedIndex.init(dataCollector);
