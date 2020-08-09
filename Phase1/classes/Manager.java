@@ -19,6 +19,11 @@ public class Manager {
     private static final File file = new File("Team5-Codes\\Phase1\\Docs");
     private static final Scanner scanner = new Scanner(System.in);
     private static Set<String> mustContainWords;
+    /**
+     * this will take the input from the console 
+     * it will read a single line.
+     */
+    public MyScanner myScanner;
 
     {
         mustContainWords = new HashSet<String>();
@@ -29,13 +34,20 @@ public class Manager {
      */
     public Manager() {
         answer = new HashSet<>();
+        myScanner = new MyScanner(){
+            public String takeInput() {
+                System.out.println("Enter the phrase to search for");
+                final String input = scanner.nextLine();
+                return input;
+            }
+        };
     }
 
     /**
      * in this method we will collect our datas from the documents, which is for
      * giving the datas to the invertedIndexSearch class.
      */
-    static void initialize() {
+    public static void initialize() {
         final DataCollector datacollector = new DataCollector();
         datacollector.listFilesForFolder(file);
         datacollector.initWords();
@@ -49,8 +61,8 @@ public class Manager {
      * search, processing the results based on the input and then printing the
      * answers to the console.
      */
-    public void run() {
-        final String input = takeInput(); // reading the inputs from the user.
+    public Set<String> run() {
+        final String input = myScanner.takeInput(); // reading the inputs from the user.
         if (input.equals("-1")) // ending the program if user want to.
             System.exit(0);
         final String[] splitInput = input.split("\\s"); // spliting the words from each other.
@@ -60,14 +72,12 @@ public class Manager {
         // printing the results for the user in the console
         if (answer.isEmpty() 
                 || answer.contains("block this set, cuz there is no search result common between all of the words.")) {
-            System.out.println("search un available");
+            answer = new HashSet<>();
+            answer.add("search un available");
         } else {
             System.out.println("Number of results: " + answer.size());
-            answer.forEach((k -> {
-                System.out.println(k);
-            }));
         }
-
+        return answer;
     }
 
     /**
@@ -92,17 +102,7 @@ public class Manager {
         });
         return answer; 
     }
-
-    /**
-     * this method will take the input from the console 
-     * it will read a single line.
-     */
-    private static String takeInput() {
-        System.out.println("Enter the phrase to search for");
-        final String input = scanner.nextLine();
-        return input;
-    }
-
+    
     /**
      * this method will add the result to the appropriate sets by reading the input words one by one.
      * 
@@ -186,5 +186,9 @@ public class Manager {
             final String wordToSearchWithoutSign) {
         if (data.getInvertedIndexMap().containsKey(wordToSearchWithoutSign.toLowerCase()))
             answer.addAll(data.getInvertedIndexMap().get(wordToSearchWithoutSign.toLowerCase()));
+    }
+
+    public void setMyScanner(MyScanner myScanner) {
+        this.myScanner = myScanner;
     }
 }

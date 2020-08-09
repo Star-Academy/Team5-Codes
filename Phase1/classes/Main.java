@@ -5,6 +5,7 @@
  */
 package classes;
 
+import java.util.Set;
 
 public class Main {
     /**
@@ -19,7 +20,10 @@ public class Main {
         while (true) { // inifite loop for taking infinite tasks from user
             System.out.println("Enter -1 when you want to finish the process.");
             Manager manager = new Manager();
-            manager.run(); // managing the input from user.
+            Set<String> output = manager.run(); // managing the input from user.
+            for (String doc : output) {
+                System.out.println(doc);
+            }
         }
     }
 }
