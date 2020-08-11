@@ -1,7 +1,10 @@
+using System.Collections.Generic;
+
 namespace Phase4.Models
 {
     public class Score
     {
+        private static List<Score> allScore = new List<Score>();
         private int studentNumber;
         private string lesson;
         private double scoreNumber;
@@ -38,6 +41,14 @@ namespace Phase4.Models
             {
                 scoreNumber = value;
             }
+        }
+
+        public static List<Score> GetAllScore () {
+            return allScore;
+        }
+
+        public static void AddScore(Score score) {
+            allScore.Add(score);
         }
     }
 }

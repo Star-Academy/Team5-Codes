@@ -11,7 +11,8 @@ namespace Team5_Codes
     {
         static void Main(string[] args)
         {
-    
+            JsonFile studentFile = new StudentJsonFile("DataFiles\\Students.json");
+            JsonFile ScoreFile = new ScoreJsonFile("DataFiles\\Scores.json");
         }
     }
 }
