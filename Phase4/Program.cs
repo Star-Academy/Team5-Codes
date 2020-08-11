@@ -7,25 +7,36 @@ namespace Team5_Codes
 {
     class Program
     {
-        private static List<Student> topThree = new List<Student>(3);
+        // private static List<Student> topThree = new List<Student>();
+        private static Student[] topThree = new Student[3];
+        private static int counter = 0;
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             JsonFile studentFile = new StudentJsonFile("DataFiles\\Students.json");
             JsonFile ScoreFile = new ScoreJsonFile("DataFiles\\Scores.json");
+
             FindBestGrades();
-            Console.WriteLine(topThree[0].Average);
-            Console.WriteLine(topThree[1].Average);
-            Console.WriteLine(topThree[2].Average);
+            foreach(var x in Student.GetAllStudent()) {
+                Console.WriteLine(x.Average);
+            }
+
+            Console.WriteLine("1st:\n" +
+            topThree[0].FirstName + " " + topThree[0].LastName + "\n" + topThree[0].Average);
+            Console.WriteLine("2nd:\n" +
+            topThree[1].FirstName + " " + topThree[1].LastName + "\n" + topThree[1].Average);
+            Console.WriteLine("3rd:\n" +
+            topThree[2].FirstName + " " + topThree[2].LastName + "\n" + topThree[2].Average);
         }
 
         private static void FindBestGrades()
         {
             foreach (var student in Student.GetAllStudent())
             {
-                if (topThree.Capacity < 3)
+                if (counter < 3)
                 {
                     AddTopStudent(student);
+                    counter++;
                 }
                 else
                 {
@@ -54,24 +65,37 @@ namespace Team5_Codes
         }
         private static void AddTopStudent(Student student)
         {
-            if (topThree.Capacity == 0) {
+            if (counter == 0)
+            {
                 topThree[0] = student;
-            } else if (topThree.Capacity == 1) {
-                if (topThree[0].Average > student.Average) {
+            }
+            else if (counter == 1)
+            {
+                if (topThree[0].Average > student.Average)
+                {
                     topThree[1] = student;
-                } else {
+                }
+                else
+                {
                     var temp = topThree[0];
                     topThree[0] = student;
                     topThree[1] = temp;
                 }
-            } else {
-                if (topThree[1].Average > student.Average) {
+            }
+            else
+            {
+                if (topThree[1].Average > student.Average)
+                {
                     topThree[2] = student;
-                } else if (topThree[0].Average > student.Average) {
+                }
+                else if (topThree[0].Average > student.Average)
+                {
                     var temp = topThree[1];
                     topThree[1] = student;
                     topThree[2] = temp;
-                } else {
+                }
+                else
+                {
                     topThree[2] = topThree[1];
                     topThree[1] = topThree[0];
                     topThree[0] = student;

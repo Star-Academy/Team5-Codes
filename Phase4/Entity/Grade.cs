@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Phase4.Models
 {
-    public class Score
+    public class Grade
     {
-        private static List<Score> allScore = new List<Score>();
+        private static List<Grade> allScore = new List<Grade>();
         private int studentNumber;
         private string lesson;
         private double scoreNumber;
@@ -19,6 +19,28 @@ namespace Phase4.Models
             set
             {
                 studentNumber = value;
+            }
+        }
+        public string Lesson
+        {
+            get
+            {
+                return lesson;
+            }
+            set
+            {
+                lesson = value;
+            }
+        }
+        public double Score
+        {
+            get
+            {
+                return scoreNumber;
+            }
+            set
+            {
+                scoreNumber = value;
             }
         }
 
@@ -35,35 +57,12 @@ namespace Phase4.Models
             return output;
         }
 
-        public string Lesson
-        {
-            get
-            {
-                return lesson;
-            }
-            set
-            {
-                lesson = value;
-            }
-        }
-        public double ScoreNumber
-        {
-            get
-            {
-                return scoreNumber;
-            }
-            set
-            {
-                scoreNumber = value;
-            }
-        }
-
-        public static List<Score> GetAllScore()
+        public static List<Grade> GetAllScore()
         {
             return allScore;
         }
 
-        public static void AddScore(Score score)
+        public static void AddScore(Grade score)
         {
             allScore.Add(score);
         }

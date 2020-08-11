@@ -14,10 +14,10 @@ namespace Phase4.Database
 
         protected override void deserializeFile(string text)
         {
-            var parsedFile = JsonSerializer.Deserialize<List<Score>>(text);
+            var parsedFile = JsonSerializer.Deserialize<List<Grade>>(text);
             foreach (var score in parsedFile)
             {
-                Score.AddScore(score);
+                Grade.AddScore(score);
             }
         }
     }
