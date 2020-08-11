@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\home\\Desktop\\Code Star\\Team5-Codes\\Team5-Codes.csproj": {}
+    "C:\\Users\\home\\Desktop\\Code Star\\Team5-Codes\\Phase4\\Team5-Codes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\home\\Desktop\\Code Star\\Team5-Codes\\Team5-Codes.csproj": {
+    "C:\\Users\\home\\Desktop\\Code Star\\Team5-Codes\\Phase4\\Team5-Codes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\home\\Desktop\\Code Star\\Team5-Codes\\Team5-Codes.csproj",
+        "projectUniqueName": "C:\\Users\\home\\Desktop\\Code Star\\Team5-Codes\\Phase4\\Team5-Codes.csproj",
         "projectName": "Team5-Codes",
-        "projectPath": "C:\\Users\\home\\Desktop\\Code Star\\Team5-Codes\\Team5-Codes.csproj",
+        "projectPath": "C:\\Users\\home\\Desktop\\Code Star\\Team5-Codes\\Phase4\\Team5-Codes.csproj",
         "packagesPath": "C:\\Users\\home\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\home\\Desktop\\Code Star\\Team5-Codes\\obj\\",
+        "outputPath": "C:\\Users\\home\\Desktop\\Code Star\\Team5-Codes\\Phase4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\home\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -35,6 +35,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[*, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
