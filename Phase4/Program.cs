@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Team5_Codes
 {
@@ -6,7 +8,11 @@ namespace Team5_Codes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            List<int> numbers = new List<int>(){1, 2, 3, 4, 5,};
+            var a  = numbers.Select(x => x + 1000);
+            foreach (var num in a) {
+                Console.WriteLine(a);
+            }
         }
     }
 }
