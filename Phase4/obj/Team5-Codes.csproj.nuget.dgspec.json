@@ -39,6 +39,10 @@
             "System.Text.Json": {
               "target": "Package",
               "version": "[4.7.2, )"
+            },
+            "xUnit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
             }
           },
           "imports": [
