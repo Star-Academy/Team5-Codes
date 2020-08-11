@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Phase4.Models
@@ -20,6 +21,20 @@ namespace Phase4.Models
                 studentNumber = value;
             }
         }
+
+        public static List<double> getGradesByStudentId(int studentNumber)
+        {
+            List<double> output = new List<double>();
+            foreach (var grade in allScore)
+            {
+                if (grade.studentNumber == studentNumber)
+                {
+                    output.Add(grade.scoreNumber);
+                }
+            }
+            return output;
+        }
+
         public string Lesson
         {
             get
@@ -43,11 +58,13 @@ namespace Phase4.Models
             }
         }
 
-        public static List<Score> GetAllScore () {
+        public static List<Score> GetAllScore()
+        {
             return allScore;
         }
 
-        public static void AddScore(Score score) {
+        public static void AddScore(Score score)
+        {
             allScore.Add(score);
         }
     }

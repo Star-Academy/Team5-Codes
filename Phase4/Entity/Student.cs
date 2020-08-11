@@ -8,6 +8,8 @@ namespace Phase4.Models
         private int studentNumber;
         private string firstName;
         private string lastName;
+        private List<double> grades;
+        private double average;
 
         public int StudentNumber
         {
@@ -42,14 +44,42 @@ namespace Phase4.Models
                 lastName = value;
             }
         }
+        public double Average
+        {
+            get
+            {
+                return CalculateAvearage();
+            }
+        }
 
-        public static List<Student> GetAllStudent () {
+        public static List<Student> GetAllStudent()
+        {
             return allStudent;
         }
 
-        public static void AddStudent(Student student) {
+        public static void AddStudent(Student student)
+        {
             allStudent.Add(student);
         }
 
+        private double CalculateAvearage()
+        {
+            grades = Score.getGradesByStudentId(studentNumber);
+            double sum = 0;
+            foreach (var eachGrade in grades)
+            {
+                sum += eachGrade;
+            }
+            return sum / (grades.Capacity);
+        }
+
+        public static Student GetStudentById (int id) {
+            foreach (var student in allStudent) {
+                if (student.studentNumber == id) {
+                    return student;
+                }
+            }
+            return null;
+        }
     }
 }

@@ -6,7 +6,6 @@ namespace Phase4.Database
 {
     public class StudentJsonFile : JsonFile
     {
-
         public StudentJsonFile(string filePath)
         {
             this.filePath = filePath;
@@ -21,5 +20,7 @@ namespace Phase4.Database
                 Student.AddStudent(student);
             }
         }
+
+
     }
 }
