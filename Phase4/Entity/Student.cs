@@ -65,7 +65,7 @@ namespace Phase4.Models
 
         private double CalculateAvearage()
         {
-            grades = Grade.getGradesByStudentId(studentNumber);
+            grades = Grade.GetGradesByStudentId(studentNumber);
             double sum = 0;
             foreach (var eachGrade in grades)
             {
