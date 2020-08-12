@@ -12,7 +12,7 @@ namespace Phase4.Database
             Init();
         }
 
-        protected override void deserializeFile(string text)
+        protected override void DeserializeFile(string text)
         {
             var parsedFile = JsonSerializer.Deserialize<List<Student>>(text);
             foreach (var student in parsedFile)

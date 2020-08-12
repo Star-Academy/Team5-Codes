@@ -7,10 +7,10 @@ namespace Phase4.Database
         protected string filePath;
         protected void Init() {
             string text = ReadFile(filePath);
-            deserializeFile(text);
+            DeserializeFile(text);
         }
 
-        protected abstract void deserializeFile(string text);
+        protected abstract void DeserializeFile(string text);
 
         private string ReadFile(string path)
         {
