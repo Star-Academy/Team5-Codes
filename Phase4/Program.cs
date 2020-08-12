@@ -32,14 +32,12 @@ namespace Team5_Codes
         {
             Student[] topStudents = new Student[NumberOfWanted];
             return allStudents.OrderByDescending(x => x.Average).Take(NumberOfWanted).ToArray();
-            for (int i = 0; i < NumberOfWanted; i++) {
-                topStudents[i] = allStudents[i];
-            }
-            return topStudents;
         }
 
-        private static List<Student> setStudentsGrades(List<Grade> allScores, List<Student> allStudents) {
-            foreach (var student in allStudents) {
+        private static List<Student> setStudentsGrades(List<Grade> allScores, List<Student> allStudents) 
+        {
+            foreach (var student in allStudents) 
+            {
                 student.setGrades(allScores);
             }
             return allStudents;
