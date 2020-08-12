@@ -5,15 +5,15 @@ using Phase4.Models;
 
 namespace Phase4.Database
 {
-    public abstract class JsonFile
+    public abstract class JsonFile<T>
     {
         protected string filePath;
         protected object Init() {
             string text = ReadFile(filePath);
-            return DeserializeFile<Object>(text);
+            return DeserializeFile(text);
         }
 
-        protected abstract T DeserializeFile<T>(string text);
+        protected abstract T DeserializeFile(string text);
 
         private string ReadFile(string path)
         {
