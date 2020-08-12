@@ -5,43 +5,29 @@ namespace Phase4.Models
 {
     public class Student
     {
-        private static List<Student> allStudent = new List<Student>();
         public string FirstName { set; get; }
         public string LastName { set; get; }
-        
         public int StudentNumber { get; set; }
-
-        private List<double> grades;
+        private List<double> studentGrades;
         public double Average { 
             get
             {
-                grades = Grade.GetGradesByStudentId(StudentNumber);
-                return grades.Average();
+                return studentGrades.Average();
             } 
-        }
-
-        public static List<Student> GetAllStudent()
-        {
-            return allStudent;
-        }
-
-        public static void AddStudent(Student student)
-        {
-            allStudent.Add(student);
-        }
-
-        public static Student GetStudentById (int id) {
-            foreach (var student in allStudent) {
-                if (student.StudentNumber == id) {
-                    return student;
-                }
-            }
-            return null;
         }
 
         public override string ToString()
         {
             return FirstName + " " + LastName + "\n" + Average;
+        }
+
+        public void setGrades (List<Grade> allGrades) {
+            studentGrades = new List<double>();
+            foreach (var grade in allGrades) {
+                if (grade.StudentNumber == this.StudentNumber) {
+                    studentGrades.Add(grade.Score);
+                }
+            }
         }
     }
 }

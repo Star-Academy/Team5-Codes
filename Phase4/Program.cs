@@ -1,6 +1,7 @@
 ﻿using Phase4.Database;
 using Phase4.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Team5_Codes
@@ -13,10 +14,14 @@ namespace Team5_Codes
         {
             
             StudentJsonFile studentFile = new StudentJsonFile(@".\DataFiles\Students.json");
-            ScoreJsonFile ScoreFile = new ScoreJsonFile(@"DataFiles\Scores.json");
+            ScoreJsonFile scoreFile = new ScoreJsonFile(@"DataFiles\Scores.json");
+
+            List<Student> allStudents = studentFile.Init();
+            List<Grade> allScores = scoreFile.Init();
 
             Student[] topStudents = new Student[NumberOfWanted];
-            topStudents = FindBestGrades(topStudents);
+            allStudents = setStudentsGrades(allScores, allStudents);
+            topStudents = FindBestGrades(topStudents, allStudents);
 
             for (int i = 0; i < NumberOfWanted; i++)
             {
@@ -25,15 +30,21 @@ namespace Team5_Codes
             
         }
 
-        private static Student[] FindBestGrades(Student[] topStudents)
+        private static Student[] FindBestGrades(Student[] topStudents, List<Student> allStudents)
         {
-            var list = Student.GetAllStudent();
-            list = list.OrderBy(x => -x.Average).ToList();
+            allStudents = allStudents.OrderBy(x => -x.Average).ToList();
             for (int i = 0; i < NumberOfWanted; i++)
             {
-                topStudents[i] = list[i];
+                topStudents[i] = allStudents[i];
             }
             return topStudents;
+        }
+
+        private static List<Student> setStudentsGrades(List<Grade> allScores, List<Student> allStudents) {
+            foreach (var student in allStudents) {
+                student.setGrades(allScores);
+            }
+            return allStudents;
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 
 namespace Phase4.Database
@@ -6,9 +5,9 @@ namespace Phase4.Database
     public abstract class JsonFile<T>
     {
         protected string filePath;
-        protected void Init() {
+        public T Init() {
             string text = ReadFile(filePath);
-            DeserializeFile(text);
+            return DeserializeFile(text);
         }
 
         protected abstract T DeserializeFile(string text);
