@@ -44,7 +44,7 @@ namespace Phase4.Models
             }
         }
 
-        public static List<double> getGradesByStudentId(int studentNumber)
+        public static List<double> GetGradesByStudentId(int studentNumber)
         {
             List<double> output = new List<double>();
             foreach (var grade in allScore)
