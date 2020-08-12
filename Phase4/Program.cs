@@ -8,7 +8,6 @@ namespace Team5_Codes
     class Program
     {
         private const int NumberOfWanted = 3;
-        private static Student[] topStudents = new Student[NumberOfWanted];
 
         public static void Main(string[] args)
         {
@@ -16,16 +15,17 @@ namespace Team5_Codes
             StudentJsonFile studentFile = new StudentJsonFile(@".\DataFiles\Students.json");
             ScoreJsonFile ScoreFile = new ScoreJsonFile(@"DataFiles\Scores.json");
 
-            FindBestGrades();
+            Student[] topStudents = new Student[NumberOfWanted];
+            topStudents = FindBestGrades(topStudents);
 
             for (int i = 0; i < NumberOfWanted; i++)
             {
-                Console.WriteLine("" + (i + 1) + "st:\n" + topStudents[i]);
+                Console.WriteLine((i + 1) + "st:\n" + topStudents[i]);
             }
             
         }
 
-        private static void FindBestGrades()
+        private static Student[] FindBestGrades(Student[] topStudents)
         {
             var list = Student.GetAllStudent();
             list = list.OrderBy(x => -x.Average).ToList();
@@ -33,6 +33,7 @@ namespace Team5_Codes
             {
                 topStudents[i] = list[i];
             }
+            return topStudents;
         }
     }
 }
