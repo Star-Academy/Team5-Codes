@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Phase4.Database;
+﻿using Phase4.Database;
 using Phase4.Models;
 using System;
-using System.Security.Cryptography.X509Certificates;
 using System.Linq;
 
 namespace Team5_Codes
@@ -23,8 +20,7 @@ namespace Team5_Codes
 
             for (int i = 0; i < NumberOfWanted; i++)
             {
-                Console.WriteLine("" + (i + 1) + "st:\n" +
-                topStudents[i].FirstName + " " + topStudents[i].LastName + "\n" + topStudents[i].Average);
+                Console.WriteLine("" + (i + 1) + "st:\n" + topStudents[i]);
             }
             
         }

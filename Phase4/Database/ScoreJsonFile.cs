@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text.Json;
 using Phase4.Models;
@@ -12,6 +13,7 @@ namespace Phase4.Database
             Init();
         }
 
+
         protected override T DeserializeFile<T>(string text)
         {
             var parsedFile = JsonSerializer.Deserialize<List<Grade>>(text);
@@ -19,7 +21,7 @@ namespace Phase4.Database
             {
                 Grade.AddScore(score);
             }
-            return parsedFile;
+            return (T)Convert.ChangeType(parsedFile, typeof(T));
         }
     }
 }

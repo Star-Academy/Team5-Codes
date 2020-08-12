@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,8 +7,8 @@ namespace Phase4.Models
     {
         private static List<Student> allStudent = new List<Student>();
         private int studentNumber;
-        private string firstName;
-        private string lastName;
+        private string firstName { set; get; }
+        private string lastName { set; get; }
         private List<double> grades;
         private double average;
 
@@ -24,17 +23,7 @@ namespace Phase4.Models
                 studentNumber = value;
             }
         }
-        public string FirstName
-        {
-            get
-            {
-                return firstName;
-            }
-            set
-            {
-                firstName = value;
-            }
-        }
+        
         public string LastName
         {
             get
@@ -72,6 +61,11 @@ namespace Phase4.Models
                 }
             }
             return null;
+        }
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName + "\n" + Average;
         }
     }
 }
