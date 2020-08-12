@@ -21,7 +21,7 @@ namespace Team5_Codes
 
             Student[] topStudents = new Student[NumberOfWanted];
             allStudents = setStudentsGrades(allScores, allStudents);
-            topStudents = FindBestGrades(topStudents, allStudents);
+            FindBestGrades(ref topStudents, allStudents);
 
             for (int i = 0; i < NumberOfWanted; i++)
             {
@@ -30,14 +30,13 @@ namespace Team5_Codes
             
         }
 
-        private static Student[] FindBestGrades(Student[] topStudents, List<Student> allStudents)
+        private static void FindBestGrades(ref Student[] topStudents, List<Student> allStudents)
         {
             allStudents = allStudents.OrderBy(x => -x.Average).ToList();
             for (int i = 0; i < NumberOfWanted; i++)
             {
                 topStudents[i] = allStudents[i];
             }
-            return topStudents;
         }
 
         private static List<Student> setStudentsGrades(List<Grade> allScores, List<Student> allStudents) {
