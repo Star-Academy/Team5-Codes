@@ -12,7 +12,6 @@ namespace Team5_Codes
 
         public static void Main(string[] args)
         {
-            
             JsonFile<Student> studentFile = new StudentJsonFile(".\\DataFiles\\Students.json");
             JsonFile<Grade> ScoreFile = new ScoreJsonFile(".\\DataFiles\\Scores.json");
 
@@ -28,7 +27,7 @@ namespace Team5_Codes
         private static void FindBestGrades()
         {
             var list = Student.GetAllStudent();
-            list = list.OrderBy(x => -(x.Average)).ToList();
+            list = list.OrderBy(x => -x.average).ToList();
             for (int i = 0; i < NumberOfWanted; i++)
             {
                 topStudents[i] = list[i];

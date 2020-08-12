@@ -7,41 +7,15 @@ namespace Phase4.Models
     {
         private static List<Student> allStudent = new List<Student>();
         private int studentNumber;
-        private string firstName { set; get; }
-        private string lastName { set; get; }
+        public string firstName { set; get; }
+        public string lastName { set; get; }
         private List<double> grades;
-        private double average;
-
-        public int StudentNumber
-        {
-            get
-            {
-                return studentNumber;
-            }
-            set
-            {
-                studentNumber = value;
-            }
-        }
-        
-        public string LastName
-        {
-            get
-            {
-                return lastName;
-            }
-            set
-            {
-                lastName = value;
-            }
-        }
-        public double Average
-        {
+        public double average { 
             get
             {
                 grades = Grade.GetGradesByStudentId(studentNumber);
                 return grades.Average();
-            }
+            } 
         }
 
         public static List<Student> GetAllStudent()
@@ -65,7 +39,7 @@ namespace Phase4.Models
 
         public override string ToString()
         {
-            return FirstName + " " + LastName + "\n" + Average;
+            return firstName + " " + lastName + "\n" + average;
         }
     }
 }
