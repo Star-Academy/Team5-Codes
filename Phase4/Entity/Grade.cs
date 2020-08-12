@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Phase4.Models
@@ -43,7 +42,6 @@ namespace Phase4.Models
                 scoreNumber = value;
             }
         }
-
         public static List<double> GetGradesByStudentId(int studentNumber)
         {
             List<double> output = new List<double>();
@@ -56,12 +54,10 @@ namespace Phase4.Models
             }
             return output;
         }
-
         public static List<Grade> GetAllScore()
         {
             return allScore;
         }
-
         public static void AddScore(Grade score)
         {
             allScore.Add(score);
