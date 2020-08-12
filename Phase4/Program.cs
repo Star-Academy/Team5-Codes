@@ -7,7 +7,6 @@ namespace Team5_Codes
 {
     class Program
     {
-        // private static List<Student> topThree = new List<Student>();
         private static Student[] topStudents;
         // private const int topNumber = 3;
         public static void Main(string[] args)

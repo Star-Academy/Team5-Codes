@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Phase4.Models
 {
@@ -49,7 +50,8 @@ namespace Phase4.Models
         {
             get
             {
-                return CalculateAvearage();
+                grades = Grade.GetGradesByStudentId(studentNumber);
+                return grades.Average();
             }
         }
 
@@ -61,17 +63,6 @@ namespace Phase4.Models
         public static void AddStudent(Student student)
         {
             allStudent.Add(student);
-        }
-
-        private double CalculateAvearage()
-        {
-            grades = Grade.GetGradesByStudentId(studentNumber);
-            double sum = 0;
-            foreach (var eachGrade in grades)
-            {
-                sum += eachGrade;
-            }
-            return sum / (grades.Capacity);
         }
 
         public static Student GetStudentById (int id) {
