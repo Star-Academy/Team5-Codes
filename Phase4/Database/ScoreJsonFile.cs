@@ -12,13 +12,14 @@ namespace Phase4.Database
             Init();
         }
 
-        protected override void DeserializeFile(string text)
+        protected override T DeserializeFile<T>(string text)
         {
             var parsedFile = JsonSerializer.Deserialize<List<Grade>>(text);
             foreach (var score in parsedFile)
             {
                 Grade.AddScore(score);
             }
+            return parsedFile;
         }
     }
 }
