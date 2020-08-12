@@ -19,7 +19,7 @@ namespace Phase4.Models
 
         public override string ToString()
         {
-            return FirstName + " " + LastName + "\n" + Average;
+            return $"{FirstName}, {LastName}, \n{Average}";
         }
 
         public void setGrades(List<Grade> allGrades)

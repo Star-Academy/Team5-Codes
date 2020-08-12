@@ -12,8 +12,8 @@ namespace Team5_Codes
         public static void Main(string[] args)
         {
             
-            StudentJsonFile studentFile = new StudentJsonFile(@".\DataFiles\Students.json");
-            ScoreJsonFile scoreFile = new ScoreJsonFile(@".\DataFiles\Scores.json");
+            StudentJsonFile studentFile = new StudentJsonFile(@"\DataFiles\Students.json");
+            ScoreJsonFile scoreFile = new ScoreJsonFile(@"*\DataFiles\Scores.json");
 
             List<Student> allStudents = studentFile.Init();
             List<Grade> allScores = scoreFile.Init();
