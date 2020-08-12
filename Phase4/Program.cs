@@ -16,8 +16,8 @@ namespace Team5_Codes
         public static void Main(string[] args)
         {
             
-            JsonFile<Student> studentFile = new StudentJsonFile(".\\DataFiles\\Students.json");
-            JsonFile<Grade> ScoreFile = new ScoreJsonFile(".\\DataFiles\\Scores.json");
+            StudentJsonFile studentFile = new StudentJsonFile(".\\DataFiles\\Students.json");
+            ScoreJsonFile ScoreFile = new ScoreJsonFile(".\\DataFiles\\Scores.json");
 
             FindBestGrades();
 
