@@ -1,16 +1,13 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
-using Phase4.Models;
 
 namespace Phase4.Database
 {
     public abstract class JsonFile<T>
     {
         protected string filePath;
-        protected object Init() {
+        protected void Init() {
             string text = ReadFile(filePath);
-            return DeserializeFile(text);
+            DeserializeFile(text);
         }
 
         protected abstract T DeserializeFile(string text);
