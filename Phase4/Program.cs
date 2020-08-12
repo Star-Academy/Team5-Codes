@@ -13,8 +13,8 @@ namespace Team5_Codes
         public static void Main(string[] args)
         {
             
-            StudentJsonFile studentFile = new StudentJsonFile(@"C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\DataFiles\\Students.json");
-            ScoreJsonFile ScoreFile = new ScoreJsonFile(@"C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\DataFiles\\Scores.json");
+            StudentJsonFile studentFile = new StudentJsonFile(@".\DataFiles\Students.json");
+            ScoreJsonFile ScoreFile = new ScoreJsonFile(@"DataFiles\Scores.json");
 
             FindBestGrades();
 
