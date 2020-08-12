@@ -17,9 +17,6 @@ namespace Team5_Codes
             JsonFile ScoreFile = new ScoreJsonFile("DataFiles\\Scores.json");
 
             FindBestGrades();
-            foreach(var x in Student.GetAllStudent()) {
-                Console.WriteLine(x.Average);
-            }
 
             Console.WriteLine("1st:\n" +
             topThree[0].FirstName + " " + topThree[0].LastName + "\n" + topThree[0].Average);
@@ -40,29 +37,26 @@ namespace Team5_Codes
                 }
                 else
                 {
-                    if (topThree[2].Average < student.Average)
+                    if (topThree[2].Average > student.Average)
                     {
                         return;
                     }
-                    else if (topThree[1].Average < student.Average)
+                    else if (topThree[1].Average > student.Average)
                     {
-                        AddTopStudent(student, 2);
+                        AddTopStudent(student);
                     }
-                    else if (topThree[0].Average < student.Average)
+                    else if (topThree[0].Average > student.Average)
                     {
-                        AddTopStudent(student, 1);
+                        AddTopStudent(student);
                     }
                     else
                     {
-                        AddTopStudent(student, 0);
+                        AddTopStudent(student);
                     }
                 }
             }
         }
-        private static void AddTopStudent(Student student, int index)
-        {
-            topThree[index] = student;
-        }
+        
         private static void AddTopStudent(Student student)
         {
             if (counter == 0)
