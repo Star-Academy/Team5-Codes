@@ -9,7 +9,6 @@ namespace Team5_Codes
     class Program
     {
         private const int NumberOfWanted = 3;
-
         public static void Main(string[] args)
         {
             
@@ -19,9 +18,8 @@ namespace Team5_Codes
             List<Student> allStudents = studentFile.Init();
             List<Grade> allScores = scoreFile.Init();
 
-            Student[] topStudents = new Student[NumberOfWanted];
             allStudents = setStudentsGrades(allScores, allStudents);
-            FindBestGrades(ref topStudents, allStudents);
+            Student[] topStudents = FindBestGrades(allStudents);
 
             for (int i = 0; i < NumberOfWanted; i++)
             {
@@ -30,13 +28,14 @@ namespace Team5_Codes
             
         }
 
-        private static void FindBestGrades(ref Student[] topStudents, List<Student> allStudents)
+        private static Student[] FindBestGrades(List<Student> allStudents)
         {
-            allStudents = allStudents.OrderByDescending(x => x.Average).ToList();
-            for (int i = 0; i < NumberOfWanted; i++)
-            {
+            Student[] topStudents = new Student[NumberOfWanted];
+            return allStudents.OrderByDescending(x => x.Average).Take(NumberOfWanted).ToArray();
+            for (int i = 0; i < NumberOfWanted; i++) {
                 topStudents[i] = allStudents[i];
             }
+            return topStudents;
         }
 
         private static List<Student> setStudentsGrades(List<Grade> allScores, List<Student> allStudents) {
