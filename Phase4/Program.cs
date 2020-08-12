@@ -25,7 +25,7 @@ namespace Team5_Codes
 
             for (int i = 0; i < NumberOfWanted; i++)
             {
-                Console.WriteLine((i + 1) + "st:\n" + topStudents[i]);
+                Console.WriteLine((i + 1) + ":\n" + topStudents[i]);
             }
             
         }
