@@ -1,28 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace SampleLibrary
 {
     public class DocReader
     {
-        private static DocReader docReader = null;
         public string root { get; set; }
         public Dictionary<string, List<string>> DocumentWords { get; set; }
-        public static DocReader generate(string v)
+
+        private List<string> files;
+        private readonly char[] tokens = { ' ', ',', ';', '-', '(', ')', '\\', '@', '[', ']', '<', '>' };
+
+        public DocReader(String v)
         {
-            if (docReader == null)
-                docReader = new DocReader(v);
-            return docReader;
+            DocumentWords = new Dictionary<string, List<string>>();
+            files = new List<string>();
+            root = @"C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase5\SampleLibrary\" + v;
+            listFilesForFolder(root);
+            files.ForEach(doc =>
+            {
+                DocumentWords.Add(doc, extractWords(doc));
+            });
         }
 
-        private DocReader()
+        private List<string> extractWords(string doc)
         {
+            string text = File.ReadAllText(doc);
+            return new List<string>(text.Split(tokens).Select(p => p.ToLower()).ToList<string>());
         }
 
-        private DocReader(String v)
+        void listFilesForFolder(string path)
         {
-            root = Path.GetFullPath(v);
+            string[] directories = Directory.GetDirectories(path);
+            foreach (string subDirectory in directories)
+            {
+                    listFilesForFolder(subDirectory);
+            }
+            directories = Directory.GetFiles(path);
+            foreach (string subFile in directories)
+                {
+                    files.Add(subFile);
+                }
         }
     }
 }
