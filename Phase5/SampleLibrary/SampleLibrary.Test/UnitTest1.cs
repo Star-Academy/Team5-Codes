@@ -3,11 +3,12 @@ using Xunit;
 
 namespace SampleLibrary.Test
 {
-    public class ManagerTest
+    public class UnitTest1
     {
         [Fact]
         public void Test1()
         {
+
         }
     }
 }
