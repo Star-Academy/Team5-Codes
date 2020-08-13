@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Xunit;
 
 namespace SampleLibrary.Test
 {
@@ -10,7 +7,7 @@ namespace SampleLibrary.Test
         [Fact]
         public void test2()
         {
-
+             Assert.Equal(1, 2);
         }
     }
 }

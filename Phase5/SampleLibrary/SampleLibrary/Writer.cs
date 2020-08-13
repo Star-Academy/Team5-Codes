@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SampleLibrary
+﻿namespace SampleLibrary
 {
-    class Writer
+    public class Writer
     {
     }
 }

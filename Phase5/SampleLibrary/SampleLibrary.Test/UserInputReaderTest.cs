@@ -1,6 +1,6 @@
 ﻿namespace SampleLibrary.Test
 {
-    class UserInputReaderTest
+    public class UserInputReaderTest
     {
     }
 }

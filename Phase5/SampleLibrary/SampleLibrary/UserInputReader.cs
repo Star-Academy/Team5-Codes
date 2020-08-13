@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SampleLibrary
+﻿namespace SampleLibrary
 {
-    class UserInputReader
+    public class UserInputReader
     {
     }
 }

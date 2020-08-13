@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SampleLibrary.Test
+﻿namespace SampleLibrary.Test
 {
-    class ManagerTest
+    public class ManagerTest
     {
     }
 }
