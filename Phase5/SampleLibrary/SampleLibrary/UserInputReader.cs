@@ -7,7 +7,7 @@ namespace SampleLibrary
     public class UserInputReader
     {
 
-        private readonly char[] inputTokens = { ' ', ',', ';', '-', '(', ')', '\\', '@', '[', ']', '<', '>' };
+        private readonly char[] inputTokens = { ' ', ',', ';', '(', ')', '\\', '@', '[', ']', '<', '>' };
         private readonly char[] wordTokens = { '+', '-' };
         public List<string> Input { get; set; }
         public string[] PositiveSignedWords { get; set; }
@@ -28,6 +28,10 @@ namespace SampleLibrary
 
         public string[][] ProcessInput(string s = null)
         {
+            if (s != null)
+            {
+                Input = new List<string>(s.Split(inputTokens).Select(p => p.ToLower()).ToList());
+            }
             PositiveSignedWords = TakeWords('-').ToArray();
             NegativeSignedWords = TakeWords('+').ToArray();
             UnSignedWords = TakeWords('\0').ToArray();
@@ -42,9 +46,7 @@ namespace SampleLibrary
                 if (wordTokens.Contains(token) && word[0] == token)
                     ret.Add(word.Substring(1));
                 else if (!wordTokens.Contains(token) && CheckValidation(word))
-                {
                     ret.Add(word);
-                }
             }
             return ret;
         }

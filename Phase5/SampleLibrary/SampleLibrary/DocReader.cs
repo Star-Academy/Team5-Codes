@@ -10,10 +10,10 @@ namespace SampleLibrary
         public string root { get; set; }
         public Dictionary<string, List<string>> DocumentWords { get; set; }
 
-        private List<string> files;
+        private readonly List<string> files;
         private readonly char[] tokens = { ' ', ',', ';', '-', '(', ')', '\\', '@', '[', ']', '<', '>' };
 
-        public DocReader(String v)
+        public DocReader(string v)
         {
             DocumentWords = new Dictionary<string, List<string>>();
             files = new List<string>();
