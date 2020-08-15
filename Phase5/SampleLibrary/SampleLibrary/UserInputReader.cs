@@ -1,10 +1,25 @@
-﻿namespace SampleLibrary
+﻿using System;
+using System.Collections.Generic;
+
+namespace SampleLibrary
 {
     public class UserInputReader
     {
-        public string[][] takeInput(string s)
+
+        public string Input { get; set; }
+
+        public UserInputReader()
         {
-            return null;
+            Input = Console.ReadLine();
+        }
+
+        public string[][] processInput(string s)
+        {
+            List<string> positiveSignedWords = takeWords('-');
+            List<string> negativeSignedWords = takeWords('+');
+            List<string> unSignedWords = takeWords(null);
+            return new string[][] { unSignedWords, positiveSignedWords, negativeSignedWords };
+
         }
     }
 }
