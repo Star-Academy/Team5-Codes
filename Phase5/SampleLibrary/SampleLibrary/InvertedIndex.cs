@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SampleLibrary {
     public class InvertedIndex {
@@ -33,6 +34,16 @@ namespace SampleLibrary {
                 tokenize.Add (word, new HashSet<string> () { doc });
             }
             return tokenize;
+        }
+
+        public HashSet<string> GetDocsContainWord(string word)
+        {
+            if (tokenize.ContainsKey(word))
+            {
+                return tokenize[word];
+            } else {
+                return null;
+            }
         }
     }
 }
