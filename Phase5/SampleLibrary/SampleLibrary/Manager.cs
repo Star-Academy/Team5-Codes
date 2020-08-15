@@ -20,7 +20,7 @@ namespace SampleLibrary
             return userInputReader.ProcessInput();
         }
 
-        private void Writer(List<string> output)
+        private void Writer(HashSet<string> output)
         {
             Writer writer = new Writer();
             foreach(string doc in output){
