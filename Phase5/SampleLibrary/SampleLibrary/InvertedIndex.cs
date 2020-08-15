@@ -45,5 +45,10 @@ namespace SampleLibrary {
                 return null;
             }
         }
+
+        internal string GetResult(string[][] result)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

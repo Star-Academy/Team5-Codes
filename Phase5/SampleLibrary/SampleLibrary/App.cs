@@ -6,7 +6,8 @@ namespace SampleLibrary
     {
         public static void Main(string[] args)
         {
-            Console.Write("salam");
+            Manager myManager = new Manager();
+            myManager.run();
         }
     }
 }
