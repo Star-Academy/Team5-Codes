@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Castle.Core.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,6 +19,22 @@ namespace SampleLibrary
         {
             TakeInput();
             ProcessInput();
+            foreach (string str in PositiveSignedWords)
+            {
+                Console.Write(str + " ");
+            }
+            Console.WriteLine();
+            foreach (string str in NegativeSignedWords)
+            {
+                Console.Write(str + " ");
+            }
+            Console.WriteLine();
+            foreach (string str in UnSignedWords)
+            {
+                Console.Write(str + " ");
+            }
+            Console.WriteLine();
+
         }
 
         private void TakeInput()
@@ -32,8 +49,8 @@ namespace SampleLibrary
             {
                 Input = new List<string>(s.Split(inputTokens).Select(p => p.ToLower()).ToList());
             }
-            PositiveSignedWords = TakeWords('-').ToArray();
-            NegativeSignedWords = TakeWords('+').ToArray();
+            NegativeSignedWords = TakeWords('-').ToArray();
+            PositiveSignedWords = TakeWords('+').ToArray();
             UnSignedWords = TakeWords('\0').ToArray();
             return new string[][] { UnSignedWords, PositiveSignedWords, NegativeSignedWords };
         }
@@ -43,11 +60,12 @@ namespace SampleLibrary
             List<string> ret = new List<string>();
             foreach (string word in Input)
             {
-                if (wordTokens.Contains(token) && word[0] == token)
+                if (wordTokens.Contains(token) && word.Contains(token))
                     ret.Add(word.Substring(1));
                 else if (!wordTokens.Contains(token) && CheckValidation(word))
                     ret.Add(word);
             }
+            ret = ret.Where(word => !word.IsNullOrEmpty()).ToList();
             return ret;
         }
 
@@ -55,7 +73,7 @@ namespace SampleLibrary
         {
             bool isValid = true;
             for (int i = 0; i < wordTokens.Length; i++)
-                if (word[0] == wordTokens[i])
+                if (word.Contains(wordTokens[i]))
                     isValid = false;
             return isValid;
         }

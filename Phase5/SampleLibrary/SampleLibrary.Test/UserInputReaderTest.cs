@@ -5,89 +5,86 @@ namespace SampleLibrary.Test
 {
     public class UserInputReaderTest
     {
+        private UserInputReader inputReader = new UserInputReader();
         [Fact]
         public void Test1()
         {
-            var mock = new Mock<UserInputReader>();
-            mock.Setup(test1 => test1.ProcessInput("salam +ishalla -hala")).Returns(new string[][]{ new string[] { "salam" },
+            Assert.Equal(new string[][]{ new string[] { "salam" },
                 new string[] { "ishalla" },
-                new string[] { "hala" } });
+                new string[] { "hala" } }, inputReader.ProcessInput("salam +ishalla -hala"));
         }
 
         [Fact]
         public void Test2()
         {
-            var mock = new Mock<UserInputReader>();
-            mock.Setup(test2 => test2.ProcessInput("hi")).Returns(new string[][] { new string[] { "hi" }, new string[] { }, new string[] { } });
+            Assert.Equal(new string[][]{ new string[] { "hi" },
+                new string[] {  },
+                new string[] {  } }, inputReader.ProcessInput("HI"));
         }
 
         [Fact]
         public void Test3()
         {
-            var mock = new Mock<UserInputReader>();
-            mock.Setup(test2 => test2.ProcessInput("+hi")).Returns(new string[][] { new string[] { }, new string[] { "hi" }, new string[] { } });
+            Assert.Equal(new string[][]{ new string[] {  },
+                new string[] { "hi" },
+                new string[] {  } }, inputReader.ProcessInput("+hI")); 
         }
 
         [Fact]
         public void Test4()
         {
-            var mock = new Mock<UserInputReader>();
-            mock.Setup(test2 => test2.ProcessInput("-hi")).Returns(new string[][] { new string[] { }, new string[] { }, new string[] { "hi" } });
+            Assert.Equal(new string[][]{ new string[] {  },
+                new string[] {  },
+                new string[] { "hi" } }, inputReader.ProcessInput("-hI"));
         }
 
         [Fact]
         public void Test5()
         {
-            var mock = new Mock<UserInputReader>();
-            mock.Setup(test1 => test1.ProcessInput("salam -ishalla +hala")).Returns(new string[][]{ new string[] { "salam" },
+            Assert.Equal(new string[][]{ new string[] { "salam" },
                 new string[] { "ishalla" },
-                new string[] { "hala" } });
+                new string[] { "hala" } }, inputReader.ProcessInput("salam +ishalla -hala"));
         }
 
         [Fact]
         public void Test6()
         {
-            var mock = new Mock<UserInputReader>();
-            mock.Setup(test1 => test1.ProcessInput("salam -hala")).Returns(new string[][]{ new string[] { "salam" },
-                new string[] {  },
-                new string[] { "hala" } });
+            Assert.Equal(new string[][]{ new string[] { "salam" },
+                new string[] { },
+                new string[] { "hala" } }, inputReader.ProcessInput("salam -hala")); 
         }
 
         [Fact]
         public void Test7()
         {
-            var mock = new Mock<UserInputReader>();
-            mock.Setup(test1 => test1.ProcessInput("")).Returns(new string[][]{ new string[] {  },
+            Assert.Equal(new string[][]{ new string[] { },
                 new string[] {  },
-                new string[] { } });
+                new string[] {  } }, inputReader.ProcessInput("")); 
         }
 
         [Fact]
         public void Test8()
         {
-            var mock = new Mock<UserInputReader>();
-            mock.Setup(test1 => test1.ProcessInput("salam +salam -salam")).Returns(new string[][]{ new string[] { "salam" },
+            Assert.Equal(new string[][]{ new string[] { "salam" },
                 new string[] { "salam" },
-                new string[] { "salam" } });
+                new string[] { "salam" } }, inputReader.ProcessInput("salam -salam +salam")); 
         }
 
         [Fact]
         public void Test9()
         {
-            var mock = new Mock<UserInputReader>();
-            mock.Setup(test1 => test1.ProcessInput("-ishalla -hala")).Returns(new string[][]{ new string[] { },
+            Assert.Equal(new string[][]{ new string[] { },
                 new string[] { },
-                new string[] { "ishalla", "hala" } });
+                new string[] { "ishalla", "hala" } }, inputReader.ProcessInput("-ishalla -hala"));
         }
 
 
         [Fact]
         public void Test10()
         {
-            var mock = new Mock<UserInputReader>();
-            mock.Setup(test1 => test1.ProcessInput("salam salam salam")).Returns(new string[][]{ new string[] { "salam" },
+            Assert.Equal(new string[][]{ new string[] { "salam", "salam", "salam" },
                 new string[] { },
-                new string[] { } });
+                new string[] { } }, inputReader.ProcessInput("salam SALAm SaLaM"));
         }
     }
 }
