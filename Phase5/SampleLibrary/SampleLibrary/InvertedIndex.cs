@@ -46,9 +46,32 @@ namespace SampleLibrary {
             }
         }
 
-        internal string GetResult(string[][] result)
+        /*
+        line 1 -> negative
+        line 2 -> possetive
+        line 3 -> noSign
+        */
+        public HashSet<string> GetResult(string[][] result)
         {
-            throw new NotImplementedException();
+            HashSet<string> output = ProcessNoSignWords(result[2]);
+            
+            return null;
+        }
+
+        private HashSet<string> ProcessNoSignWords(string[] noSignWords)
+        {
+            HashSet<string> output =  new HashSet<string>();
+            if (noSignWords.Length == 1) {
+                output = tokenize[noSignWords[0]];
+            } else {
+                for
+            }
+            foreach(string word in noSignWords){
+
+            }
+
+
+            return output;
         }
     }
 }

@@ -20,9 +20,12 @@ namespace SampleLibrary
             return userInputReader.ProcessInput();
         }
 
-        private void Writer(string output)
+        private void Writer(List<string> output)
         {
-            new Writer().Wtite();
+            Writer writer = new Writer();
+            foreach(string doc in output){
+                writer.Write(doc);
+            }
         }
     }
 }
