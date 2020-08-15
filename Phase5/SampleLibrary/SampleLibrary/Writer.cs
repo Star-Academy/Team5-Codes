@@ -4,10 +4,9 @@ namespace SampleLibrary
 {
     public class Writer
     {
-        public string Output {get; set;}
-        public void Wtite()
+        public void Write(string output)
         {
-            Console.WriteLine(Output);
+            Console.WriteLine(output);
         }
 
 

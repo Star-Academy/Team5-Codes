@@ -54,23 +54,28 @@ namespace SampleLibrary {
         public HashSet<string> GetResult(string[][] result)
         {
             HashSet<string> output = ProcessNoSignWords(result[2]);
-            
-            return null;
+            output.IntersectWith(ProcessPossetiveWords(result[1]));
+            output.ExceptWith(ProcessPossetiveWords(result[0]));
+            return output;
+        }
+
+        private HashSet<string> ProcessPossetiveWords(string[] possetiveWords)
+        {
+            HashSet<string> output =  new HashSet<string>();
+            foreach (string word in possetiveWords) {
+                HashSet<string> temp = tokenize[word];
+                output.UnionWith(temp);
+            }
+            return output;
         }
 
         private HashSet<string> ProcessNoSignWords(string[] noSignWords)
         {
-            HashSet<string> output =  new HashSet<string>();
-            if (noSignWords.Length == 1) {
-                output = tokenize[noSignWords[0]];
-            } else {
-                for
+            HashSet<string> output =  new HashSet<string>(documentWords.Keys);
+            foreach (string word in noSignWords) {
+                HashSet<string> temp = tokenize[word];
+                output.IntersectWith(temp);
             }
-            foreach(string word in noSignWords){
-
-            }
-
-
             return output;
         }
     }
