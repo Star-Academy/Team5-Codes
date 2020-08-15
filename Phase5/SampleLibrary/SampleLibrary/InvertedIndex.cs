@@ -15,6 +15,7 @@ namespace SampleLibrary {
         public InvertedIndex (Dictionary<string, List<string>> documentWords) {
             this.documentWords = documentWords;
             tokenize = new Dictionary<string, HashSet<string>> ();
+            Init();
         }
 
         private void Init () {
@@ -29,7 +30,7 @@ namespace SampleLibrary {
             if (tokenize.ContainsKey (word)) {
                 tokenize[word].Add (doc);
             } else {
-                tokenize.Add (word, new HashSet<string> () { "doc" });
+                tokenize.Add (word, new HashSet<string> () { doc });
             }
             return tokenize;
         }
