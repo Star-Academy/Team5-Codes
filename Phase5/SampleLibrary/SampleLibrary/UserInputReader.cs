@@ -19,22 +19,6 @@ namespace SampleLibrary
         {
             TakeInput();
             ProcessInput();
-            foreach (string str in PositiveSignedWords)
-            {
-                Console.Write(str + " ");
-            }
-            Console.WriteLine();
-            foreach (string str in NegativeSignedWords)
-            {
-                Console.Write(str + " ");
-            }
-            Console.WriteLine();
-            foreach (string str in UnSignedWords)
-            {
-                Console.Write(str + " ");
-            }
-            Console.WriteLine();
-
         }
 
         private void TakeInput()

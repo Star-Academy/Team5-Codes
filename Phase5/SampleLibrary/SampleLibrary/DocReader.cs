@@ -10,14 +10,14 @@ namespace SampleLibrary
         public string root { get; set; }
         public Dictionary<string, List<string>> DocumentWords { get; set; }
 
-        private readonly List<string> files;
-        private readonly char[] tokens = { ' ', ',', ';', '-', '(', ')', '\\', '@', '[', ']', '<', '>' };
+        private List<string> files;
+        private readonly char[] tokens = { ' ', ',', ';', '(', ')', '\\', '@', '[', ']', '<', '>' };
 
-        public DocReader(string v)
+        public DocReader(String v = null)
         {
             DocumentWords = new Dictionary<string, List<string>>();
             files = new List<string>();
-            root = @"C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase5\SampleLibrary\" + v;
+            root = @"Docs" + v;
             listFilesForFolder(root);
             files.ForEach(doc =>
             {
