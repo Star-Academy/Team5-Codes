@@ -6,8 +6,8 @@ namespace SampleLibrary.Test
     {
         private Manager manager = new Manager();
 
-        [Fact] 
-        public void test1()
+        [Fact]
+        public void Test1()
         {
 
         }

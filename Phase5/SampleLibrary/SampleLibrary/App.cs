@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SampleLibrary
+﻿namespace SampleLibrary
 {
     public class App
     {

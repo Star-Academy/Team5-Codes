@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace SampleLibrary
 {
@@ -11,7 +12,7 @@ namespace SampleLibrary
             DocReader docReader = new DocReader();
             Dictionary<string, List<string>> documentWords = docReader.DocumentWords;
             InvertedIndex invertedIndex = new InvertedIndex(documentWords);
-            Writer(invertedIndex.GetResult(result));
+            Writer(invertedIndex.GetResult(result).ToList());
         }
 
         private string[][] Read()
