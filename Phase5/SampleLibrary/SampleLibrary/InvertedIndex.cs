@@ -7,6 +7,10 @@ namespace SampleLibrary {
 
         public Dictionary<string, List<string>> WordToDocs { get; set; }
 
+        public InvertedIndex()
+        {
+
+        }
         public InvertedIndex (Dictionary<string, List<string>> wordsInDocs) {
             this.wordsInDocs = wordsInDocs;
             Init ();
@@ -21,7 +25,7 @@ namespace SampleLibrary {
         }
 
         public Dictionary<string, List<string>> AddWordToDictionary (string word, string doc) {
-            if (WordsToDoc.Contain (word)) {
+            if (WordToDocs.ContainsKey(word)) {
                 WordToDocs[word].Add(doc);
             } else {
                 WordToDocs.Add(word, new List<string>(){"doc"});
