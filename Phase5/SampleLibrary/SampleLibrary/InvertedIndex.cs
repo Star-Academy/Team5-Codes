@@ -3,34 +3,35 @@
 namespace SampleLibrary {
     public class InvertedIndex {
 
-        private Dictionary<string, List<string>> wordsInDocs;
+        private Dictionary<string, List<string>> documentWords;
+        private Dictionary<string, HashSet<string>> tokenize;
 
-        public Dictionary<string, List<string>> WordToDocs { get; set; }
-
-        public InvertedIndex()
-        {
-
+        public Dictionary<string, HashSet<string>> Tokenize {
+            get {
+                return this.tokenize;
+            }
         }
-        public InvertedIndex (Dictionary<string, List<string>> wordsInDocs) {
-            this.wordsInDocs = wordsInDocs;
-            Init ();
+
+        public InvertedIndex (Dictionary<string, List<string>> documentWords) {
+            this.documentWords = documentWords;
+            tokenize = new Dictionary<string, HashSet<string>> ();
         }
 
         private void Init () {
-            foreach (var item in wordsInDocs) {
+            foreach (var item in documentWords) {
                 foreach (var word in item.Value) {
-                    WordToDocs = AddWordToDictionary (word, item.Key);
+                    tokenize = AddWordToTokenize (word, item.Key);
                 }
             }
         }
 
-        public Dictionary<string, List<string>> AddWordToDictionary (string word, string doc) {
-            if (WordToDocs.ContainsKey(word)) {
-                WordToDocs[word].Add(doc);
+        public Dictionary<string, HashSet<string>> AddWordToTokenize (string word, string doc) {
+            if (tokenize.ContainsKey (word)) {
+                tokenize[word].Add (doc);
             } else {
-                WordToDocs.Add(word, new List<string>(){"doc"});
+                tokenize.Add (word, new HashSet<string> () { "doc" });
             }
-            return WordToDocs;
+            return tokenize;
         }
     }
 }

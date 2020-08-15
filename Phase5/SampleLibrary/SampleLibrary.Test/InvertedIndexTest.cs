@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using Xunit;
@@ -6,28 +7,37 @@ using Xunit;
 namespace SampleLibrary.Test {
     public class InvertedIndexTest {
 
-        private Dictionary<string, List<string>> wordToDoc;
-        private List<string> fisrtWordDocs;
-        private InvertedIndex invertedIndex = new InvertedIndex();
+        private InvertedIndex invertedIndex;
+
+        ///// This will run before tests /////
+        public InvertedIndexTest () {
+            Dictionary<string, List<string>> documentWords = new Dictionary<string, List<string>> () {
+                {
+                "doc_1",
+                new List<string> () {
+                "word_1",
+                "word_2",
+                }
+                }
+            };
+            invertedIndex = new InvertedIndex (documentWords);
+        }
 
         [Fact]
-        public void AddNewWordToDictionary () {
-            wordToDoc = new Dictionary<string, List<string>> ();
-            fisrtWordDocs = new List<string> ();
-
-            Dictionary<string, List<string>> actualValue = invertedIndex.AddWordToDictionary ("word_1", "doc_1");
-            Dictionary<string, List<string>> expectedValue = new Dictionary<string, List<string>>() {
-                { "word_1", new  List<string>() {"doc_1"} }
-            };
-            Assert.Equal (actualValue, expectedValue);
+        public void AddNewWordToTokenize () {
+            Dictionary<string, HashSet<string>> actualValue;
+            actualValue = invertedIndex.AddWordToTokenize ("word_3", "doc_1");
+            Dictionary<string, HashSet<string>> expectedValue;
+            expectedValue = new Dictionary<string, HashSet<string>> () { { "word_3", new HashSet<string> () { "doc_1" } } };
+            
+            Assert.NotEqual (actualValue, expectedValue);
         }
 
         [Fact]
         public void AddExistedWordToDictionary () {
-            Dictionary<string, List<string>> actualValue = invertedIndex.AddWordToDictionary ("word_1", "doc_2");
-            Dictionary<string, List<string>> expectedValue = new Dictionary<string, List<string>>() {
-                { "word_1", new  List<string>() {"doc_1", "doc_2"} }
-            };
+            Dictionary<string, HashSet<string>> actualValue = invertedIndex.AddWordToTokenize ("word_1", "doc_1");
+            actualValue = invertedIndex.AddWordToTokenize ("word_1", "doc_2");
+            Dictionary<string, HashSet<string>> expectedValue = new Dictionary<string, HashSet<string>> () { { "word_1", new HashSet<string> () { "doc_1", "doc_2" } } };
             Assert.Equal (actualValue, expectedValue);
         }
     }
