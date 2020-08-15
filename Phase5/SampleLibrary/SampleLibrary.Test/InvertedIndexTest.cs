@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+﻿using System.Collections.Generic;
 using Xunit;
 
-namespace SampleLibrary.Test {
+namespace SampleLibrary.Test
+{
     public class InvertedIndexTest {
 
         private InvertedIndex invertedIndex;
