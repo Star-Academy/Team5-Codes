@@ -7,32 +7,55 @@ namespace SampleLibrary
     public class UserInputReader
     {
 
-        private readonly char[] tokens = { ' ', ',', ';', '-', '(', ')', '\\', '@', '[', ']', '<', '>' };
+        private readonly char[] inputTokens = { ' ', ',', ';', '-', '(', ')', '\\', '@', '[', ']', '<', '>' };
+        private readonly char[] wordTokens = { '+', '-' };
         public List<string> Input { get; set; }
+        public string[] PositiveSignedWords { get; set; }
+        public string[] NegativeSignedWords { get; set; }
+        public string[] UnSignedWords { get; set; }
 
-        public UserInputReader()
+        public void Run()
+        {
+            TakeInput();
+            ProcessInput();
+        }
+
+        private void TakeInput()
         {
             string text = Console.ReadLine();
-            Input = new List<string>(text.Split(tokens).Select(p => p.ToLower()).ToList<string>());
+            Input = new List<string>(text.Split(inputTokens).Select(p => p.ToLower()).ToList<string>());
         }
 
-        public string[][] processInput(string s)
+        public string[][] ProcessInput(string s = null)
         {
-            List<string> positiveSignedWords = takeWords('-');
-            List<string> negativeSignedWords = takeWords('+');
-            List<string> unSignedWords = takeWords('\0');
-            return new string[][] { unSignedWords.ToArray(), positiveSignedWords.ToArray(), negativeSignedWords.ToArray() };
+            PositiveSignedWords = TakeWords('-').ToArray();
+            NegativeSignedWords = TakeWords('+').ToArray();
+            UnSignedWords = TakeWords('\0').ToArray();
+            return new string[][] { UnSignedWords, PositiveSignedWords, NegativeSignedWords };
         }
 
-        private List<string> takeWords(char token)
+        private List<string> TakeWords(char token)
         {
             List<string> ret = new List<string>();
-            foreach(string word in Input)
+            foreach (string word in Input)
             {
-                if (word[0] == token)
+                if (wordTokens.Contains(token) && word[0] == token)
+                    ret.Add(word.Substring(1));
+                else if (!wordTokens.Contains(token) && CheckValidation(word))
+                {
                     ret.Add(word);
+                }
             }
             return ret;
+        }
+
+        private bool CheckValidation(string word)
+        {
+            bool isValid = true;
+            for (int i = 0; i < wordTokens.Length; i++)
+                if (word[0] == wordTokens[i])
+                    isValid = false;
+            return isValid;
         }
     }
 }
