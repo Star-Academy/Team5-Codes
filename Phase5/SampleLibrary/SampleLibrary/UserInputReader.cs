@@ -15,10 +15,11 @@ namespace SampleLibrary
 
         public string[][] processInput(string s)
         {
-            List<string> positiveSignedWords = takeWords('-');
-            List<string> negativeSignedWords = takeWords('+');
-            List<string> unSignedWords = takeWords(null);
-            return new string[][] { unSignedWords, positiveSignedWords, negativeSignedWords };
+            //List<string> positiveSignedWords = takeWords('-');
+            //List<string> negativeSignedWords = takeWords('+');
+            //List<string> unSignedWords = takeWords(null);
+            //return new string[][] { unSignedWords, positiveSignedWords, negativeSignedWords };
+            return null;
 
         }
     }
