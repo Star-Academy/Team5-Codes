@@ -15,13 +15,10 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore
-      working-directory: Team5-Codes/Phase5/SampleLibrary
+      working-directory: Phase5/SampleLibrary
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: Team5-Codes/Phase5/SampleLibrary
+      working-directory: Phase5/SampleLibrary
     - name: Test
       run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
-      working-directory: Team5-Codes/Phase5/SampleLibrary
-
-
-
+      working-directory: Phase5/SampleLibrary
