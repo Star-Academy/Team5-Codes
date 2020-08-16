@@ -15,10 +15,10 @@ namespace SampleLibrary
         public string[] NegativeSignedWords { get; set; }
         public string[] UnSignedWords { get; set; }
 
-        public void Run()
+        public string[][] Run()
         {
             TakeInput();
-            ProcessInput();
+            return ProcessInput();
         }
 
         private void TakeInput()

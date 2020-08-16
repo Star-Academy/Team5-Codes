@@ -63,8 +63,13 @@ namespace SampleLibrary {
         {
             HashSet<string> output =  new HashSet<string>();
             foreach (string word in possetiveWords) {
-                HashSet<string> temp = tokenize[word];
-                output.UnionWith(temp);
+                if (tokenize.ContainsKey(word)){
+                    HashSet<string> temp = tokenize[word];
+                    output.UnionWith(temp);
+                } else {
+                    output = new HashSet<string>();
+                    break;
+                }
             }
             return output;
         }

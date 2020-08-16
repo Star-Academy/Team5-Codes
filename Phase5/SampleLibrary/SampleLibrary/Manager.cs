@@ -17,14 +17,19 @@ namespace SampleLibrary
         private string[][] Read()
         {
             UserInputReader userInputReader = new UserInputReader();
-            return userInputReader.ProcessInput();
+            return userInputReader.Run();
         }
 
         private void Writer(HashSet<string> output)
         {
             Writer writer = new Writer();
+            bool emptyResult = true;
             foreach(string doc in output){
                 writer.Write(doc);
+                emptyResult = false;
+            }
+            if (emptyResult) {
+                writer.Write("There is no answer!");
             }
         }
     }
