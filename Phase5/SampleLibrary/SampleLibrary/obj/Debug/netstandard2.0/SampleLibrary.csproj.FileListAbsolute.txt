@@ -1,0 +1,9 @@
+c:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netstandard2.0\SampleLibrary.deps.json
+c:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netstandard2.0\SampleLibrary.dll
+c:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netstandard2.0\SampleLibrary.pdb
+c:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netstandard2.0\SampleLibrary.csprojAssemblyReference.cache
+c:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netstandard2.0\SampleLibrary.AssemblyInfoInputs.cache
+c:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netstandard2.0\SampleLibrary.AssemblyInfo.cs
+c:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netstandard2.0\SampleLibrary.csproj.CoreCompileInputs.cache
+c:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netstandard2.0\SampleLibrary.dll
+c:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netstandard2.0\SampleLibrary.pdb

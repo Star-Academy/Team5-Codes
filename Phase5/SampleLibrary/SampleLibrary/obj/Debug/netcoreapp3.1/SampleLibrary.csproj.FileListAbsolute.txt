@@ -1,0 +1,16 @@
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netcoreapp3.1\SampleLibrary.exe
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netcoreapp3.1\SampleLibrary.deps.json
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netcoreapp3.1\SampleLibrary.runtimeconfig.json
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netcoreapp3.1\SampleLibrary.runtimeconfig.dev.json
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netcoreapp3.1\SampleLibrary.dll
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netcoreapp3.1\SampleLibrary.pdb
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\bin\Debug\netcoreapp3.1\Moq.dll
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netcoreapp3.1\SampleLibrary.csprojAssemblyReference.cache
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netcoreapp3.1\SampleLibrary.AssemblyInfoInputs.cache
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netcoreapp3.1\SampleLibrary.AssemblyInfo.cs
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netcoreapp3.1\SampleLibrary.csproj.CoreCompileInputs.cache
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netcoreapp3.1\SampleLibrary.csproj.CopyComplete
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netcoreapp3.1\SampleLibrary.dll
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netcoreapp3.1\SampleLibrary.pdb
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase5\SampleLibrary\SampleLibrary\obj\Debug\netcoreapp3.1\SampleLibrary.genruntimeconfig.cache
