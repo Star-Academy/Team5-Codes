@@ -21,7 +21,7 @@ steps:
       working-directory: Team5-Codes\Phase5\SampleLibrary\SampleLibrary.sln
 - name: Test
       run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
-      working-directory: <path to solution>
+      working-directory: Team5-Codes\Phase5\SampleLibrary\SampleLibrary.sln
 
 
 
