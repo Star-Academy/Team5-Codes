@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,java,csharp
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,visualstudiocode,java,csharp
+# Created by https://www.toptal.com/developers/gitignore/api/java,csharp,visualstudio,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,csharp,visualstudio,visualstudiocode
 
 ### Csharp ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -14,7 +14,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-Phase5\SampleLibrary\Docs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -552,4 +551,4 @@ hs_err_pid*
 
 # Ionide (cross platform F# VS Code tools) working folder
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,java,csharp
+# End of https://www.toptal.com/developers/gitignore/api/java,csharp,visualstudio,visualstudiocode
