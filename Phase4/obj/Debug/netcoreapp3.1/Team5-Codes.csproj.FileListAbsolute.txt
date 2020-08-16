@@ -1,0 +1,38 @@
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.exe
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.deps.json
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.runtimeconfig.json
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.runtimeconfig.dev.json
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.dll
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.pdb
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.csprojAssemblyReference.cache
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.AssemblyInfoInputs.cache
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.AssemblyInfo.cs
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.csproj.CoreCompileInputs.cache
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.csproj.CopyComplete
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.dll
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.pdb
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.genruntimeconfig.cache
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\xunit.assert.dll
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\xunit.core.dll
+C:\Users\home\Desktop\Code Star\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\xunit.execution.dotnet.dll
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.dll
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.pdb
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.csprojAssemblyReference.cache
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.AssemblyInfoInputs.cache
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.AssemblyInfo.cs
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.csproj.CoreCompileInputs.cache
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.exe
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.deps.json
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.runtimeconfig.json
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.runtimeconfig.dev.json
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.dll
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\Team5-Codes.pdb
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\xunit.assert.dll
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\xunit.core.dll
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\bin\Debug\netcoreapp3.1\xunit.execution.dotnet.dll
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.csproj.CopyComplete
+C:\Users\Farshid726\Desktop\Codes\CodeStar\Team5-Codes\Phase4\obj\Debug\netcoreapp3.1\Team5-Codes.genruntimeconfig.cache
