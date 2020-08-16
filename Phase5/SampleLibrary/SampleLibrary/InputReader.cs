@@ -10,9 +10,14 @@ namespace SampleLibrary
        
         public List<string> TakeInput()
         {
-            string text = Console.ReadLine();
+            string text = readInput();
             List<string> Input = new List<string>(text.Split(inputTokens).Select(p => p.ToLower()).ToList<string>());
             return Input;
+        }
+
+        private string readInput()
+        {
+            return Console.ReadLine();
         }
     }
 }
