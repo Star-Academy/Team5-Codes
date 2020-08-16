@@ -4,10 +4,10 @@ namespace SampleLibrary.Test
 {
     public class DocReaderTest
     {
-        private DocReader reader = new DocReader(@"..\..\..\..\..\..\Phase5\SampleLibrary\Docs");
+        private DocReader reader = new DocReader(@"..\..\..\..\..\..\Phase5\SampleLibrary\Docs\test");
 
         [Fact]
-        public void CountTheWords() => Xunit.Assert.Equal(reader.DocumentWords.Count, 1000);
+        public void CountTheDocs() => Xunit.Assert.Equal(reader.DocumentWords.Count, 1000);
 
         [Fact]
         public void ContainTest1() => Xunit.Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58044"].Contains("announcing"), true);
