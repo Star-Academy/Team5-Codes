@@ -10,7 +10,7 @@
         public Manager()
         {
             Writer = new Writer();
-            DocReader = new DocReader();
+            DocReader = new DocReader(@"Docs");
             InvertedIndex = new InvertedIndex(DocReader.DocumentWords);
         }
         public void Run()

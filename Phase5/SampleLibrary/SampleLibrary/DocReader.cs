@@ -13,11 +13,11 @@ namespace SampleLibrary
         private readonly List<string> files;
         private readonly char[] tokens = { ' ', ',', ';', '(', ')', '\\', '@', '[', ']', '<', '>' };
 
-        public DocReader(String v = null)
+        public DocReader(String address)
         {
             DocumentWords = new Dictionary<string, List<string>>();
             files = new List<string>();
-            Root = "..\\Docs" + v;
+            Root = address;
             ListFilesForFolder(Root);
             files.ForEach(doc =>
             {
