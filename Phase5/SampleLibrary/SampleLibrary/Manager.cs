@@ -21,7 +21,7 @@
 
         private string[][] Read()
         {
-            UserInputReader userInputReader = new UserInputReader();
+            InputProccessor userInputReader = new InputProccessor();
             return userInputReader.Run();
         }
     }

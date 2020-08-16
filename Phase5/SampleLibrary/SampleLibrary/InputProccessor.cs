@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace SampleLibrary
 {
-    public class UserInputReader
+    public class InputProccessor
     {
 
         private readonly char[] inputTokens = { ' ', ',', ';', '(', ')', '\\', '@', '[', ']', '<', '>' };
@@ -17,15 +17,11 @@ namespace SampleLibrary
 
         public string[][] Run()
         {
-            TakeInput();
+            Input = new InputReader().TakeInput();
             return ProcessInput();
         }
 
-        private void TakeInput()
-        {
-            string text = Console.ReadLine();
-            Input = new List<string>(text.Split(inputTokens).Select(p => p.ToLower()).ToList<string>());
-        }
+        
 
         public string[][] ProcessInput(string s = null)
         {
