@@ -18,25 +18,25 @@ namespace SampleLibrary
             DocumentWords = new Dictionary<string, List<string>>();
             files = new List<string>();
             Root = "..\\Docs" + v;
-            listFilesForFolder(Root);
+            ListFilesForFolder(Root);
             files.ForEach(doc =>
             {
-                DocumentWords.Add(doc, extractWords(doc));
+                DocumentWords.Add(doc, ExtractWords(doc));
             });
         }
 
-        private List<string> extractWords(string doc)
+        private List<string> ExtractWords(string doc)
         {
             string text = File.ReadAllText(doc);
             return new List<string>(text.Split(tokens).Select(p => p.ToLower()).ToList<string>());
         }
 
-        void listFilesForFolder(string path)
+        void ListFilesForFolder(string path)
         {
             string[] directories = Directory.GetDirectories(path);
             foreach (string subDirectory in directories)
             {
-                listFilesForFolder(subDirectory);
+                ListFilesForFolder(subDirectory);
             }
             directories = Directory.GetFiles(path);
             foreach (string subFile in directories)

@@ -13,7 +13,7 @@
             DocReader = new DocReader();
             InvertedIndex = new InvertedIndex(DocReader.DocumentWords);
         }
-        public void run()
+        public void Run()
         {
             string[][] result = Read();
             Writer.Write(InvertedIndex.GetResult(result));

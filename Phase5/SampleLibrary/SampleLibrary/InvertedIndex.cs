@@ -67,7 +67,7 @@ namespace SampleLibrary
 
         private HashSet<string> ProcessPossetiveWords(string[] possetiveWords)
         {
-            HashSet<string> output = new HashSet<string>();
+            var output = new HashSet<string>();
             foreach (string word in possetiveWords)
             {
                 if (Data.ContainsKey(word))

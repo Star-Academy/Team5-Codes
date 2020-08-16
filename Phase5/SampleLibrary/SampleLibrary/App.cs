@@ -5,7 +5,7 @@
         public static void Main(string[] args)
         {
             Manager myManager = new Manager();
-            myManager.run();
+            myManager.Run();
         }
     }
 }

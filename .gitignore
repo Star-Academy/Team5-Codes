@@ -14,6 +14,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+Phase5\SampleLibrary\Docs\
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
