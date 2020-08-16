@@ -17,7 +17,7 @@ namespace SampleLibrary
         {
             DocumentWords = new Dictionary<string, List<string>>();
             files = new List<string>();
-            root = @"Docs" + v;
+            root = "..\\Docs" + v;
             listFilesForFolder(root);
             files.ForEach(doc =>
             {

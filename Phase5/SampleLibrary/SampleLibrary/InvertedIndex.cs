@@ -47,15 +47,15 @@ namespace SampleLibrary {
         }
 
         /*
-        line 1 -> negative
+        line 1 -> noSign
         line 2 -> possetive
-        line 3 -> noSign
+        line 3 -> negative
         */
         public HashSet<string> GetResult(string[][] result)
         {
-            HashSet<string> output = ProcessNoSignWords(result[2]);
-            output.IntersectWith(ProcessPossetiveWords(result[1]));
-            output.ExceptWith(ProcessPossetiveWords(result[0]));
+            HashSet<string> output = ProcessNoSignWords(result[0]);
+            output.UnionWith(ProcessPossetiveWords(result[1]));
+            output.ExceptWith(ProcessPossetiveWords(result[2]));
             return output;
         }
 
@@ -63,8 +63,13 @@ namespace SampleLibrary {
         {
             HashSet<string> output =  new HashSet<string>();
             foreach (string word in possetiveWords) {
-                HashSet<string> temp = tokenize[word];
-                output.UnionWith(temp);
+                if (tokenize.ContainsKey(word)){
+                    HashSet<string> temp = tokenize[word];
+                    output.UnionWith(temp);
+                } else {
+                    output = new HashSet<string>();
+                    break;
+                }
             }
             return output;
         }
@@ -73,8 +78,13 @@ namespace SampleLibrary {
         {
             HashSet<string> output =  new HashSet<string>(documentWords.Keys);
             foreach (string word in noSignWords) {
-                HashSet<string> temp = tokenize[word];
-                output.IntersectWith(temp);
+                if (tokenize.ContainsKey(word)){
+                    HashSet<string> temp = tokenize[word];
+                    output.IntersectWith(temp);
+                } else {
+                    output = new HashSet<string>();
+                    break;
+                }
             }
             return output;
         }
