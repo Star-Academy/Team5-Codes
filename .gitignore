@@ -15,6 +15,7 @@
 *.userosscache
 *.sln.docstates
 Phase5\SampleLibrary\Docs\
+Phase5/SampleLibrary/SampleLibrary/Properties/launchSettings.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
