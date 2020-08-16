@@ -36,13 +36,13 @@ namespace SampleLibrary
             string[] directories = Directory.GetDirectories(path);
             foreach (string subDirectory in directories)
             {
-                    listFilesForFolder(subDirectory);
+                listFilesForFolder(subDirectory);
             }
             directories = Directory.GetFiles(path);
             foreach (string subFile in directories)
-                {
-                    files.Add(subFile);
-                }
+            {
+                files.Add(subFile);
+            }
         }
     }
 }

@@ -1,32 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace SampleLibrary {
-    public class InvertedIndex {
+namespace SampleLibrary
+{
+    public class InvertedIndex
+    {
 
         private readonly Dictionary<string, List<string>> documentWords;
 
         public Dictionary<string, HashSet<string>> Data { get; private set; }
 
-        public InvertedIndex (Dictionary<string, List<string>> documentWords) {
+        public InvertedIndex(Dictionary<string, List<string>> documentWords)
+        {
             this.documentWords = documentWords;
-            Data = new Dictionary<string, HashSet<string>> ();
+            Data = new Dictionary<string, HashSet<string>>();
             Init();
         }
 
-        private void Init () {
-            foreach (var item in documentWords) {
-                foreach (var word in item.Value) {
-                    Data = AddWordToTokenize (word, item.Key);
+        private void Init()
+        {
+            foreach (var item in documentWords)
+            {
+                foreach (var word in item.Value)
+                {
+                    Data = AddWordToTokenize(word, item.Key);
                 }
             }
         }
 
-        public Dictionary<string, HashSet<string>> AddWordToTokenize (string word, string doc) {
-            if (Data.ContainsKey (word)) {
-                Data[word].Add (doc);
-            } else {
-                Data.Add (word, new HashSet<string> () { doc });
+        public Dictionary<string, HashSet<string>> AddWordToTokenize(string word, string doc)
+        {
+            if (Data.ContainsKey(word))
+            {
+                Data[word].Add(doc);
+            }
+            else
+            {
+                Data.Add(word, new HashSet<string>() { doc });
             }
             return Data;
         }
@@ -36,7 +45,9 @@ namespace SampleLibrary {
             if (Data.ContainsKey(word))
             {
                 return Data[word];
-            } else {
+            }
+            else
+            {
                 return null;
             }
         }
@@ -56,12 +67,16 @@ namespace SampleLibrary {
 
         private HashSet<string> ProcessPossetiveWords(string[] possetiveWords)
         {
-            HashSet<string> output =  new HashSet<string>();
-            foreach (string word in possetiveWords) {
-                if (Data.ContainsKey(word)){
+            HashSet<string> output = new HashSet<string>();
+            foreach (string word in possetiveWords)
+            {
+                if (Data.ContainsKey(word))
+                {
                     HashSet<string> temp = Data[word];
                     output.UnionWith(temp);
-                } else {
+                }
+                else
+                {
                     output = new HashSet<string>();
                     break;
                 }
@@ -71,12 +86,16 @@ namespace SampleLibrary {
 
         private HashSet<string> ProcessNoSignWords(string[] noSignWords)
         {
-            HashSet<string> output =  new HashSet<string>(documentWords.Keys);
-            foreach (string word in noSignWords) {
-                if (Data.ContainsKey(word)){
+            HashSet<string> output = new HashSet<string>(documentWords.Keys);
+            foreach (string word in noSignWords)
+            {
+                if (Data.ContainsKey(word))
+                {
                     HashSet<string> temp = Data[word];
                     output.IntersectWith(temp);
-                } else {
+                }
+                else
+                {
                     output = new HashSet<string>();
                     break;
                 }

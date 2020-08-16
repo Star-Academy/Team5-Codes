@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Xunit;
+﻿using Xunit;
 
 namespace SampleLibrary.Test
 {
@@ -9,7 +8,7 @@ namespace SampleLibrary.Test
 
         [Fact]
         public void test1() => Xunit.Assert.Equal(reader.DocumentWords.Count, 1000);
-        
+
         [Fact]
         public void test2() => Xunit.Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58044"].Contains("announcing"), true);
 

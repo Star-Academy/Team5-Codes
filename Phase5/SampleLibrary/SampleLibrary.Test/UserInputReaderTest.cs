@@ -1,5 +1,4 @@
-﻿using Moq;
-using Xunit;
+﻿using Xunit;
 
 namespace SampleLibrary.Test
 {
@@ -27,7 +26,7 @@ namespace SampleLibrary.Test
         {
             Assert.Equal(new string[][]{ new string[] {  },
                 new string[] { "hi" },
-                new string[] {  } }, inputReader.ProcessInput("+hI")); 
+                new string[] {  } }, inputReader.ProcessInput("+hI"));
         }
 
         [Fact]
@@ -51,7 +50,7 @@ namespace SampleLibrary.Test
         {
             Assert.Equal(new string[][]{ new string[] { "salam" },
                 new string[] { },
-                new string[] { "hala" } }, inputReader.ProcessInput("salam -hala")); 
+                new string[] { "hala" } }, inputReader.ProcessInput("salam -hala"));
         }
 
         [Fact]
@@ -59,7 +58,7 @@ namespace SampleLibrary.Test
         {
             Assert.Equal(new string[][]{ new string[] { },
                 new string[] {  },
-                new string[] {  } }, inputReader.ProcessInput("")); 
+                new string[] {  } }, inputReader.ProcessInput(""));
         }
 
         [Fact]
@@ -67,7 +66,7 @@ namespace SampleLibrary.Test
         {
             Assert.Equal(new string[][]{ new string[] { "salam" },
                 new string[] { "salam" },
-                new string[] { "salam" } }, inputReader.ProcessInput("salam -salam +salam")); 
+                new string[] { "salam" } }, inputReader.ProcessInput("salam -salam +salam"));
         }
 
         [Fact]

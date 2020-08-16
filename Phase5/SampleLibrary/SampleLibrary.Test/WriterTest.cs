@@ -8,7 +8,7 @@ namespace SampleLibrary.Test
         [Fact]
         public void Test1()
         {
-            
+
         }
     }
 }
