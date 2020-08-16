@@ -1,9 +1,9 @@
 name: build
 on:
   push:
-    branches: [ master ]
+    branches: [ Phase5 ]
   pull_request:
-    branches: [ master ]
+    branches: [ Phase5 ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,10 +15,10 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore
-      working-directory: SampleLibrary
+      working-directory: Phase5/SampleLibrary
     - name: Build
       run: dotnet build --configuration Release --no-restore
-      working-directory: SampleLibrary
+      working-directory: Phase5/SampleLibrary
     - name: Test
       run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
-      working-directory: SampleLibrary
+      working-directory: Phase5/SampleLibrary
