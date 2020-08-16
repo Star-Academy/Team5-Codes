@@ -4,7 +4,7 @@ namespace SampleLibrary.Test
 {
     public class DocReaderTest
     {
-        private DocReader reader = new DocReader(@"..\..\..\..\Phase5\SampleLibrary\Docs");
+        private DocReader reader = new DocReader(@"..\..\..\..\..\..\Phase5\SampleLibrary\Docs");
 
         [Fact]
         public void test1() => Xunit.Assert.Equal(reader.DocumentWords.Count, 1000);
