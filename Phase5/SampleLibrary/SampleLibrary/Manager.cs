@@ -5,7 +5,7 @@ namespace SampleLibrary
 {
     public class Manager
     {
-        Writer Writer { get; set; };
+        Writer Writer { get; set; }
         DocReader DocReader { get; set; }
 
         InvertedIndex InvertedIndex { get; set; }
