@@ -21,8 +21,6 @@ namespace SampleLibrary
             return ProcessInput();
         }
 
-        
-
         public string[][] ProcessInput(string s = null)
         {
             if (s != null)
