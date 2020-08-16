@@ -552,3 +552,7 @@ hs_err_pid*
 # Ionide (cross platform F# VS Code tools) working folder
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp,visualstudio,visualstudiocode,java
+
+
+
+\Phase5\SampleLibrary\Docs\
