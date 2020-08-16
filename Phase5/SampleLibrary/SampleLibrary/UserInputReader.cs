@@ -11,9 +11,9 @@ namespace SampleLibrary
         private readonly char[] inputTokens = { ' ', ',', ';', '(', ')', '\\', '@', '[', ']', '<', '>' };
         private readonly char[] wordTokens = { '+', '-' };
         public List<string> Input { get; set; }
-        public string[] positiveSignedWords { get; set; }
+        public string[] PositiveSignedWords { get; set; }
         public string[] NegativeSignedWords { get; set; }
-        public string[] unSignedWords { get; set; }
+        public string[] UnSignedWords { get; set; }
 
         public string[][] Run()
         {
@@ -34,9 +34,9 @@ namespace SampleLibrary
                 Input = new List<string>(s.Split(inputTokens).Select(p => p.ToLower()).ToList());
             }
             NegativeSignedWords = TakeWords('-').ToArray();
-            positiveSignedWords = TakeWords('+').ToArray();
-            unSignedWords = TakeWords('\0').ToArray();
-            return new string[][] { unSignedWords, positiveSignedWords, NegativeSignedWords };
+            PositiveSignedWords = TakeWords('+').ToArray();
+            UnSignedWords = TakeWords('\0').ToArray();
+            return new string[][] { UnSignedWords, PositiveSignedWords, NegativeSignedWords };
         }
 
         private List<string> TakeWords(char token)

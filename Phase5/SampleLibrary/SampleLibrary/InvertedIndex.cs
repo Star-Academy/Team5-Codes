@@ -6,36 +6,36 @@ namespace SampleLibrary {
 
         private readonly Dictionary<string, List<string>> documentWords;
 
-        public Dictionary<string, HashSet<string>> Tokenize { get; private set; }
+        public Dictionary<string, HashSet<string>> Data { get; private set; }
 
         public InvertedIndex (Dictionary<string, List<string>> documentWords) {
             this.documentWords = documentWords;
-            Tokenize = new Dictionary<string, HashSet<string>> ();
+            Data = new Dictionary<string, HashSet<string>> ();
             Init();
         }
 
         private void Init () {
             foreach (var item in documentWords) {
                 foreach (var word in item.Value) {
-                    Tokenize = AddWordToTokenize (word, item.Key);
+                    Data = AddWordToTokenize (word, item.Key);
                 }
             }
         }
 
         public Dictionary<string, HashSet<string>> AddWordToTokenize (string word, string doc) {
-            if (Tokenize.ContainsKey (word)) {
-                Tokenize[word].Add (doc);
+            if (Data.ContainsKey (word)) {
+                Data[word].Add (doc);
             } else {
-                Tokenize.Add (word, new HashSet<string> () { doc });
+                Data.Add (word, new HashSet<string> () { doc });
             }
-            return Tokenize;
+            return Data;
         }
 
         public HashSet<string> GetDocsContainWord(string word)
         {
-            if (Tokenize.ContainsKey(word))
+            if (Data.ContainsKey(word))
             {
-                return Tokenize[word];
+                return Data[word];
             } else {
                 return null;
             }
@@ -58,8 +58,8 @@ namespace SampleLibrary {
         {
             HashSet<string> output =  new HashSet<string>();
             foreach (string word in possetiveWords) {
-                if (Tokenize.ContainsKey(word)){
-                    HashSet<string> temp = Tokenize[word];
+                if (Data.ContainsKey(word)){
+                    HashSet<string> temp = Data[word];
                     output.UnionWith(temp);
                 } else {
                     output = new HashSet<string>();
@@ -73,8 +73,8 @@ namespace SampleLibrary {
         {
             HashSet<string> output =  new HashSet<string>(documentWords.Keys);
             foreach (string word in noSignWords) {
-                if (Tokenize.ContainsKey(word)){
-                    HashSet<string> temp = Tokenize[word];
+                if (Data.ContainsKey(word)){
+                    HashSet<string> temp = Data[word];
                     output.IntersectWith(temp);
                 } else {
                     output = new HashSet<string>();

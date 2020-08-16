@@ -7,18 +7,18 @@ namespace SampleLibrary
 {
     public class DocReader
     {
-        public string root { get; set; }
+        public string Root { get; set; }
         public Dictionary<string, List<string>> DocumentWords { get; set; }
 
-        private List<string> files;
+        private readonly List<string> files;
         private readonly char[] tokens = { ' ', ',', ';', '(', ')', '\\', '@', '[', ']', '<', '>' };
 
         public DocReader(String v = null)
         {
             DocumentWords = new Dictionary<string, List<string>>();
             files = new List<string>();
-            root = "..\\Docs" + v;
-            listFilesForFolder(root);
+            Root = "..\\Docs" + v;
+            listFilesForFolder(Root);
             files.ForEach(doc =>
             {
                 DocumentWords.Add(doc, extractWords(doc));
