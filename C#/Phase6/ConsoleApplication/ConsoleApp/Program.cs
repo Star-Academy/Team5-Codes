@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SampleLibrary;
 
 namespace ConsoleApp
 {
@@ -6,7 +6,8 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Manager manager = new Manager();
+            manager.Run();
         }
     }
 }
