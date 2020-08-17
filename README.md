@@ -1,7 +1,5 @@
 
-![build](https://github.com/Star-Academy/Team5-Codes/workflows/build/badge.svg?branch=Phase5)
-
-[![codecov](https://codecov.io/gh/Star-Academy/Team5-Codes/branch/Phase5/graph/badge.svg)](https://codecov.io/gh/Star-Academy/Team5-Codes)
+![build](https://github.com/Star-Academy/Team5-Codes/workflows/build/badge.svg?branch=Phase5) [![codecov](https://codecov.io/gh/Star-Academy/Team5-Codes/branch/Phase5/graph/badge.svg)](https://codecov.io/gh/Star-Academy/Team5-Codes) ![publish](https://github.com/Star-Academy/Team5-Codes/workflows/publish/badge.svg?branch=master)
 # Team5-codes
 
 with Farshid Nooshi and Mohammad Hossein Soleymani as team members.
