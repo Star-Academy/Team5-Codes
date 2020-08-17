@@ -6,7 +6,6 @@
     <PackageId>StarAcademy.Team5.SampleLibrary</PackageId>
     <Authors>Farshid Nooshi - Mohammad Hossein Soleymani</Authors>
     <Company>Star Academy</Company>
-    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
