@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Phase4"
+    "\\.github",
+    "\\.github\\workflows"
   ],
-  "SelectedNode": "\\Phase4",
+  "SelectedNode": "\\.github\\workflows\\publishPipeline.yml",
   "PreviewInSolutionExplorer": false
 }
