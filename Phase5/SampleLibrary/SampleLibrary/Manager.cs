@@ -16,7 +16,7 @@
         public void Run()
         {
             string[][] result = Read();
-            Writer.Write(InvertedIndex.GetResult(result));
+            Writer.Write(InvertedIndex.GetResult(result[0], result[1], result[2]));
         }
 
         private string[][] Read()
