@@ -11,7 +11,7 @@ namespace SampleLibrary
         public List<string> TakeInput()
         {
             string text = readInput();
-            List<string> Input = new List<string>(text.Split(inputTokens).Select(p => p.ToLower()).ToList<string>());
+            var Input = new List<string>(text.Split(inputTokens).Select(p => p.ToLower()).ToList<string>());
             return Input;
         }
 

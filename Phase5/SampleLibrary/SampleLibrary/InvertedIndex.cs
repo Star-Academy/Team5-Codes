@@ -50,7 +50,7 @@ namespace SampleLibrary
         */
         public HashSet<string> GetResult(string[][] result)
         {
-            HashSet<string> output = ProcessNoSignWords(result[0]);
+            var output = ProcessNoSignWords(result[0]);
             output.UnionWith(ProcessPositiveWords(result[1]));
             output.ExceptWith(ProcessPositiveWords(result[2]));
             return output;
@@ -59,11 +59,11 @@ namespace SampleLibrary
         private HashSet<string> ProcessPositiveWords(string[] possetiveWords)
         {
             var output = new HashSet<string>();
-            foreach (string word in possetiveWords)
+            foreach (var word in possetiveWords)
             {
-                if (Data.ContainsKey(word))
+                var temp = new HashSet<string>();
+                if (Data.TryGetValue(word, out temp))
                 {
-                    HashSet<string> temp = Data[word];
                     output.UnionWith(temp);
                 }
                 else
@@ -77,12 +77,12 @@ namespace SampleLibrary
 
         private HashSet<string> ProcessNoSignWords(string[] noSignWords)
         {
-            HashSet<string> output = new HashSet<string>(documentWords.Keys);
-            foreach (string word in noSignWords)
+            var output = new HashSet<string>(documentWords.Keys);
+            foreach (var word in noSignWords)
             {
-                if (Data.ContainsKey(word))
+                var temp = new HashSet<string>();
+                if (Data.TryGetValue(word, out temp))
                 {
-                    HashSet<string> temp = Data[word];
                     output.IntersectWith(temp);
                 }
                 else

@@ -4,7 +4,7 @@ using System.Linq;
 using Castle.Core.Internal;
 
 namespace SampleLibrary {
-    public class InputProccessor {
+    public class InputProcessor {
 
         private readonly char[] inputTokens = { ' ', ',', ';', '(', ')', '\\', '@', '[', ']', '<', '>' };
         private readonly char[] wordTokens = { '+', '-' };

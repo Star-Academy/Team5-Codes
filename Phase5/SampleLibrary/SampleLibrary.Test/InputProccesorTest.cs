@@ -2,9 +2,9 @@
 
 namespace SampleLibrary.Test
 {
-    public class InputProccessorTest
+    public class InputProcessorTest
     {
-        private InputProccessor inputReader = new InputProccessor();
+        private InputProcessor inputReader = new InputProcessor();
         [Fact]
         public void Test1()
         {
