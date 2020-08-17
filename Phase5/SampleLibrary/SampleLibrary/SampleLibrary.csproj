@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <!-- <TargetFramework>netstandard2.0</TargetFramework> -->
+    <PackageId>StarAcademy.Team5.Start</PackageId>
+    <Authors>Farshid Nooshi - Mohammad Hossein Soleymani</Authors>
+    <Company>Star Academy</Company>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.14.5" />
+    <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

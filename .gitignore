@@ -1,6 +1,8 @@
+Phase5/SampleLibrary/Docs/EnglishData/*
+Phase5/SampleLibrary/SampleLibrary/Properties/*
 
-# Created by https://www.toptal.com/developers/gitignore/api/java,visualstudio,visualstudiocode,csharp,windows
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,visualstudio,visualstudiocode,csharp,windows
+# Created by https://www.toptal.com/developers/gitignore/api/java,csharp,visualstudio,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,csharp,visualstudio,visualstudiocode
 
 ### Csharp ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -393,32 +395,6 @@ hs_err_pid*
 # Ignore all local history of files
 .history
 
-### Windows ###
-# Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
-
-# Dump file
-*.stackdump
-
-# Folder config file
-[Dd]esktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
 ### VisualStudio ###
 
 # User-specific files
@@ -577,4 +553,4 @@ $RECYCLE.BIN/
 
 # Ionide (cross platform F# VS Code tools) working folder
 
-# End of https://www.toptal.com/developers/gitignore/api/java,visualstudio,visualstudiocode,csharp,windows
+# End of https://www.toptal.com/developers/gitignore/api/java,csharp,visualstudio,visualstudiocode

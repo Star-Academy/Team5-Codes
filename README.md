@@ -14,3 +14,7 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+![build](https://github.com/Star-Academy/Team5-Codes/workflows/build/badge.svg?branch=Phase5)
+
+[![codecov](https://codecov.io/gh/Star-Academy/Team5-Codes/branch/Phase5/graph/badge.svg)](https://codecov.io/gh/Star-Academy/Team5-Codes)

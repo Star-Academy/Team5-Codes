@@ -4,21 +4,41 @@ on:
     branches: [ Phase5 ]
   pull_request:
     branches: [ Phase5 ]
+    
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
+
     - name: Install dependencies
       run: dotnet restore
       working-directory: Phase5/SampleLibrary
+
     - name: Build
       run: dotnet build --configuration Release --no-restore
       working-directory: Phase5/SampleLibrary
+
+    - name: Install dependencies
+      run: dotnet restore
+      working-directory: Phase5/SampleLibrary
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+      working-directory: Phase5/SampleLibrary
+
     - name: Test
       run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage"
       working-directory: Phase5/SampleLibrary
+
+    - name: Publish code coverage reports to codecove.io
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./**/coverage.cobertura.xml
+        fail_ci_if_error: true
