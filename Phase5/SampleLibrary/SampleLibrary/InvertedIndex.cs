@@ -43,16 +43,11 @@ namespace SampleLibrary
             return null;
         }
 
-        /*
-        line 1 -> noSign
-        line 2 -> possetive
-        line 3 -> negative
-        */
-        public HashSet<string> GetResult(string[][] result)
+        public HashSet<string> GetResult(string[] noSing, string[] positive, string[] negative)
         {
-            var output = ProcessNoSignWords(result[0]);
-            output.UnionWith(ProcessPositiveWords(result[1]));
-            output.ExceptWith(ProcessPositiveWords(result[2]));
+            var output = ProcessNoSignWords(noSing);
+            output.UnionWith(ProcessPositiveWords(positive));
+            output.ExceptWith(ProcessPositiveWords(negative));
             return output;
         }
 
