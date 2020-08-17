@@ -16,4 +16,4 @@ Please make sure to update tests as appropriate.
 
 ![build](https://github.com/Star-Academy/Team5-Codes/workflows/build/badge.svg?branch=Phase5)
 
-[![codecov](https://codecov.io/gh/Star-Academy/Team5-Codes/branch/master/graph/badge.svg)](https://codecov.io/gh/Star-Academy/Team5-Codes)
+[![codecov](https://codecov.io/gh/Star-Academy/Team5-Codes/branch/Phase5/graph/badge.svg)](https://codecov.io/gh/Star-Academy/Team5-Codes)
