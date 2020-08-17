@@ -1,4 +1,7 @@
+
 ![build](https://github.com/Star-Academy/Team5-Codes/workflows/build/badge.svg?branch=Phase5)
+
+[![codecov](https://codecov.io/gh/Star-Academy/Team5-Codes/branch/Phase5/graph/badge.svg)](https://codecov.io/gh/Star-Academy/Team5-Codes)
 # Team5-codes
 
 with Farshid Nooshi and Mohammad Hossein Soleymani as team members.
@@ -14,7 +17,3 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-
-![build](https://github.com/Star-Academy/Team5-Codes/workflows/build/badge.svg?branch=Phase5)
-
-[![codecov](https://codecov.io/gh/Star-Academy/Team5-Codes/branch/Phase5/graph/badge.svg)](https://codecov.io/gh/Star-Academy/Team5-Codes)
