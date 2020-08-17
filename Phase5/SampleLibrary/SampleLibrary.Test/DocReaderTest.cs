@@ -7,21 +7,21 @@ namespace SampleLibrary.Test
         private DocReader reader = new DocReader(@"../../../../../../Phase5/SampleLibrary/Docs");
 
         [Fact]
-        public void CountTheDocs() => Xunit.Assert.Equal(reader.DocumentWords.Count, 1000);
+        public void CountTheDocs() => Assert.Equal(reader.DocumentWords.Count, 1000);
 
         [Fact]
-        public void ContainTest1() => Xunit.Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58044"].Contains("announcing"), true);
+        public void ContainTest1() => Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58044"].Contains("announcing"), true);
 
         [Fact]
-        public void ContainTest2() => Xunit.Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58044"].Contains("presidentia"), true);
+        public void ContainTest2() => Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58044"].Contains("presidentia"), true);
 
         [Fact]
-        public void ContainTest3() => Xunit.Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58057"].Contains("when"), true);
+        public void ContainTest3() => Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58057"].Contains("when"), true);
 
         [Fact]
-        public void NotContainTest1() => Xunit.Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58057"].Contains("ishalla"), false);
+        public void NotContainTest1() => Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58057"].Contains("ishalla"), false);
 
         [Fact]
-        public void NotContainTest2() => Xunit.Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58061"].Contains("a "), false);
+        public void NotContainTest2() => Assert.Equal(reader.DocumentWords[reader.Root + "\\EnglishData\\58061"].Contains("a "), false);
     }
 }

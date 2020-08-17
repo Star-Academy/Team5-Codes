@@ -29,27 +29,18 @@ namespace SampleLibrary
 
         public Dictionary<string, HashSet<string>> AddWordToTokenize(string word, string doc)
         {
-            if (Data.ContainsKey(word))
-            {
-                Data[word].Add(doc);
-            }
-            else
-            {
-                Data.Add(word, new HashSet<string>() { doc });
-            }
+            if (!Data.ContainsKey(word))
+                Data[word] = new HashSet<string>();
+            Data[word].Add(doc);
             return Data;
         }
 
         public HashSet<string> GetDocsContainWord(string word)
         {
-            if (Data.ContainsKey(word))
-            {
-                return Data[word];
+            if (Data.TryGetValue(word, out var docs)) {
+                return docs;
             }
-            else
-            {
-                return null;
-            }
+            return null;
         }
 
         /*
@@ -60,12 +51,12 @@ namespace SampleLibrary
         public HashSet<string> GetResult(string[][] result)
         {
             HashSet<string> output = ProcessNoSignWords(result[0]);
-            output.UnionWith(ProcessPossetiveWords(result[1]));
-            output.ExceptWith(ProcessPossetiveWords(result[2]));
+            output.UnionWith(ProcessPositiveWords(result[1]));
+            output.ExceptWith(ProcessPositiveWords(result[2]));
             return output;
         }
 
-        private HashSet<string> ProcessPossetiveWords(string[] possetiveWords)
+        private HashSet<string> ProcessPositiveWords(string[] possetiveWords)
         {
             var output = new HashSet<string>();
             foreach (string word in possetiveWords)

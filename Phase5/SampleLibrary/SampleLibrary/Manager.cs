@@ -10,7 +10,7 @@
         public Manager()
         {
             Writer = new Writer();
-            DocReader = new DocReader(@"..\..\..\..\..\..\Phase5\SampleLibrary\Docs");
+            DocReader = new DocReader(@"..\Docs");
             InvertedIndex = new InvertedIndex(DocReader.DocumentWords);
         }
         public void Run()
