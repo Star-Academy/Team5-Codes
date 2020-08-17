@@ -14,7 +14,7 @@ namespace SampleLibrary
         private readonly char[] tokens = { ' ', ',', ';', '(', ')', '\\', '@', '[', ']', '<', '>' };
 
         public DocReader(String address)
-        {
+        { 
             DocumentWords = new Dictionary<string, List<string>>();
             files = new List<string>();
             Root = address;
