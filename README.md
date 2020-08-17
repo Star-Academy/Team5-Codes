@@ -15,3 +15,5 @@ Please make sure to update tests as appropriate.
 [MIT](https://choosealicense.com/licenses/mit/)
 
 ![build](https://github.com/Star-Academy/Team5-Codes/workflows/build/badge.svg)
+
+[![codecov](https://codecov.io/gh/Star-Academy/Team5-Codes/branch/master/graph/badge.svg)](https://codecov.io/gh/Star-Academy/Team5-Codes)
