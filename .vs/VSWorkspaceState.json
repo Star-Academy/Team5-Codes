@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github",
-    "\\.github\\workflows"
+    "\\.github\\workflows",
+    "\\C#",
+    "\\C#\\Phase6",
+    "\\C#\\Phase6\\ConsoleApplication"
   ],
-  "SelectedNode": "\\.github\\workflows\\publishPipeline.yml",
+  "SelectedNode": "\\C#\\Phase6\\ConsoleApplication",
   "PreviewInSolutionExplorer": false
 }
