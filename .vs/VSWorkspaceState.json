@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github\\workflows",
     "\\C#",
-    "\\C#\\Phase6",
-    "\\C#\\Phase6\\ConsoleApplication"
+    "\\C#\\Phase8"
   ],
-  "SelectedNode": "\\C#\\Phase6\\ConsoleApplication",
+  "SelectedNode": "\\C#\\Phase8\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
