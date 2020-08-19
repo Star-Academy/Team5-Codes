@@ -10,6 +10,10 @@ with Farshid Nooshi and Mohammad Hossein Soleymani as team members.
 
 there are several phases to use for each phase you can use its appropriate readme. 
 
+## phases
+
+until now there is 7 phases of the internship done, we are working on the next phases.
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
