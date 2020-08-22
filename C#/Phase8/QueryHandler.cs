@@ -44,11 +44,12 @@ namespace Phase8
                                 .Query("Labore"))))));
         }
 
-        public static void MatchQuerySample1()
+        public static void MatchAllQuerySample1()
         {
             Client.Search<Person>(s => s.
             Query(query => query
             .MatchAll()));
+            
         }
 
     }

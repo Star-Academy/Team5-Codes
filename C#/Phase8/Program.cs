@@ -18,7 +18,7 @@ namespace Phase8
             ElasticClient client = new ElasticClient(connectionSettings);
             var test = client.Ping();
             Console.WriteLine(test);
-            ReadPersons(@"..\..\..\people.json");
+            ReadPersons(@"people.json");
             QueryHandler.Client = client;
             QueryHandler handler = new QueryHandler("my-index");
             var indexHandler = new IndexHandler();

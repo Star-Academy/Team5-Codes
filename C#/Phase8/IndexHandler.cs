@@ -19,7 +19,7 @@ namespace Phase8 {
         }
 
         private ITypeMapping CreateMapping (TypeMappingDescriptor<Person> mapping) {
-            return mapping.Properties (p => p.AddAboutFieldMapping ());
+            return mapping.Properties(p => p.AddAboutFieldMapping());
         }
 
     }
