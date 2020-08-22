@@ -141,5 +141,21 @@ namespace Phase8
             Console.WriteLine(response);
         }
 
+        public void GeoDistanceQuerySample1()
+        {
+            var response = Client.Search<Person>(s => s.
+            Index(ElasticIndexName)
+            .Query(query => query
+                .GeoDistance(g => g
+                .Name("Geo Distance Query Sample 1")
+                .Field(p => p.Location)
+                .DistanceType(GeoDistanceType.Arc)
+                .Location(0, 0)
+                .Distance("100m")
+                .ValidationMethod(GeoValidationMethod.IgnoreMalformed))));
+            
+            Console.WriteLine(response);
+        }
+
     }
 }
