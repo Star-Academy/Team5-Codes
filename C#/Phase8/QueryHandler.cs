@@ -157,5 +157,26 @@ namespace Phase8
             Console.WriteLine(response);
         }
 
+        public void MultiMatchQuerySample1()
+        {
+            var response = Client.Search<Person>(s => s.
+            Index(ElasticIndexName)
+            .Query(query => query
+                .MultiMatch(c => c
+                .Name("MultiMatch Query Sample 1")
+                .Fields(f => f.Field(p => p.About).Field(p => p.Name))
+                .Query("Labore")
+                .Analyzer("standard")
+                .Fuzziness(Fuzziness.Auto)
+                .PrefixLength(2)
+                .MinimumShouldMatch(1)
+                .FuzzyRewrite(MultiTermQueryRewrite.ConstantScoreBoolean)
+                .ZeroTermsQuery(ZeroTermsQuery.All)
+                .AutoGenerateSynonymsPhraseQuery(false)
+                )));
+
+            Console.WriteLine(response);
+        }
+
     }
 }
