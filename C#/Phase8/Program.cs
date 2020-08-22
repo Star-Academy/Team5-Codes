@@ -17,6 +17,7 @@ namespace Phase8
             var test = client.Ping();
             Console.WriteLine(test);
             ReadPersons(@"..\..\..\people.json");
+            QueryHandler.Client = client;
         }
 
         static List<Person> ReadPersons(string path)
