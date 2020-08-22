@@ -1,51 +1,62 @@
+using Nest;
 using System;
 using System.Text.Json.Serialization;
-using Nest;
 
-namespace Phase8 {
+namespace Phase8
+{
 
-    public class Person {
-        [JsonPropertyName ("age")]
+    public class Person
+    {
+        [JsonPropertyName("age")]
         public int Age { get; set; }
 
-        [JsonPropertyName ("eyeColor")]
+        [JsonPropertyName("eyeColor")]
         public string EyeColor { get; set; }
 
-        [JsonPropertyName ("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonPropertyName ("gender")]
+        [JsonPropertyName("gender")]
         public string Gender { get; set; }
 
-        [JsonPropertyName ("company")]
+        [JsonPropertyName("company")]
         public string Company { get; set; }
 
-        [JsonPropertyName ("email")]
+        [JsonPropertyName("email")]
         public string Email { get; set; }
 
-        [JsonPropertyName ("phone")]
+        [JsonPropertyName("phone")]
         public string Phone { get; set; }
 
-        [JsonPropertyName ("address")]
+        [JsonPropertyName("address")]
         public string Address { get; set; }
 
-        [JsonPropertyName ("about")]
+        [JsonPropertyName("about")]
         public string About { get; set; }
 
-        [JsonPropertyName ("registration_date")]
+        [JsonPropertyName("registration_date")]
         public DateTime RegistrationDate { get; set; }
 
         [Ignore]
-        [JsonPropertyName ("latitude")]
+        [JsonPropertyName("latitude")]
         public double Latitude { get; set; }
 
         [Ignore]
-        [JsonPropertyName ("longitude")]
+        [JsonPropertyName("longitude")]
         public double Longitude { get; set; }
 
-        public string Location {
-            get {
-                return $"{Latitude},{Longitude}";
+        private string location = null;
+        public string Location
+        {
+            get
+            {
+                if (location is null)
+                    return $"{Latitude},{Longitude}";
+                return location;
+            }
+            set
+            {
+                location = value;
             }
         }
     }
