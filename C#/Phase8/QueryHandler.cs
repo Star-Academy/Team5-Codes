@@ -129,5 +129,17 @@ namespace Phase8
             Console.WriteLine(response);
         }
 
+        public void RangeQuerySample1()
+        {
+            var response = Client.Search<Person>(s => s.
+            Index(ElasticIndexName)
+            .Query(query => query
+                .Range(c => c
+                    .Field(p => p.Age)
+                    .LessThan(20)
+                    .GreaterThan(15))));
+            Console.WriteLine(response);
+        }
+
     }
 }
