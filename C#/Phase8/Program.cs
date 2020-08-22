@@ -15,8 +15,8 @@ namespace Phase8
             // connectionSettings.EnableDebugMode();
             ElasticClient client = new ElasticClient(connectionSettings);
             var test = client.Ping();
-            
-            ReadPersons("people.json");
+            Console.WriteLine(test);
+            ReadPersons(@"..\..\..\people.json");
         }
 
         static List<Person> ReadPersons(string path)
