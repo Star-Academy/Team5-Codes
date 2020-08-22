@@ -8,6 +8,8 @@ namespace Phase8
 {
     class Program
     {
+
+        private const string IndexName = "index_1";
         static void Main(string[] args)
         {
             var uri = new Uri("http://localhost:9200");
@@ -18,6 +20,9 @@ namespace Phase8
             Console.WriteLine(test);
             ReadPersons(@"..\..\..\people.json");
             QueryHandler.Client = client;
+            QueryHandler handler = new QueryHandler("my-index");
+            var indexHandler = new IndexHandler();
+            indexHandler.CreateIndex("my-index");
         }
 
         static List<Person> ReadPersons(string path)

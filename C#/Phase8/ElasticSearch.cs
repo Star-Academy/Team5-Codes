@@ -14,7 +14,7 @@ namespace Phase8
             client = new ElasticClient(connectionSettings);
         }
         
-        static public ElasticClient GeteClient()
+        static public ElasticClient GetClient()
         {
             return client;
         }

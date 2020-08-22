@@ -6,9 +6,15 @@ namespace Phase8
 {
     class QueryHandler
     {
-
+        public string ElasticIndexName { get; set; }
         public static ElasticClient Client { get; set; }
-        public static void BoolQuerySample1()
+
+        public QueryHandler(string v)
+        {
+            ElasticIndexName = v;
+        }
+
+        public void BoolQuerySample1()
         {
             QueryContainer query = new BoolQuery
             {
@@ -22,14 +28,14 @@ namespace Phase8
                 }
             };
             var response = Client.Search<Dictionary<string, object>>(s => s
-                .Index("my-index")
+                .Index(ElasticIndexName)
                 .Query(q => query));
         }
 
-        public static void BoolQuerySample2()
+        public void BoolQuerySample2()
         {
             var response = Client.Search<Person>(s => s
-                .Index("my-index")
+                .Index(ElasticIndexName)
                 .Query(q => q
                     .Bool(b => b
                         .Must(must => must
