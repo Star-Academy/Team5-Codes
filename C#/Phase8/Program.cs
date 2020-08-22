@@ -15,10 +15,12 @@ namespace Phase8
         static void Main(string[] args)
         {
             var client = ElasticSearch.GetClient();
+            
             QueryHandler.Client = client;
             QueryHandler handler = new QueryHandler(IndexName);
             var indexHandler = new IndexHandler<Person>();
             var items = ReadItemsFromFile<Person>(FileName);
+            indexHandler.CreateIndex(IndexName);
             indexHandler.AddDocToIndex(IndexName, items);
             handler.MatchAllQuerySample1();
         }
