@@ -8,6 +8,8 @@ namespace Phase8
 {
     class Program
     {
+
+        private const string IndexName = "index-1";
         static void Main(string[] args)
         {
             ReadPersons("people.json");
