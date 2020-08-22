@@ -9,20 +9,16 @@ namespace Phase8
     class Program
     {
 
-        private const string IndexName = "index_1";
+        private const string IndexName = "my-indeex";
+        private const string FileName = "people.json";
         static void Main(string[] args)
         {
-            var uri = new Uri("http://localhost:9200");
-            var connectionSettings = new ConnectionSettings(uri);
-            //connectionSettings.EnableDebugMode();
-            ElasticClient client = new ElasticClient(connectionSettings);
-            var test = client.Ping();
-            Console.WriteLine(test);
-            ReadPersons(@"people.json");
+            var client = ElasticSearch.GetClient();
+            ReadItemsFromFile<Person>(FileName);
             QueryHandler.Client = client;
-            QueryHandler handler = new QueryHandler("my-index");
+            QueryHandler handler = new QueryHandler(IndexName);
             var indexHandler = new IndexHandler();
-            var items = ReadItemsFromFile<Person>("people.json");
+            var items = ReadItemsFromFile<Person>(FileName);
             indexHandler.AddDocToIndex<Person>(IndexName, items);
         }
 
