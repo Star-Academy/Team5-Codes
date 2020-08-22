@@ -11,6 +11,7 @@ namespace Phase8
 
         private const string IndexName = "index_1";
         private const string FileName = "people.json";
+        
         static void Main(string[] args)
         {
             var client = ElasticSearch.GetClient();
