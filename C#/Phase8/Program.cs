@@ -19,7 +19,8 @@ namespace Phase8
             QueryHandler handler = new QueryHandler(IndexName);
             var indexHandler = new IndexHandler<Person>();
             var items = ReadItemsFromFile<Person>(FileName);
-            indexHandler.AddDocToIndex(IndexName, items);
+            indexHandler.AddDocToIndex(ElasticIndexName, items);
+            handler.MatchAllQuerySample1();
         }
 
         static List<T> ReadItemsFromFile<T>(string path)
