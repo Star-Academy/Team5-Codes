@@ -12,7 +12,13 @@ namespace Phase8
         private const string IndexName = "index-1";
         static void Main(string[] args)
         {
-            ReadPersons("people.json");
+            var uri = new Uri("http://localhost:9200");
+            var connectionSettings = new ConnectionSettings(uri);
+            //connectionSettings.EnableDebugMode();
+            ElasticClient client = new ElasticClient(connectionSettings);
+            var test = client.Ping();
+            Console.WriteLine(test);
+            ReadPersons(@"..\..\..\people.json");
         }
 
         static List<Person> ReadPersons(string path)
