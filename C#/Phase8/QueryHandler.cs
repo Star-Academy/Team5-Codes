@@ -57,5 +57,29 @@ namespace Phase8
             Console.WriteLine(response);
         }
 
+        public void MatchQuerySample1()
+        {
+            var response = Client.Search<Person>(s => s
+                .Index(ElasticIndexName)
+                .Query(query => query
+                    .Match(match => match
+                       .Field(p => p.About)
+                       .Query("Labore"))));
+            Console.WriteLine(response);
+        }
+
+        public void FuzzyQuerySample1()
+        {
+            var response = Client.Search<Person>(s => s
+            .Index(ElasticIndexName)
+            .Query(query => query
+                .Fuzzy(c => c
+                    .Name("salam")
+                    .Field(p => p.Name)
+            .Fuzziness(Fuzziness.Auto))));
+
+            Console.WriteLine(response);
+        }
+
     }
 }

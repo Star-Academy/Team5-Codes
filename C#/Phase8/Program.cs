@@ -22,7 +22,8 @@ namespace Phase8
             var items = ReadItemsFromFile<Person>(FileName);
             indexHandler.CreateIndex(IndexName);
             indexHandler.AddDocToIndex(IndexName, items);
-            handler.MatchAllQuerySample1();
+            handler.FuzzyQuerySample1();
+
         }
 
         static List<T> ReadItemsFromFile<T>(string path)
