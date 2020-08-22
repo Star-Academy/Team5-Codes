@@ -16,8 +16,13 @@ namespace Phase8
             ElasticClient client = new ElasticClient(connectionSettings);
             var test = client.Ping();
             
-            var content = File.ReadAllText("people.json");
-            JsonSerializer.Deserialize<List<Person>>(content);
+            ReadPersons("people.json");
+        }
+
+        static List<Person> ReadPersons(string path)
+        {
+            var content = File.ReadAllText(path);
+            return JsonSerializer.Deserialize<List<Person>>(content);
         }
     }
 }
