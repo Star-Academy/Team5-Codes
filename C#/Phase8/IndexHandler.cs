@@ -4,7 +4,7 @@ using Nest;
 
 namespace Phase8
 {
-    public class IndexHandler
+    public class IndexHandler<T>
     {
         private readonly ElasticClient client;
 
@@ -21,12 +21,12 @@ namespace Phase8
                )
             );
         }
-        public void AddDocToIndex<T>(string index, List<T> list)
+        public void AddDocToIndex(string index, List<Person> list)
         {
             var bulkDescriptor = new BulkDescriptor();
             foreach (var person in list)
             {
-                bulkDescriptor.Index<T>(x => x
+                bulkDescriptor.Index<Person>(x => x
                    .Index(index)
                    .Document(person)
                 );
