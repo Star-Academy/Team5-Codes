@@ -1,4 +1,5 @@
 ﻿using Nest;
+using System;
 using System.Collections.Generic;
 using System.Net;
 
@@ -46,10 +47,11 @@ namespace Phase8
 
         public static void MatchAllQuerySample1()
         {
-            Client.Search<Person>(s => s.
+            var searchResponse = Client.Search<Person>(s => s.
             Query(query => query
-            .MatchAll()));
-            
+            .MatchAll())
+            );
+            Console.WriteLine(searchResponse);
         }
 
     }
