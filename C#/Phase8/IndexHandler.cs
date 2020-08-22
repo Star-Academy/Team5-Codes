@@ -24,13 +24,13 @@ namespace Phase8
         public void AddDocToIndex<T>(string index, List<T> list)
         {
             var bulkDescriptor = new BulkDescriptor();
-            foreach (var person in list)
-            {
-                bulkDescriptor.Index<T>(x => x
-                   .Index(index)
-                   .Document(person)
-                );
-            }
+            //foreach (var person in list)
+            //{
+            //    bulkDescriptor.Index<T>(x => x
+            //       .Index(index)
+            //       .Document(person)
+            //    );
+            //}
             client.Bulk(bulkDescriptor);
         }
     }

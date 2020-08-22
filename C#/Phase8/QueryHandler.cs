@@ -30,7 +30,9 @@ namespace Phase8
             };
             var response = Client.Search<Dictionary<string, object>>(s => s
                 .Index(ElasticIndexName)
-                .Query(q => query));
+                .Query(q => query)
+                );
+            Console.WriteLine(response);
         }
 
         public void BoolQuerySample2()
@@ -43,15 +45,16 @@ namespace Phase8
                             .Match(match => match
                                 .Field(p => p.About)
                                 .Query("Labore"))))));
+            Console.WriteLine(response);
         }
 
-        public static void MatchAllQuerySample1()
+        public void MatchAllQuerySample1()
         {
-            var searchResponse = Client.Search<Person>(s => s.
-            Query(query => query
-            .MatchAll())
+            var response = Client.Search<Person>(s => s
+                .Index(ElasticIndexName)
+                .MatchAll()
             );
-            Console.WriteLine(searchResponse);
+            Console.WriteLine(response);
         }
 
     }

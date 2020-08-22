@@ -18,6 +18,7 @@ namespace Phase8
             var indexHandler = new IndexHandler();
             var items = ReadItemsFromFile<Person>(FileName);
             indexHandler.AddDocToIndex(ElasticIndexName, items);
+            handler.MatchAllQuerySample1();
         }
 
         static List<T> ReadItemsFromFile<T>(string path)
