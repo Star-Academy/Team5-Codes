@@ -23,6 +23,7 @@ namespace Phase8
             indexHandler.CreateIndex(IndexName);
             indexHandler.AddDocToIndex(IndexName, items);
             handler.FuzzyQuerySample1();
+            handler.TermQuerySample1();
 
         }
 

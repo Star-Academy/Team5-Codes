@@ -74,10 +74,46 @@ namespace Phase8
             .Index(ElasticIndexName)
             .Query(query => query
                 .Fuzzy(c => c
-                    .Name("salam")
+                    .Name("Fuzzy Query Sample 1")
                     .Field(p => p.Name)
             .Fuzziness(Fuzziness.Auto))));
 
+            Console.WriteLine(response);
+        }
+
+        public void TermQuerySample1()
+        {
+            var response = Client.Search<Person>(s => s.
+            Index(ElasticIndexName)
+            .Query(query => query
+            .Term(c => c
+                .Name("Term Query Sample1")
+                .Field(p => p.About)
+                .Value("Labore"))));
+            Console.WriteLine(response);
+        }
+
+        public void TermQueryVerbatimSample()
+        {
+            var response = Client.Search<Person>(s => s.
+            Index(ElasticIndexName)
+            .Query(query => query
+            .Term(c => c
+                .Verbatim()
+                .Field(p => p.About)
+                .Value(string.Empty))));
+            Console.WriteLine(response);
+        }
+
+        public void TermsQuerySample1()
+        {
+            var response = Client.Search<Person>(s => s.
+            Index(ElasticIndexName)
+            .Query(query => query
+            .Terms(c => c
+                .Name("Terms Query Sample1")
+                .Field(p => p.About)
+                .Terms("Labore", "salam", "ishalla"))));
             Console.WriteLine(response);
         }
 
