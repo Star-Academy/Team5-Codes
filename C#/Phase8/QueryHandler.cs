@@ -32,6 +32,7 @@ namespace Phase8
                 .Index(ElasticIndexName)
                 .Query(q => query)
                 );
+            
             Console.WriteLine(response);
         }
 
@@ -45,6 +46,7 @@ namespace Phase8
                             .Match(match => match
                                 .Field(p => p.About)
                                 .Query("Labore"))))));
+            
             Console.WriteLine(response);
         }
 
@@ -54,6 +56,7 @@ namespace Phase8
                 .Index(ElasticIndexName)
                 .MatchAll()
             );
+           
             Console.WriteLine(response);
         }
 
@@ -65,18 +68,19 @@ namespace Phase8
                     .Match(match => match
                        .Field(p => p.About)
                        .Query("Labore"))));
+            
             Console.WriteLine(response);
         }
 
         public void FuzzyQuerySample1()
         {
             var response = Client.Search<Person>(s => s
-            .Index(ElasticIndexName)
-            .Query(query => query
-                .Fuzzy(c => c
-                    .Name("Fuzzy Query Sample 1")
-                    .Field(p => p.Name)
-            .Fuzziness(Fuzziness.Auto))));
+                .Index(ElasticIndexName)
+                .Query(query => query
+                    .Fuzzy(c => c
+                        .Name("Fuzzy Query Sample 1")
+                        .Field(p => p.Name)
+                .Fuzziness(Fuzziness.Auto))));
 
             Console.WriteLine(response);
         }
@@ -84,96 +88,122 @@ namespace Phase8
         public void TermQuerySample1()
         {
             var response = Client.Search<Person>(s => s.
-            Index(ElasticIndexName)
-            .Query(query => query
-            .Term(c => c
-                .Name("Term Query Sample1")
-                .Field(p => p.About)
-                .Value("Labore"))));
+                Index(ElasticIndexName)
+                .Query(query => query
+                .Term(c => c
+                    .Name("Term Query Sample1")
+                    .Field(p => p.About)
+                    .Value("Labore"))));
+            
             Console.WriteLine(response);
         }
 
         public void TermQueryVerbatimSample()
         {
             var response = Client.Search<Person>(s => s.
-            Index(ElasticIndexName)
-            .Query(query => query
-            .Term(c => c
-                .Verbatim()
-                .Field(p => p.About)
-                .Value(string.Empty))));
+                Index(ElasticIndexName)
+                .Query(query => query
+                .Term(c => c
+                    .Verbatim()
+                    .Field(p => p.About)
+                    .Value(string.Empty))));
+            
             Console.WriteLine(response);
         }
 
         public void TermsQuerySample1()
         {
             var response = Client.Search<Person>(s => s.
-            Index(ElasticIndexName)
-            .Query(query => query
-            .Terms(c => c
-                .Name("Terms Query Sample1")
-                .Field(p => p.About)
-                .Terms("Labore", "salam", "ishalla"))));
+                Index(ElasticIndexName)
+                .Query(query => query
+                .Terms(c => c
+                    .Name("Terms Query Sample1")
+                    .Field(p => p.About)
+                    .Terms("Labore", "salam", "ishalla"))));
+            
             Console.WriteLine(response);
         }
 
         public void TermsQueryVerbatimSample()
         {
             var response = Client.Search<Person>(s => s.
-            Index(ElasticIndexName)
-            .Query(query => query
-            .Terms(c => c
-                .Verbatim()
-                .Field(p => p.About)
-                .Terms(new string[] { }))));
+                Index(ElasticIndexName)
+                .Query(query => query
+                .Terms(c => c
+                    .Verbatim()
+                    .Field(p => p.About)
+                    .Terms(new string[] { }))));
+            
             Console.WriteLine(response);
         }
 
         public void RangeQuerySample1()
         {
             var response = Client.Search<Person>(s => s.
-            Index(ElasticIndexName)
-            .Query(query => query
-                .Range(c => c
-                    .Field(p => p.Age)
-                    .LessThan(20)
-                    .GreaterThan(15))));
+                Index(ElasticIndexName)
+                .Query(query => query
+                    .Range(c => c
+                        .Field(p => p.Age)
+                        .LessThan(20)
+                        .GreaterThan(15))));
+            
             Console.WriteLine(response);
         }
 
         public void GeoDistanceQuerySample1()
         {
             var response = Client.Search<Person>(s => s.
-            Index(ElasticIndexName)
-            .Query(query => query
-                .GeoDistance(g => g
-                .Name("Geo Distance Query Sample 1")
-                .Field(p => p.Location)
-                .DistanceType(GeoDistanceType.Arc)
-                .Location(0, 0)
-                .Distance("100m")
-                .ValidationMethod(GeoValidationMethod.IgnoreMalformed))));
-            
+                Index(ElasticIndexName)
+                .Query(query => query
+                    .GeoDistance(g => g
+                    .Name("Geo Distance Query Sample 1")
+                    .Field(p => p.Location)
+                    .DistanceType(GeoDistanceType.Arc)
+                    .Location(0, 0)
+                    .Distance("100m")
+                    .ValidationMethod(GeoValidationMethod.IgnoreMalformed))));
+
             Console.WriteLine(response);
         }
 
         public void MultiMatchQuerySample1()
         {
             var response = Client.Search<Person>(s => s.
-            Index(ElasticIndexName)
-            .Query(query => query
-                .MultiMatch(c => c
-                .Name("MultiMatch Query Sample 1")
-                .Fields(f => f.Field(p => p.About).Field(p => p.Name))
-                .Query("Labore")
-                .Analyzer("standard")
-                .Fuzziness(Fuzziness.Auto)
-                .PrefixLength(2)
-                .MinimumShouldMatch(1)
-                .FuzzyRewrite(MultiTermQueryRewrite.ConstantScoreBoolean)
-                .ZeroTermsQuery(ZeroTermsQuery.All)
-                .AutoGenerateSynonymsPhraseQuery(false)
-                )));
+                Index(ElasticIndexName)
+                .Query(query => query
+                    .MultiMatch(c => c
+                    .Name("MultiMatch Query Sample 1")
+                    .Fields(f => f.Field(p => p.About).Field(p => p.Name))
+                    .Query("Labore")
+                    .Analyzer("standard")
+                    .Fuzziness(Fuzziness.Auto)
+                    .PrefixLength(2)
+                    .MinimumShouldMatch(1)
+                    .FuzzyRewrite(MultiTermQueryRewrite.ConstantScoreBoolean)
+                    .ZeroTermsQuery(ZeroTermsQuery.All)
+                    .AutoGenerateSynonymsPhraseQuery(false)
+                    )));
+
+            Console.WriteLine(response);
+        }
+
+        public void TermsAggregationQuerySample1()
+        {
+            var response = Client.Search<Person>(s => s.
+                Index(ElasticIndexName)
+                .Aggregations(a => a
+                .Terms("ages", avg => avg
+                    .Field(f => f.Age)
+                    .MinimumDocumentCount(2)
+                    .Size(5)
+                    .ShardSize(1000)
+                    .ExecutionHint(TermsAggregationExecutionHint.Map)
+                    .Missing("n/a")
+                    .Order(o => o
+                        .KeyAscending()
+                        .CountDescending())
+                    ))
+                );
 
             Console.WriteLine(response);
         }
