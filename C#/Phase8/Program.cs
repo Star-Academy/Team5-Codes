@@ -12,11 +12,12 @@ namespace Phase8
         {
             var uri = new Uri("http://localhost:9200");
             var connectionSettings = new ConnectionSettings(uri);
-            // connectionSettings.EnableDebugMode();
+            //connectionSettings.EnableDebugMode();
             ElasticClient client = new ElasticClient(connectionSettings);
             var test = client.Ping();
             Console.WriteLine(test);
             ReadPersons(@"..\..\..\people.json");
+            
         }
 
         static List<Person> ReadPersons(string path)
