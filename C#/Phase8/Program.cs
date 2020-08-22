@@ -22,13 +22,14 @@ namespace Phase8
             QueryHandler.Client = client;
             QueryHandler handler = new QueryHandler("my-index");
             var indexHandler = new IndexHandler();
-            indexHandler.CreateIndex("my-index");
+            var items = ReadItemsFromFile<Person>("people.json");
+            indexHandler.AddDocToIndex<Person>(IndexName, items);
         }
 
-        static List<Person> ReadPersons(string path)
+        static List<T> ReadItemsFromFile<T>(string path)
         {
             var content = File.ReadAllText(path);
-            return JsonSerializer.Deserialize<List<Person>>(content);
+            return JsonSerializer.Deserialize<List<T>>(content);
         }
     }
 }
