@@ -117,5 +117,17 @@ namespace Phase8
             Console.WriteLine(response);
         }
 
+        public void TermsQueryVerbatimSample()
+        {
+            var response = Client.Search<Person>(s => s.
+            Index(ElasticIndexName)
+            .Query(query => query
+            .Terms(c => c
+                .Verbatim()
+                .Field(p => p.About)
+                .Terms(new string[] { }))));
+            Console.WriteLine(response);
+        }
+
     }
 }
