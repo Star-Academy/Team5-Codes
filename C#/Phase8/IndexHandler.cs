@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Nest;
 
 namespace Phase8 {
@@ -10,17 +11,22 @@ namespace Phase8 {
         }
 
         public void CreateIndex (string index) {
-            var createIndexResponse = client.Indices.Create ("myindex", c => c
+            var createIndexResponse = client.Indices.Create (index, c => c
                 .Map<Person> (m => m
                     .AutoMap ()
                 )
             );
-            Console.WriteLine(createIndexResponse);
         }
 
-        private ITypeMapping CreateMapping (TypeMappingDescriptor<Person> mapping) {
-            return mapping.Properties (p => p.AddAboutFieldMapping ());
+        public void AddDocToIndex<T> (string index, List<T> list) {
+            var bulkDescriptor = new BulkDescriptor ();
+            foreach (var person in list) {
+                bulkDescriptor.Index<T> (x => x
+                    .Index (index)
+                    .Document (person)
+                );
+            }
+            client.Bulk (bulkDescriptor);
         }
-
     }
 }

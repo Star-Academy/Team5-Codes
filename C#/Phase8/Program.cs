@@ -14,13 +14,14 @@ namespace Phase8
         {
             var client = ElasticSearch.GetClient();
             var indexHandler = new IndexHandler();
-            indexHandler.CreateIndex();
+            var items = ReadItemsFromFile<Person>("people.json");
+            indexHandler.AddDocToIndex<Person>(IndexName, items);
         }
 
-        static List<Person> ReadPersons(string path)
+        static List<T> ReadItemsFromFile<T>(string path)
         {
             var content = File.ReadAllText(path);
-            return JsonSerializer.Deserialize<List<Person>>(content);
+            return JsonSerializer.Deserialize<List<T>>(content);
         }
     }
 }
