@@ -9,6 +9,7 @@ namespace Phase8
 
         private const string ElasticIndexName = "my-index";
         private const string FileName = "people.json";
+        
         static void Main(string[] args)
         {
             var client = ElasticSearch.GetClient();
