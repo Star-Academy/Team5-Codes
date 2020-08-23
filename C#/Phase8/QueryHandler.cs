@@ -44,28 +44,5 @@ namespace Phase8
 
             return response;
         }
-
-        private BoolQuery CreateOrQuery(List<string> allTokens)
-        {
-            var shouldList = new List<QueryContainer>();
-
-            foreach (var token in allTokens)
-            {
-                shouldList.Add(new MatchQuery
-                {
-                    Field = field,
-                    Query = token,
-                    Analyzer = "standard",
-                    Fuzziness = Fuzziness.Auto,
-                });
-            }
-
-            BoolQuery query = new BoolQuery
-            {
-                Should = shouldList
-            };
-
-            return query;
-        }
     }
 }
