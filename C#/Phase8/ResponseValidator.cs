@@ -1,10 +1,12 @@
-﻿namespace Phase8
+﻿using Nest;
+
+namespace Phase8
 {
     class ResponseValidator
     {
-        public bool Validate(var test )
+        public static void Validate(ISearchResponse<Person> response)
         {
-            return true;
+
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Phase8 {
             ElasticIndexName = indexName;
         }
 
-        public IReadOnlyCollection<Person> DoQuery (Dictionary<string, List<string>> processedInput) {
+        public ISearchResponse<Person> DoQuery (Dictionary<string, List<string>> processedInput) {
             var q = new BoolQuery();
 
 
@@ -30,7 +30,7 @@ namespace Phase8 {
                 .Query (q => queries[0])
             );
 
-            return response.Documents;
+            return response;
         }
 
         private BoolQuery CreateOrQuery (List<string> allTokens) {
