@@ -6,6 +6,11 @@ namespace Phase8
     {
         public static void Validate(ISearchResponse<Person> response)
         {
+            if (response.ApiCall.Success)
+            {
+                Program.ShowResult(response.Documents);
+                return;
+            } 
 
         }
     }

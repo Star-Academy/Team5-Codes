@@ -36,7 +36,7 @@ namespace Phase8
             return JsonSerializer.Deserialize<List<T>>(content);
         }
 
-        static void ShowResult<T>(IReadOnlyCollection<T> result)
+        public static void ShowResult<T>(IReadOnlyCollection<T> result)
         {
             foreach (var item in result)
             {
