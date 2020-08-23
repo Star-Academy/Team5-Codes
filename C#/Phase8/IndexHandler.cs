@@ -48,6 +48,7 @@ namespace Phase8 {
                     )
                 )
             );
+            Console.WriteLine(createIndexResponse);
         }
 
         public void AddDocToIndex (string index, List<T> list) {
@@ -58,7 +59,8 @@ namespace Phase8 {
                     .Document (person)
                 );
             }
-            client.Bulk (bulkDescriptor);
+            Console.WriteLine(client.Bulk (bulkDescriptor));
+
         }
     }
 }
