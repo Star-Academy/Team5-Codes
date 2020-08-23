@@ -20,7 +20,7 @@ namespace Phase8
                 .Settings(s => s
                     .Analysis(a => a
                         .Analyzers(analyzers => analyzers
-                            .Standard("standard_english", sa => sa
+                            .Standard("english_Analyzer", sa => sa
                                 .StopWords("_english_")
                             )
                         )
@@ -33,31 +33,31 @@ namespace Phase8
                      )
                      .Text(t => t
                         .Name(n => n.EyeColor)
-                        .Analyzer("standard_english")
+                        .Analyzer("english_Analyzer")
                      )
                      .Text(t => t
                         .Name(n => n.Name)
-                        .Analyzer("standard_english")
+                        .Analyzer("english_Analyzer")
                      )
                      .Text(t => t
                         .Name(n => n.Gender)
-                        .Analyzer("standard_english")
+                        .Analyzer("english_Analyzer")
                      )
                      .Text(t => t
                         .Name(n => n.Company)
-                        .Analyzer("standard_english")
+                        .Analyzer("english_Analyzer")
                      )
                      .Text(t => t
                         .Name(n => n.Phone)
-                        .Analyzer("standard_english")
+                        .Analyzer("english_Analyzer")
                      )
                      .Text(t => t
                         .Name(n => n.Address)
-                        .Analyzer("standard_english")
+                        .Analyzer("english_Analyzer")
                      )
                      .Text(t => t
                         .Name(n => n.About)
-                        .Analyzer("standard_english")
+                        .Analyzer("english_Analyzer")
                      )
                      .Date(d => d
                         .Name(n => n.RegistrationDate)
