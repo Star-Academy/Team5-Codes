@@ -57,16 +57,16 @@ namespace Phase8 {
 
         public override string ToString () {
             return "Age: " + Age + '\n' +
-                "Eye color" + EyeColor + '\n' +
-                "Name" + Name + '\n' +
-                "Gender" + Gender + '\n' +
-                "Company" + Company + '\n' +
-                "Email" + Email + '\n' +
-                "Phone" + Phone + '\n' +
-                "Address" + Address + '\n' +
-                "About" + About + '\n' +
-                "RegistrationDate" + RegistrationDate + '\n' +
-                "Location" + Location + '\n';
+                "Eye color: " + EyeColor + '\n' +
+                "Name: " + Name + '\n' +
+                "Gender: " + Gender + '\n' +
+                "Company: " + Company + '\n' +
+                "Email: " + Email + '\n' +
+                "Phone: " + Phone + '\n' +
+                "Address: " + Address + '\n' +
+                "About: " + About + '\n' +
+                "RegistrationDate: " + RegistrationDate + '\n' +
+                "Location: " + Location + '\n';
         }
     }
 }

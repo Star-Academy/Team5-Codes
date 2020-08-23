@@ -12,7 +12,7 @@ namespace Phase8 {
             ElasticIndexName = v;
         }
 
-        public void BoolQuerySample1 () {
+        public IReadOnlyCollection<Dictionary<string, object>> BoolQuerySample1 () {
             QueryContainer query = new BoolQuery {
                 Must = new List<QueryContainer> {
                 new MatchQuery {
@@ -26,10 +26,10 @@ namespace Phase8 {
                     .Query (q => query)
                 );
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void BoolQuerySample2 () {
+        public IReadOnlyCollection<Person> BoolQuerySample2 () {
             var response = Client.Search<Person> (s => s
                 .Index (ElasticIndexName)
                 .Query (q => q
@@ -39,19 +39,19 @@ namespace Phase8 {
                                 .Field (p => p.About)
                                 .Query ("Labore"))))));
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void MatchAllQuerySample1 () {
+        public IReadOnlyCollection<Person> MatchAllQuerySample1 () {
             var response = Client.Search<Person> (s => s
                 .Index (ElasticIndexName)
                 .MatchAll ()
             );
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void MatchQuerySample1 () {
+        public IReadOnlyCollection<Person> MatchQuerySample1 () {
             var response = Client.Search<Person> (s => s
                 .Index (ElasticIndexName)
                 .Query (query => query
@@ -59,10 +59,10 @@ namespace Phase8 {
                         .Field (p => p.About)
                         .Query ("Labore"))));
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void FuzzyQuerySample1 () {
+        public IReadOnlyCollection<Person> FuzzyQuerySample1 () {
             var response = Client.Search<Person> (s => s
                 .Index (ElasticIndexName)
                 .Query (query => query
@@ -70,14 +70,10 @@ namespace Phase8 {
                         .Name ("Fuzzy Query Sample 1")
                         .Field (p => p.Name)
                         .Fuzziness (Fuzziness.Auto))));
-
-            Console.WriteLine (response);
-            foreach (var item in response.Documents) {
-                Console.WriteLine (item);
-            }
+            return response.Documents;
         }
 
-        public void TermQuerySample1 () {
+        public IReadOnlyCollection<Person> TermQuerySample1 () {
             var response = Client.Search<Person> (s => s.Index (ElasticIndexName)
                 .Query (query => query
                     .Term (c => c
@@ -85,10 +81,10 @@ namespace Phase8 {
                         .Field (p => p.About)
                         .Value ("Labore"))));
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void TermQueryVerbatimSample () {
+        public IReadOnlyCollection<Person> TermQueryVerbatimSample () {
             var response = Client.Search<Person> (s => s.Index (ElasticIndexName)
                 .Query (query => query
                     .Term (c => c
@@ -96,10 +92,10 @@ namespace Phase8 {
                         .Field (p => p.About)
                         .Value (string.Empty))));
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void TermsQuerySample1 () {
+        public IReadOnlyCollection<Person> TermsQuerySample1 () {
             var response = Client.Search<Person> (s => s.Index (ElasticIndexName)
                 .Query (query => query
                     .Terms (c => c
@@ -107,10 +103,10 @@ namespace Phase8 {
                         .Field (p => p.About)
                         .Terms ("Labore", "salam", "ishalla"))));
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void TermsQueryVerbatimSample () {
+        public IReadOnlyCollection<Person> TermsQueryVerbatimSample () {
             var response = Client.Search<Person> (s => s.Index (ElasticIndexName)
                 .Query (query => query
                     .Terms (c => c
@@ -118,10 +114,10 @@ namespace Phase8 {
                         .Field (p => p.About)
                         .Terms (new string[] { }))));
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void RangeQuerySample1 () {
+        public IReadOnlyCollection<Person> RangeQuerySample1 () {
             var response = Client.Search<Person> (s => s.Index (ElasticIndexName)
                 .Query (query => query
                     .Range (c => c
@@ -129,10 +125,10 @@ namespace Phase8 {
                         .LessThan (20)
                         .GreaterThan (15))));
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void GeoDistanceQuerySample1 () {
+        public IReadOnlyCollection<Person> GeoDistanceQuerySample1 () {
             var response = Client.Search<Person> (s => s.Index (ElasticIndexName)
                 .Query (query => query
                     .GeoDistance (g => g
@@ -143,10 +139,10 @@ namespace Phase8 {
                         .Distance ("100m")
                         .ValidationMethod (GeoValidationMethod.IgnoreMalformed))));
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void MultiMatchQuerySample1 () {
+        public IReadOnlyCollection<Person> MultiMatchQuerySample1 () {
             var response = Client.Search<Person> (s => s.Index (ElasticIndexName)
                 .Query (query => query
                     .MultiMatch (c => c
@@ -162,10 +158,10 @@ namespace Phase8 {
                         .AutoGenerateSynonymsPhraseQuery (false)
                     )));
 
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
-        public void TermsAggregationQuerySample1 () {
+        public IReadOnlyCollection<Person> TermsAggregationQuerySample1 () {
             var response = Client.Search<Person> (s => s.Index (ElasticIndexName)
                 .Aggregations (a => a
                     .Terms ("ages", avg => avg
@@ -180,8 +176,7 @@ namespace Phase8 {
                             .CountDescending ())
                     ))
             );
-
-            Console.WriteLine (response);
+            return response.Documents;
         }
 
     }

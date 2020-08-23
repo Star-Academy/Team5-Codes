@@ -24,8 +24,7 @@ namespace Phase8
             QueryHandler.Client = client;
             QueryHandler queryHandler = new QueryHandler(IndexName);
             
-            queryHandler.FuzzyQuerySample1();
-            queryHandler.TermQuerySample1();
+            ShowResult(queryHandler.FuzzyQuerySample1());
 
         }
 
@@ -33,6 +32,13 @@ namespace Phase8
         {
             var content = File.ReadAllText(path);
             return JsonSerializer.Deserialize<List<T>>(content);
+        }
+
+        static void ShowResult<T> (IReadOnlyCollection<T> result)
+        {
+            foreach (var item in result) {
+                Console.WriteLine(item);
+            }
         }
     }
 }
