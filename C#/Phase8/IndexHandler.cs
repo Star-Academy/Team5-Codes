@@ -50,7 +50,6 @@ namespace Phase8 {
             );
             Console.WriteLine(createIndexResponse);
         }
-
         public void AddDocToIndex (string index, List<T> list) {
             var bulkDescriptor = new BulkDescriptor ();
             foreach (var person in list) {

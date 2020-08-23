@@ -19,7 +19,7 @@ namespace Phase8
             var items = ReadItemsFromFile<Person>(FileName);   
             
             // indexHandler.CreateIndex(IndexName);
-            indexHandler.AddDocToIndex(IndexName, items);
+            // indexHandler.AddDocToIndex(IndexName, items);
 
             QueryHandler.Client = client;
             QueryHandler queryHandler = new QueryHandler(IndexName);
