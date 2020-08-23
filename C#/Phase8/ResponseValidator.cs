@@ -6,10 +6,8 @@ namespace Phase8
 {
     class ResponseValidator
     {
-        public static void Validate(ElasticsearchResponse<Person> elasticsearchResponse)
+        public static void Validate(ISearchResponse<Person> response)
         {
-
-            var response = (ISearchResponse<Person>) elasticsearchResponse;
 
             if (response.ApiCall.Success && response.IsValid)
             {
@@ -19,16 +17,16 @@ namespace Phase8
             } 
 
             if (response.OriginalException != null)
-                Console.WriteLine("Exception occured while processing the request.");
+                throw new Exception("Exception occured while processing the request.");
 
             if (response.ServerError != null)
-                Console.WriteLine("error occured in the server side of the process.");
+                throw new Exception("error occured in the server side of the process.");
 
             if (response.TerminatedEarly)
-                Console.WriteLine("request terminated earlier than it was supposed to.");
+                throw new Exception("request terminated earlier than it was supposed to.");
 
             if (response.TimedOut)
-                Console.WriteLine("request timed out!");
+                throw new Exception("request timed out!");
         }
     }
 }
