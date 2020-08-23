@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using Nest;
 
 namespace Phase8 {
     class QueryHandler {
+        private const string field = "age";
         public string ElasticIndexName { get; set; }
         public static ElasticClient Client { get; set; }
 
@@ -14,23 +16,32 @@ namespace Phase8 {
         }
 
         public IReadOnlyCollection<Person> DoQuery (Dictionary<string, List<string>> processedInput) {
+            List<BoolQuery> queries = new List<BoolQuery>();
+            queries.Add (CreateOrQuery (processedInput["or"]));
+            BoolQuery positiveResult = new BoolQuery();
+
             var response = Client.Search<Person> (s => s
                 .Index (ElasticIndexName)
-                .Query (q => CreateQuery(processedInput)
-                )
-                );
+                .Query (q => queries[0])
+            );
+
             return response.Documents;
         }
 
-        private QueryContainer CreateQuery (Dictionary<string, List<string>> processedInput) {
-            QueryContainer query = new BoolQuery {
-                Must = new List<QueryContainer> {
-                new MatchQuery {
-                Field = "about",
-                Query = "Labore"
-                }
-                }
+        private BoolQuery CreateOrQuery (List<string> allTokens) {
+            BoolQuery query = new BoolQuery {
+                Should = new List<QueryContainer> { }
             };
+
+            foreach (var token in allTokens) {
+                query.Should.Append (new MatchQuery {
+                    Field = field,
+                    Query = token,
+                    Analyzer = "standard",
+                    Fuzziness = Fuzziness.Auto,
+                });
+            }
+
             return query;
         }
     }

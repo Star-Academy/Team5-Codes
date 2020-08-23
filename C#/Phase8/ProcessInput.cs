@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 
 namespace Phase8
@@ -22,12 +23,12 @@ namespace Phase8
             var splitInput = input.Split(splitChar);
             foreach (var item in splitInput)
             {
-                switch (item)
+                switch (item[0])
                 {
-                    case "+":
+                    case '+':
                         positiveWords.Add(item);
                         break;
-                    case "-":
+                    case '-':
                         negativeWords.Add(item);
                         break;
                     default:
