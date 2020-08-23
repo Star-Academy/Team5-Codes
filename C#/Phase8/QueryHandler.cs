@@ -37,7 +37,7 @@ namespace Phase8 {
                 .Query (q => query)
             );
 
-            return response.Documents;
+            return (ElasticsearchResponse<Person>)response;
         }
     }
 }
