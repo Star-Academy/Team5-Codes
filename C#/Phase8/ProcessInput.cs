@@ -1,6 +1,10 @@
+
 using System.Collections.Generic;
-namespace Phase8 {
-    public class ProcessInput {
+
+namespace Phase8
+{
+    public class ProcessInput
+    {
         private readonly char[] splitChar = { ' ', ',', '.', ';', '(', ')', '\\', '@', '[', ']', '<', '>' };
 
         // public List<string> NoSignWords { get; set; }
@@ -13,22 +17,25 @@ namespace Phase8 {
         /// <param name="input"></param>
         /// <returns>Returns a dictionary: Key -> "or", "and", "not". 
         /// Value -> tokens</returns>
-        public Dictionary<string, List<string>> Process (string input) {
-            var NoSignWords = new List<string> ();
-            var positiveWords = new List<string> ();
-            var negativeWords = new List<string> ();
+        public Dictionary<string, List<string>> Process(string input)
+        {
+            var NoSignWords = new List<string>();
+            var positiveWords = new List<string>();
+            var negativeWords = new List<string>();
 
-            var splitInput = input.Split (splitChar);
-            foreach (var item in splitInput) {
-                switch (item) {
+            var splitInput = input.Split(splitChar);
+            foreach (var item in splitInput)
+            {
+                switch (item)
+                {
                     case "+":
-                        positiveWords.Add (item);
+                        positiveWords.Add(item);
                         break;
                     case "-":
-                        negativeWords.Add (item);
+                        negativeWords.Add(item);
                         break;
                     default:
-                        NoSignWords.Add (item);
+                        NoSignWords.Add(item);
                         break;
                 }
             }

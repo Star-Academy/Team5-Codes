@@ -17,6 +17,15 @@ namespace Phase8
         public void CreateIndex(string index)
         {
             var createIndexResponse = client.Indices.Create(index, c => c
+                .Settings(s => s
+                    .Analysis(a => a
+                        .Analyzers(analyzers => analyzers
+                            .Standard("standard_english", sa => sa
+                                .StopWords("_english_")
+                            )
+                        )
+                    )
+               )
                .Map<Person>(map => map
                   .Properties(pr => pr
                      .Number(num => num
@@ -24,24 +33,31 @@ namespace Phase8
                      )
                      .Text(t => t
                         .Name(n => n.EyeColor)
+                        .Analyzer("standard_english")
                      )
                      .Text(t => t
                         .Name(n => n.Name)
+                        .Analyzer("standard_english")
                      )
                      .Text(t => t
                         .Name(n => n.Gender)
+                        .Analyzer("standard_english")
                      )
                      .Text(t => t
                         .Name(n => n.Company)
+                        .Analyzer("standard_english")
                      )
                      .Text(t => t
                         .Name(n => n.Phone)
+                        .Analyzer("standard_english")
                      )
                      .Text(t => t
                         .Name(n => n.Address)
+                        .Analyzer("standard_english")
                      )
                      .Text(t => t
                         .Name(n => n.About)
+                        .Analyzer("standard_english")
                      )
                      .Date(d => d
                         .Name(n => n.RegistrationDate)
