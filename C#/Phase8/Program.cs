@@ -22,7 +22,7 @@ namespace Phase8
 
             var input = new InputReader().ReadInput();
             var processor = new ProcessInput();
-            var processedInput = processor.Process(input);
+            var processedInput = processor.Process("Labore");
 
             QueryHandler queryHandler = new QueryHandler(IndexName);
             ShowResult(queryHandler.DoQuery(processedInput));

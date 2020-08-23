@@ -6,7 +6,7 @@ using Nest;
 
 namespace Phase8 {
     class QueryHandler {
-        private const string field = "age";
+        private const string field = "about";
         public string ElasticIndexName { get; set; }
         public static ElasticClient Client { get; set; }
 
@@ -16,8 +16,11 @@ namespace Phase8 {
         }
 
         public IReadOnlyCollection<Person> DoQuery (Dictionary<string, List<string>> processedInput) {
+            var q = new BoolQuery();
+            
+            
             List<BoolQuery> queries = new List<BoolQuery>();
-            queries.Add (CreateOrQuery (processedInput["or"]));
+            queries.Add (CreateOrQuery (processedInput["and"]));
             BoolQuery positiveResult = new BoolQuery();
 
             var response = Client.Search<Person> (s => s
@@ -29,18 +32,20 @@ namespace Phase8 {
         }
 
         private BoolQuery CreateOrQuery (List<string> allTokens) {
-            BoolQuery query = new BoolQuery {
-                Should = new List<QueryContainer> { }
-            };
+            var shouldList = new List<QueryContainer>();
 
             foreach (var token in allTokens) {
-                query.Should.Append (new MatchQuery {
+                shouldList.Add (new MatchQuery {
                     Field = field,
                     Query = token,
                     Analyzer = "standard",
                     Fuzziness = Fuzziness.Auto,
                 });
             }
+            
+            BoolQuery query = new BoolQuery {
+                Should = shouldList
+            };  
 
             return query;
         }
