@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Net;
 using Nest;
 
-namespace Phase8 {
-    class QueryHandler {
+namespace Phase8
+{
+    class QueryHandler
+    {
         public string ElasticIndexName { get; set; }
         public static ElasticClient Client { get; set; }
 
-        public QueryHandler (string v) {
+        public QueryHandler(string v)
+        {
             ElasticIndexName = v;
         }
 
