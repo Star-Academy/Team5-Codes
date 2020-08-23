@@ -7,10 +7,6 @@ namespace Phase8
     {
         private readonly char[] splitChar = { ' ', ',', '.', ';', '(', ')', '\\', '@', '[', ']', '<', '>' };
 
-        // public List<string> NoSignWords { get; set; }
-        // public List<string> PositvieWords { get; set; }
-        // public List<string> NegativeWords { get; set; }
-
         /// <summary>
         /// Process user input
         /// </summary>
