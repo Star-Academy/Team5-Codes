@@ -17,17 +17,17 @@ namespace Phase8
             var client = ElasticSearch.GetClient();
             var indexHandler = new IndexHandler<Person>();
             var items = ReadItemsFromFile<Person>(FileName);
-            indexHandler.CreateIndex(IndexName);
-            indexHandler.AddDocToIndex(IndexName, items);
+            // indexHandler.CreateIndex(IndexName);
+            // indexHandler.AddDocToIndex(IndexName, items);
 
             var input = new InputReader().ReadInput();
             var processor = new ProcessInput();           
             var processedInput = processor.Process(input);           
 
-            QueryHandler.Client = client;
-            QueryHandler queryHandler = new QueryHandler(IndexName);
+            QueryHandlerTest.Client = client;
+            QueryHandlerTest queryHandler = new QueryHandlerTest(IndexName);
             
-            ShowResult(queryHandler.FuzzyQuerySample1());
+            ShowResult(queryHandler.BoolQuerySample2());
         }
 
         static List<T> ReadItemsFromFile<T>(string path)
