@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using Nest;
 
 namespace Phase8 {
@@ -16,38 +17,27 @@ namespace Phase8 {
         }
 
         public IReadOnlyCollection<Person> DoQuery (Dictionary<string, List<string>> processedInput) {
-            var q = new BoolQuery();
-            
-            
-            List<BoolQuery> queries = new List<BoolQuery>();
-            queries.Add (CreateOrQuery (processedInput["and"]));
-            BoolQuery positiveResult = new BoolQuery();
+            var query1 = new BoolQuery {
+                Must = new List<QueryContainer> { }
+            };
+
+            query1.Must.Append (
+                new MatchQuery {
+                    Field = field,
+                    Query = "Labore"
+                }
+            );
+
+            var query = new MatchAllQuery {
+                
+            }
 
             var response = Client.Search<Person> (s => s
                 .Index (ElasticIndexName)
-                .Query (q => queries[0])
+                .Query (q => query)
             );
 
             return response.Documents;
-        }
-
-        private BoolQuery CreateOrQuery (List<string> allTokens) {
-            var shouldList = new List<QueryContainer>();
-
-            foreach (var token in allTokens) {
-                shouldList.Add (new MatchQuery {
-                    Field = field,
-                    Query = token,
-                    Analyzer = "standard",
-                    Fuzziness = Fuzziness.Auto,
-                });
-            }
-            
-            BoolQuery query = new BoolQuery {
-                Should = shouldList
-            };  
-
-            return query;
         }
     }
 }
