@@ -1,5 +1,6 @@
 using Nest;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Phase8
 {
@@ -14,21 +15,31 @@ namespace Phase8
             Client = ElasticSearch.GetClient();
             ElasticIndexName = indexName;
         }
-
         public ISearchResponse<Person> DoQuery(Dictionary<string, List<string>> processedInput)
         {
-            var q = new BoolQuery();
-
-
-            List<BoolQuery> queries = new List<BoolQuery>
+            var query1 = new BoolQuery
             {
-                CreateOrQuery(processedInput["and"])
+                Must = new List<QueryContainer> { }
             };
-            BoolQuery positiveResult = new BoolQuery();
+
+            query1.Must.Append(
+                new MatchQuery
+                {
+                    Field = field,
+                    Query = "Labore"
+                }
+            );
+
+            var query = new MatchAllQuery
+            {
+                //...
+                Name = "Match All query",
+
+            };
 
             var response = Client.Search<Person>(s => s
                .Index(ElasticIndexName)
-               .Query(q => queries[0])
+               .Query(q => query)
             );
 
             return response;
