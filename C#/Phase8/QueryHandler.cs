@@ -17,10 +17,12 @@ namespace Phase8 {
 
         public IReadOnlyCollection<Person> DoQuery (Dictionary<string, List<string>> processedInput) {
             var q = new BoolQuery();
-            
-            
-            List<BoolQuery> queries = new List<BoolQuery>();
-            queries.Add (CreateOrQuery (processedInput["and"]));
+
+
+            List<BoolQuery> queries = new List<BoolQuery>
+            {
+                CreateOrQuery(processedInput["and"])
+            };
             BoolQuery positiveResult = new BoolQuery();
 
             var response = Client.Search<Person> (s => s

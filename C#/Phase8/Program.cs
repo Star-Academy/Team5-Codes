@@ -20,9 +20,6 @@ namespace Phase8
             // indexHandler.CreateIndex(IndexName);
             // indexHandler.AddDocToIndex(IndexName, items);
 
-            //var response = client.Cat.Indices();
-            //Console.WriteLine(response.Records.Count);
-
             var input = new InputReader().ReadInput();
             var processor = new ProcessInput();
             var processedInput = processor.Process("Labore");
