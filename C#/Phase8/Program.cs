@@ -23,7 +23,7 @@ namespace Phase8
             //var response = client.Cat.Indices();
             //Console.WriteLine(response.Records.Count);
 
-            var input = new InputReader().ReadInput();
+            // var input = new InputReader().ReadInput();
             var processor = new ProcessInput();
             var processedInput = processor.Process("Labore");
 
