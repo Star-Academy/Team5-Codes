@@ -33,7 +33,7 @@ namespace Phase8
             var query = new MatchAllQuery
             {
                 //...
-                Name = "Match All query",
+                Name = "Match All query"
 
             };
 
