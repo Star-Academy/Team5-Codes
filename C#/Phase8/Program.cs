@@ -1,5 +1,4 @@
-﻿using Nest;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -25,7 +24,7 @@ namespace Phase8
             var processedInput = processor.Process("Labore");
 
             QueryHandler queryHandler = new QueryHandler(IndexName);
-            
+
             ResponseValidator.Validate(queryHandler.DoQuery(processedInput));
 
         }

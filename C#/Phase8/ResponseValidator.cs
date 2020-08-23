@@ -1,5 +1,4 @@
-﻿using Elasticsearch.Net;
-using Nest;
+﻿using Nest;
 using System;
 
 namespace Phase8
@@ -14,7 +13,7 @@ namespace Phase8
                 Console.WriteLine("request took " + response.Took + "ms and it has " + response.Total + "results.");
                 Program.ShowResult(response.Documents);
                 return;
-            } 
+            }
 
             if (response.OriginalException != null)
                 throw new Exception("Exception occured while processing the request.");

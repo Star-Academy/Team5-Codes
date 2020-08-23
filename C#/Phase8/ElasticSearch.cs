@@ -1,5 +1,5 @@
-using System;
 using Nest;
+using System;
 
 namespace Phase8
 {
