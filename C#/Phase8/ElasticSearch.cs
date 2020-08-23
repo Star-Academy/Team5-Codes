@@ -13,7 +13,7 @@ namespace Phase8
             var connectionSettings = new ConnectionSettings(uri);
             client = new ElasticClient(connectionSettings);
         }
-        
+
         static public ElasticClient GetClient()
         {
             return client;

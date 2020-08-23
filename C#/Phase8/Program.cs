@@ -11,7 +11,7 @@ namespace Phase8
 
         private const string IndexName = "index";
         private const string FileName = "people.json";
-        
+
         static void Main(string[] args)
         {
             var client = ElasticSearch.GetClient();
@@ -21,12 +21,12 @@ namespace Phase8
             indexHandler.AddDocToIndex(IndexName, items);
 
             var input = new InputReader().ReadInput();
-            var processor = new ProcessInput();           
-            var processedInput = processor.Process(input);           
+            var processor = new ProcessInput();
+            var processedInput = processor.Process(input);
 
             QueryHandler.Client = client;
             QueryHandler queryHandler = new QueryHandler(IndexName);
-            
+
             ShowResult(queryHandler.FuzzyQuerySample1());
         }
 
@@ -36,9 +36,10 @@ namespace Phase8
             return JsonSerializer.Deserialize<List<T>>(content);
         }
 
-        static void ShowResult<T> (IReadOnlyCollection<T> result)
+        static void ShowResult<T>(IReadOnlyCollection<T> result)
         {
-            foreach (var item in result) {
+            foreach (var item in result)
+            {
                 Console.WriteLine(item);
             }
         }
