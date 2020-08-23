@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using Elasticsearch.Net;
 using Nest;
 
 namespace Phase8 {
@@ -15,7 +16,7 @@ namespace Phase8 {
             ElasticIndexName = indexName;
         }
 
-        public ISearchResponse<Person> DoQuery (Dictionary<string, List<string>> processedInput) {
+        public ElasticsearchResponse<Person> DoQuery (Dictionary<string, List<string>> processedInput) {
             var q = new BoolQuery();
 
 
@@ -30,7 +31,7 @@ namespace Phase8 {
                 .Query (q => queries[0])
             );
 
-            return response;
+            return (ElasticsearchResponse<Person>)response;
         }
 
         private BoolQuery CreateOrQuery (List<string> allTokens) {

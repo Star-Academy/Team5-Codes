@@ -1,18 +1,23 @@
-﻿using Nest;
+﻿using Elasticsearch.Net;
+using Nest;
 using System;
 
 namespace Phase8
 {
     class ResponseValidator
     {
-        public static void Validate(ISearchResponse<Person> response)
+        public static void Validate(ElasticsearchResponse<Person> elasticsearchResponse)
         {
+
+            var response = (ISearchResponse<Person>) elasticsearchResponse;
+
             if (response.ApiCall.Success && response.IsValid)
             {
                 Console.WriteLine("request took " + response.Took + "ms and it has " + response.Total + "results.");
                 Program.ShowResult(response.Documents);
                 return;
             } 
+
             if (response.OriginalException != null)
                 Console.WriteLine("Exception occured while processing the request.");
 
