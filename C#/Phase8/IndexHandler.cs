@@ -80,8 +80,9 @@ namespace Phase8
                    .Document(person)
                 );
             }
-            Console.WriteLine(client.Bulk(bulkDescriptor));
 
+            Console.WriteLine(client.Bulk(bulkDescriptor));
+            client.Indices.Refresh(index);
         }
     }
 }
