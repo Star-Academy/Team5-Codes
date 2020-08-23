@@ -16,7 +16,10 @@ namespace Phase8
         {
             var client = ElasticSearch.GetClient();
             var indexHandler = new IndexHandler<Person>();
-            var items = ReadItemsFromFile<Person>(FileName);   
+            var items = ReadItemsFromFile<Person>(FileName);
+
+            var input = new InputReader().ReadInput();
+            var processedInput = new ProcessInput(input).Process();
             
             // indexHandler.CreateIndex(IndexName);
             // indexHandler.AddDocToIndex(IndexName, items);
