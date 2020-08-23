@@ -9,7 +9,7 @@ namespace Phase8
     class Program
     {
 
-        private const string IndexName = "soleyman";
+        private const string IndexName = "index";
         private const string FileName = "people.json";
         
         static void Main(string[] args)
