@@ -10,6 +10,7 @@ namespace Phase8
 
         public QueryHandlerTest(string v)
         {
+           Client = ElasticSearch.GetClient();
             ElasticIndexName = v;
         }
 
