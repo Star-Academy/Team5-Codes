@@ -13,34 +13,25 @@ namespace Phase8 {
             ElasticIndexName = indexName;
         }
 
-        public IReadOnlyCollection<Person> BoolQuery (Dictionary<string, List<string>> processedInput) {
+        public IReadOnlyCollection<Person> DoQuery (Dictionary<string, List<string>> processedInput) {
             var response = Client.Search<Person> (s => s
                 .Index (ElasticIndexName)
-                .Query (q => q
-                    .Bool (b => b
-                        // .Must (must => must
-                        //     .Match (match => match
-                        //         .Field ("email")
-                        //         .Query ("lolajefferson@buzzmaker.com")
-                        //     )
-                        // )
-                        .MustNot (mustNot => mustNot
-                            .Match (match => match
-                                .Field ("email")
-                                .Query ("lolajeson@buzzmaker.com")
-                            )
-                        )
-                        .Should (should => should
-                            .Match (match => match
-                                .Field ("email")
-                                .Query ("lolajeffen@buzzmaker.com")
-                            )
-                        )
-                        
-                    )
+                .Query (q => CreateQuery(processedInput)
                 )
-            );
+                );
             return response.Documents;
+        }
+
+        private QueryContainer CreateQuery (Dictionary<string, List<string>> processedInput) {
+            QueryContainer query = new BoolQuery {
+                Must = new List<QueryContainer> {
+                new MatchQuery {
+                Field = "about",
+                Query = "Labore"
+                }
+                }
+            };
+            return query;
         }
     }
 }

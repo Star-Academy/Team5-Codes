@@ -25,8 +25,7 @@ namespace Phase8
             var processedInput = processor.Process(input);
 
             QueryHandler queryHandler = new QueryHandler(IndexName);
-            ShowResult(queryHandler.BoolQuery(processedInput));
-
+            ShowResult(queryHandler.DoQuery(processedInput));
         }
 
         static List<T> ReadItemsFromFile<T>(string path)
