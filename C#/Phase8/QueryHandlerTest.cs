@@ -10,7 +10,7 @@ namespace Phase8
 
         public QueryHandlerTest(string v)
         {
-           Client = ElasticSearch.GetClient();
+            Client = ElasticSearch.GetClient();
             ElasticIndexName = v;
         }
 
@@ -19,10 +19,10 @@ namespace Phase8
             QueryContainer query = new BoolQuery
             {
                 Must = new List<QueryContainer> {
-                new MatchQuery {
-                Field = "about",
-                Query = "Labore"
-                }
+                    new MatchQuery {
+                        Field = "about",
+                        Query = "Labore"
+                    }
                 }
             };
             var response = Client.Search<Dictionary<string, object>>(s => s
