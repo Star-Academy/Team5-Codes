@@ -10,8 +10,10 @@ namespace Phase8
         private const string IndexName = "index_1";
         private const string FileName = "people.json";
 
-        static void Main(string[] args)
+        static async System.Threading.Tasks.Task Main(string[] args)
         {
+            await ConnectByHttpClientAsync();
+            
             _ = ElasticSearch.GetClient();
             _ = new IndexHandler<Person>(ReadItemsFromFile<Person>(FileName), IndexName);
 
@@ -42,6 +44,12 @@ namespace Phase8
         {
             foreach (var item in result)
                 Output.Write(item.ToString());
+        }
+
+        private static async System.Threading.Tasks.Task ConnectByHttpClientAsync()
+        {
+            var httpClient = new MyHttpClient();
+            await httpClient.Run();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Phase8
         }
 
         ///// Mapping is based on Person class /////
-        public void CreateIndex(string index)
+        private void CreateIndex(string index)
         {
             var createIndexResponse = client.Indices.Create(index, c => c
               .Settings(CreateAnalyzer)
@@ -80,7 +80,7 @@ namespace Phase8
                     );
         }
 
-        public void AddDocToIndex(string index, List<T> list)
+        private void AddDocToIndex(string index, List<T> list)
         {
             var bulkDescriptor = new BulkDescriptor();
             foreach (var person in list)
