@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Nest;
+using System.Collections.Generic;
 
 namespace Phase8
 {
