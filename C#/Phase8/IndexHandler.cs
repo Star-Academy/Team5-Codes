@@ -1,4 +1,5 @@
 using Nest;
+using System;
 using System.Collections.Generic;
 
 namespace Phase8
@@ -18,16 +19,15 @@ namespace Phase8
         public void CreateIndex(string index)
         {
             var createIndexResponse = client.Indices.Create(index, c => c
-              .Settings(s => s
-                .Analysis(a => a
-                    .Analyzers(analyzers => analyzers
-                    .Standard("english_Analyzer", sa => sa
-                      .StopWords("_english_")
-                    )
-                    )
-                )
-              )
-              .Map<Person>(map => map
+              .Settings(CreateAnalyzer)
+              .Map<Person>(CreateMapping)
+            );
+            Output.Write(createIndexResponse.ToString());
+        }
+
+        private ITypeMapping CreateMapping(TypeMappingDescriptor<Person> mappingDescriptor)
+        {
+            return mappingDescriptor
                 .Properties(pr => pr
                     .Number(num => num
                     .Name(n => n.Age)
@@ -66,11 +66,21 @@ namespace Phase8
                     .GeoPoint(g => g
                     .Name(n => n.Location)
                     )
-                )
-              )
-            );
-            Output.Write(createIndexResponse.ToString());
+                );
         }
+
+        private IPromise<IIndexSettings> CreateAnalyzer(IndexSettingsDescriptor settingsDescriptor)
+        {
+            return settingsDescriptor
+                    .Analysis(a => a
+                        .Analyzers(analyzers => analyzers
+                            .Standard("english_Analyzer", sa => sa
+                              .StopWords("_english_")
+                             )
+                        )
+                    );
+        }
+
         public void AddDocToIndex(string index, List<T> list)
         {
             var bulkDescriptor = new BulkDescriptor();
