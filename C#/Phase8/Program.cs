@@ -12,8 +12,8 @@ namespace Phase8
 
         static void Main(string[] args)
         {
-            var client = ElasticSearch.GetClient();
-            var indexHandler = new IndexHandler<Person>(ReadItemsFromFile<Person>(FileName), IndexName);
+            _ = ElasticSearch.GetClient();
+            _ = new IndexHandler<Person>(ReadItemsFromFile<Person>(FileName), IndexName);
 
             var input = new InputReader().ReadInput();
             var processor = new ProcessInput();
@@ -21,7 +21,6 @@ namespace Phase8
 
             var queryHandler = new QueryHandler(IndexName);
 
-            Output.ShowResult(queryHandler.DoQuery(processedInput).Documents);
             ResponseValidator.Validate(queryHandler.DoQuery(processedInput));
         }
 
