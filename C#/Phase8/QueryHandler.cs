@@ -5,7 +5,7 @@ namespace Phase8
 {
     class QueryHandler
     {
-        private const string field = "about";
+        private const string Field = "about";
         public string ElasticIndexName { get; set; }
         public static ElasticClient Client { get; set; }
 
@@ -20,9 +20,9 @@ namespace Phase8
 
             var query = new BoolQuery
             {
-                Must = setListInQuery(processedInput["and"]),
-                MustNot = setListInQuery(processedInput["not"]),
-                Should = setListInQuery(processedInput["or"]),
+                Must = SetListInQuery(processedInput["and"]),
+                MustNot = SetListInQuery(processedInput["not"]),
+                Should = SetListInQuery(processedInput["or"]),
             };
 
             var response = Client.Search<Person>(s => s
@@ -33,14 +33,14 @@ namespace Phase8
             return response;
         }
 
-        private List<QueryContainer> setListInQuery(List<string> tokens)
+        private List<QueryContainer> SetListInQuery(List<string> tokens)
         {
             var mustList = new List<QueryContainer>();
             foreach (var item in tokens)
             {
                 mustList.Add(new MatchQuery
                 {
-                    Field = field,
+                    Field = Field,
                     Query = item,
                 });
             }

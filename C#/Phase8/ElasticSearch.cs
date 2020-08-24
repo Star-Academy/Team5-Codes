@@ -5,7 +5,7 @@ namespace Phase8
 {
     public class ElasticSearch
     {
-        private static ElasticClient client;
+        private static readonly ElasticClient client;
 
         static ElasticSearch()
         {
