@@ -20,14 +20,21 @@ namespace Phase8
 
             var query = new BoolQuery
             {
-                Must = SetListInQuery(processedInput["and"]),
+                Should = new List<QueryContainer> {
+                    new BoolQuery{
+                        Must = SetListInQuery(processedInput["and"])
+                    },
+                    new BoolQuery{
+                        Should = SetListInQuery(processedInput["or"]),
+                    }
+                },
                 MustNot = SetListInQuery(processedInput["not"]),
-                Should = SetListInQuery(processedInput["or"]),
             };
 
             var response = Client.Search<Person>(s => s
                .Index(ElasticIndexName)
                .Query(q => query)
+               .Size(200)
             );
 
             return response;
