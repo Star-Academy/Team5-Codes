@@ -8,12 +8,12 @@ namespace Phase8
         public string ElasticIndexName { get; set; }
         public static ElasticClient Client { get; set; }
 
-        public QueryHandlerTest(string v)
+        public QueryHandlerTest(string indexName)
         {
             Client = ElasticSearch.GetClient();
-            ElasticIndexName = v;
+            ElasticIndexName = indexName;
         }
-
+        
         public IReadOnlyCollection<Dictionary<string, object>> BoolQuerySample1()
         {
             QueryContainer query = new BoolQuery
