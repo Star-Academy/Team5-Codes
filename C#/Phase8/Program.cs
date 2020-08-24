@@ -21,13 +21,27 @@ namespace Phase8
 
             var queryHandler = new QueryHandler(IndexName);
 
-            ResponseValidator.Validate(queryHandler.DoQuery(processedInput));
+            var response = queryHandler.DoQuery(processedInput);
+
+            if (ResponseValidator.Check((Nest.ResponseBase)response))
+            {
+                Output.Write("request took " + response.Took + "ms and it has " + response.Total + " results.");
+                ShowResult(response.Documents);
+            }
+            else
+                ResponseValidator.Validate((Nest.ResponseBase)response);
         }
 
         static List<T> ReadItemsFromFile<T>(string path)
         {
             var content = File.ReadAllText(path);
             return JsonSerializer.Deserialize<List<T>>(content);
+        }
+
+        public static void ShowResult<T>(IReadOnlyCollection<T> result)
+        {
+            foreach (var item in result)
+                Output.Write(item.ToString());
         }
     }
 }
