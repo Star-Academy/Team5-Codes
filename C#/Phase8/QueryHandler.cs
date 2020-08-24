@@ -5,7 +5,7 @@ namespace Phase8
 {
     class QueryHandler
     {
-        private const string Field = "about";
+        private const string Field = "age";
         public string ElasticIndexName { get; set; }
         public static ElasticClient Client { get; set; }
 
