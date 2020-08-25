@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Phase8.Exceptions;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
@@ -31,9 +33,26 @@ namespace Phase8
             {
                 Output.Write("request took " + response.Took + "ms and it has " + response.Total + " results.");
                 ShowResult(response.Documents);
+                return;
             }
-            else
+            try
+            {
                 ResponseValidator.Validate((Nest.ResponseBase)response);
+            } 
+            catch (RequestTermination ex)
+            {
+                Console.WriteLine("request terminated in your machine :( .");
+            }
+            catch (TimeOutException ex)
+            {
+                Console.WriteLine("request lost :( .");
+            } catch (BuildException ex)
+            {
+                Console.WriteLine("request didn't build succesfully.");
+            } catch (ServerException ex)
+            {
+                Console.WriteLine("server didn't respond to us.");
+            }
         }
 
         static List<T> ReadItemsFromFile<T>(string path)
