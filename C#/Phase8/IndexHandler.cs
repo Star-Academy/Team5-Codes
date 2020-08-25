@@ -5,6 +5,8 @@ namespace Phase8 {
     public class IndexHandler<T> where T : class {
         private readonly ElasticClient client;
 
+        private const string analyzer = "english_Analyzer";
+
         public IndexHandler (List<T> items, string indexName) {
             this.client = ElasticSearch.GetClient ();
             this.CreateIndex (indexName);
@@ -28,31 +30,31 @@ namespace Phase8 {
                     )
                     .Text (t => t
                         .Name (n => n.EyeColor)
-                        .Analyzer ("english_Analyzer")
+                        .Analyzer (analyzer)
                     )
                     .Text (t => t
                         .Name (n => n.Name)
-                        .Analyzer ("english_Analyzer")
+                        .Analyzer (analyzer)
                     )
                     .Text (t => t
                         .Name (n => n.Gender)
-                        .Analyzer ("english_Analyzer")
+                        .Analyzer (analyzer)
                     )
                     .Text (t => t
                         .Name (n => n.Company)
-                        .Analyzer ("english_Analyzer")
+                        .Analyzer (analyzer)
                     )
                     .Text (t => t
                         .Name (n => n.Phone)
-                        .Analyzer ("english_Analyzer")
+                        .Analyzer (analyzer)
                     )
                     .Text (t => t
                         .Name (n => n.Address)
-                        .Analyzer ("english_Analyzer")
+                        .Analyzer (analyzer)
                     )
                     .Text (t => t
                         .Name (n => n.About)
-                        .Analyzer ("english_Analyzer")
+                        .Analyzer (analyzer)
                     )
                     .Date (d => d
                         .Name (n => n.RegistrationDate)
@@ -67,7 +69,7 @@ namespace Phase8 {
             return settingsDescriptor
                 .Analysis (a => a
                     .Analyzers (analyzers => analyzers
-                        .Standard ("english_Analyzer", sa => sa
+                        .Standard (analyzer, sa => sa
                             .StopWords ("_english_")
                         )
                     )
