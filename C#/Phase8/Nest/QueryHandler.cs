@@ -21,13 +21,13 @@ namespace Phase8
             {
                 Must = new List<QueryContainer> {
                     new BoolQuery{
-                        Must = SetListInQuery(processedInput["and"])
+                        Must = SetListInQuery(processedInput["and"], false)
                     },
                     new BoolQuery{
-                        Should = SetListInQuery(processedInput["or"])
+                        Should = SetListInQuery(processedInput["or"], true)
                     }
                 },
-                MustNot = SetListInQuery(processedInput["not"])
+                MustNot = SetListInQuery(processedInput["not"], true)
             };
 
             var response = Client.Search<Person>(s => s
@@ -38,7 +38,7 @@ namespace Phase8
             return response;
         }
 
-        private List<QueryContainer> SetListInQuery(List<string> tokens)
+        private List<QueryContainer> SetListInQuery(List<string> tokens, bool hasSign)
         {
             var mustList = new List<QueryContainer>();
             foreach (var item in tokens)
@@ -47,7 +47,7 @@ namespace Phase8
                     new MatchQuery
                     {
                         Field = Field,
-                        Query = item,
+                        Query = item.Substring(hasSign ? 1 : 0),
                     });
             }
             return mustList;
