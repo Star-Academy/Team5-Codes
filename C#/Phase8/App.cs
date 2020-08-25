@@ -7,7 +7,7 @@ namespace Phase8
     class Program
     {
 
-        private const string indexName = "index_58";
+        private const string indexName = "index_60";
         private const string fileName = "people.json";
         private const string baseAddress = "http://localhost:9200/"; 
 
@@ -54,7 +54,7 @@ namespace Phase8
             await httpClient.ConnectAsync();
             await httpClient.PutRequestAsync();
             foreach (var item in items) {
-                await httpClient.PostRequestAsync<Person>(item);
+                await httpClient.PostRequestAsync(item);
             }
 
         }

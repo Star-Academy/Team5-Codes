@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text.Json;
+using System.Net.Http.Json;
 
 namespace Phase8 {
     public class MyHttpClient {
@@ -18,7 +19,7 @@ namespace Phase8 {
         }
 
         public async Task PutRequestAsync () {
-            var response = await client.PutAsync(baseAddress + indexName + "/", null);
+            var response = await client.PutAsync(baseAddress + indexName, null);
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
             Console.WriteLine ("PUT request response:\n" + responseBody);
@@ -49,14 +50,14 @@ namespace Phase8 {
             Console.WriteLine ("GET request response:\n" + responseBody);
         }
 
-        public async Task PostRequestAsync<T> (T item) where T : class {
+        public async Task PostRequestAsync (Person item) {
             var uri = new Uri(baseAddress + indexName + "/_doc");
-            var contetnt = JsonSerializer.Serialize(item);
+            var contetnt = JsonContent.Create<Person>(item);
 
             Console.WriteLine(contetnt);
 
             var response = await client.PostAsync (uri, null);
-            response.EnsureSuccessStatusCode();
+            // response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
 
             Console.WriteLine ("POST request response:\n" + responseBody);
