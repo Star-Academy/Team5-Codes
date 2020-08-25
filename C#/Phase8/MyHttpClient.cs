@@ -1,31 +1,32 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Mime;
-using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace Phase8 {
     public class MyHttpClient {
         private readonly HttpClient client = new HttpClient ();
+        private readonly string indexName;
+        private readonly string baseAddress; 
 
-        public async Task Run () {
-            await ConnectAsync ();
-            await GetRequestAsync ();
-            await PutRequestAsync ();
-            await PostRequestAsync ();
+
+        public MyHttpClient(string baseAddress, string indexName)
+        {
+            this.baseAddress = baseAddress;
+            this.indexName = indexName;
         }
 
-        private async Task PutRequestAsync () {
-            var response = await client.PostAsync ("http://localhost:9200/z-index", null);
-            var responseString = await response.Content.ReadAsStringAsync ();
-
-            Console.WriteLine ("PUT request response:\n" + response);
+        public async Task PutRequestAsync () {
+            var response = await client.PutAsync(baseAddress + indexName + "/", null);
+            response.EnsureSuccessStatusCode();
+            var responseBody = await response.Content.ReadAsStringAsync();
+            Console.WriteLine ("PUT request response:\n" + responseBody);
         }
 
-        private async Task ConnectAsync () {
+        public async Task ConnectAsync () {
             try {
-                HttpResponseMessage response = await client.GetAsync ("http://localhost:9200");
+                HttpResponseMessage response = await client.GetAsync (baseAddress);
                 response.EnsureSuccessStatusCode ();
                 string responseBody = await response.Content.ReadAsStringAsync ();
 
@@ -35,10 +36,10 @@ namespace Phase8 {
             }
         }
 
-        private async Task GetRequestAsync () {
+        public async Task GetRequestAsync () {
             var request = new HttpRequestMessage {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri ("http://localhost:9200"),
+                RequestUri = new Uri (baseAddress),
             };
 
             var response = await client.SendAsync (request).ConfigureAwait (false);
@@ -48,16 +49,17 @@ namespace Phase8 {
             Console.WriteLine ("GET request response:\n" + responseBody);
         }
 
-        private async Task PostRequestAsync () {
-            var values = new Dictionary<string, string> { { "thing1", "hello" },
-                    { "thing2", "world" }
-                };
+        public async Task PostRequestAsync<T> (T item) where T : class {
+            var uri = new Uri(baseAddress + indexName + "/_doc");
+            var contetnt = JsonSerializer.Serialize(item);
 
-            var content = new FormUrlEncodedContent (values);
-            var response = await client.PostAsync ("http://localhost:9200/f-index", content);
-            var responseString = await response.Content.ReadAsStringAsync ();
+            Console.WriteLine(contetnt);
 
-            Console.WriteLine ("POST request response:\n" + response);
+            var response = await client.PostAsync (uri, null);
+            response.EnsureSuccessStatusCode();
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine ("POST request response:\n" + responseBody);
         }
     }
 }

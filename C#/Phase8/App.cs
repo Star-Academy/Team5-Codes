@@ -7,21 +7,23 @@ namespace Phase8
     class Program
     {
 
-        private const string IndexName = "index_1";
-        private const string FileName = "people.json";
+        private const string indexName = "index_58";
+        private const string fileName = "people.json";
+        private const string baseAddress = "http://localhost:9200/"; 
 
         static async System.Threading.Tasks.Task Main(string[] args)
         {
-            await ConnectByHttpClientAsync();
+            var items = ReadItemsFromFile<Person>(fileName);
+            await ConnectByHttpClientAsync(items);
             
             _ = ElasticSearch.GetClient();
-            _ = new IndexHandler<Person>(ReadItemsFromFile<Person>(FileName), IndexName);
+            _ = new IndexHandler<Person>(items, indexName);
 
             var input = new InputReader().ReadInput();
             var processor = new ProcessInput();
             var processedInput = processor.Process(input);
 
-            var queryHandler = new QueryHandler(IndexName);
+            var queryHandler = new QueryHandler(indexName);
 
             var response = queryHandler.DoQuery(processedInput);
 
@@ -46,10 +48,15 @@ namespace Phase8
                 Output.Write(item.ToString());
         }
 
-        private static async System.Threading.Tasks.Task ConnectByHttpClientAsync()
+        private static async System.Threading.Tasks.Task ConnectByHttpClientAsync(List<Person> items)
         {
-            var httpClient = new MyHttpClient();
-            await httpClient.Run();
+            var httpClient = new MyHttpClient(baseAddress, indexName);
+            await httpClient.ConnectAsync();
+            await httpClient.PutRequestAsync();
+            foreach (var item in items) {
+                await httpClient.PostRequestAsync<Person>(item);
+            }
+
         }
     }
 }
