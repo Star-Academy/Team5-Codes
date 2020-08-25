@@ -52,11 +52,9 @@ namespace Phase8 {
 
         public async Task PostRequestAsync (Person item) {
             var uri = new Uri(baseAddress + indexName + "/_doc");
-            var contetnt = JsonContent.Create<Person>(item);
+            var content = JsonContent.Create<Person>(item);
 
-            Console.WriteLine(contetnt);
-
-            var response = await client.PostAsync (uri, null);
+            var response = await client.PostAsync (uri, content);
             // response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync();
 

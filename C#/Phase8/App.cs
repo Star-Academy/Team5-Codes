@@ -7,7 +7,7 @@ namespace Phase8
     class Program
     {
 
-        private const string indexName = "index_60";
+        private const string indexName = "index_66";
         private const string fileName = "people.json";
         private const string baseAddress = "http://localhost:9200/"; 
 
