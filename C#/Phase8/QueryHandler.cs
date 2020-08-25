@@ -5,7 +5,7 @@ namespace Phase8
 {
     class QueryHandler
     {
-        private const string Field = "about";
+        private const string Field = "name";
         public string ElasticIndexName { get; set; }
         public static ElasticClient Client { get; set; }
 
@@ -19,7 +19,7 @@ namespace Phase8
         {
             QueryContainer query = new BoolQuery
             {
-                Should = new List<QueryContainer> {
+                Must = new List<QueryContainer> {
                     new BoolQuery{
                         Must = SetListInQuery(processedInput["and"])
                     },

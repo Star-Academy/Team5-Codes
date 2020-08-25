@@ -9,13 +9,13 @@ namespace Phase8
 
         private const string indexName = "index_66";
         private const string fileName = "people.json";
-        private const string baseAddress = "http://localhost:9200/"; 
+        private const string baseAddress = "http://localhost:9200/";
 
-        static async System.Threading.Tasks.Task Main(string[] args)
+        static void Main(string[] args)
         {
             var items = ReadItemsFromFile<Person>(fileName);
-            await ConnectByHttpClientAsync(items);
-            
+            // await ConnectByHttpClientAsync(items);
+
             _ = ElasticSearch.GetClient();
             _ = new IndexHandler<Person>(items, indexName);
 
