@@ -1,4 +1,5 @@
 ﻿using Nest;
+using Phase8.Exceptions;
 
 namespace Phase8
 {
@@ -11,17 +12,17 @@ namespace Phase8
                 var res = (ISearchResponse<Person>)response;
                 Output.Write("only " + res.Total + " results found");
                 if (res.TerminatedEarly)
-                    Output.Throw("request terminated earlier than it was supposed to.");
+                    throw new RequestTermination("request terminated earlier than it was supposed to.");
 
                 if (res.TimedOut)
-                    Output.Throw("request timed out!");
+                    throw new TimeOutException("request timed out!");
             }
 
             if (response.OriginalException != null)
-                Output.Throw("Exception occurred while processing the request.");
+                throw new BuildException("Exception occurred while processing the request.");
 
             if (response.ServerError != null)
-                Output.Throw("error occurred in the server side of the process.");
+                throw new ServerException("error occurred in the server side of the process.");
 
         }
 
