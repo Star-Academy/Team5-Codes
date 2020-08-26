@@ -1,6 +1,9 @@
 C#/Phase5/SampleLibrary/Docs/EnglishData/*
 C#/Phase5/SampleLibrary/SampleLibrary/Properties/*
-../.vs/*
+**/.vs/*
+.vs/*
+**/.vscode/*
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/java,csharp,visualstudio,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,csharp,visualstudio,visualstudiocode
@@ -386,10 +389,6 @@ hs_err_pid*
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 *.code-workspace
 
 ### VisualStudioCode Patch ###
