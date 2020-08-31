@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace Phase9.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[Action]")]
     public class MainController : ControllerBase
     {
         private readonly ILogger<MainController> _logger;

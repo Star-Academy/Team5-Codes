@@ -9,7 +9,7 @@ namespace Phase8
     class Program
     {
 
-        private const string indexName = "index_66";
+        private const string indexName = "index";
         private const string fileName = "people.json";
         private const string baseAddress = "http://localhost:9200/";
 
@@ -20,8 +20,7 @@ namespace Phase8
 
             _ = ElasticSearch.GetClient();
             _ = new IndexHandler<Person>(items, indexName);
-
-            var input = new InputReader().ReadInput();
+            var input = new InputReader(args).ReadInput();
             var processor = new ProcessInput();
             var processedInput = processor.Process(input);
 
