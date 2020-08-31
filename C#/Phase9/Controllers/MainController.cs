@@ -8,9 +8,9 @@ namespace Phase9.Controllers
     {
 
         [HttpGet]
-        public string Get()
+        public string Get([FromQuery] string query)
         {
-            return $"The query:";
+            return $"The query: {query}";
         }
     }
 }
