@@ -35,7 +35,7 @@ namespace Phase8
         public string About { get; set; }
 
         [JsonPropertyName("registration_date")]
-        public DateTime RegistrationDate { get; set; }
+        public string RegistrationDate { get; set; }
 
         [Ignore]
         [JsonPropertyName("latitude")]
