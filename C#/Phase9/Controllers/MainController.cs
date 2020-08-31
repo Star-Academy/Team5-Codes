@@ -1,28 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Phase9.Controllers
 {
     [ApiController]
-    [Route("[controller]/[Action]")]
+    [Route("[Controller]/[Action]")]
     public class MainController : ControllerBase
     {
-        private readonly ILogger<MainController> _logger;
-
-        public MainController(ILogger<MainController> logger)
-        {
-            _logger = logger;
-        }
 
         [HttpGet]
-        [Route("{query}")]
-        public string Get(string query)
+        public string Get()
         {
-            return $"The query: {query}";
+            return $"The query:";
         }
     }
 }
