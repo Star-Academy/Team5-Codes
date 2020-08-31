@@ -20,7 +20,7 @@ namespace Phase8
 
             _ = ElasticSearch.GetClient();
             _ = new IndexHandler<Person>(items, indexName);
-            var input = new InputReader(args).ReadInput();
+            var input = new ConsoleReader(args).ReadInput();
             var processor = new ProcessInput();
             var processedInput = processor.Process(input);
 

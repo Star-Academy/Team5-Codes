@@ -2,10 +2,10 @@ using System;
 
 namespace Phase8
 {
-    public class InputReader
+    public class ConsoleReader: IReader
     {
         private readonly string[] args;
-        public InputReader(string[] args)
+        public ConsoleReader(string[] args)
         {
             this.args = args;
         }
