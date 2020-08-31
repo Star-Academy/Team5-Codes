@@ -22,7 +22,7 @@ namespace Phase9.Controllers
         [Route("{query}")]
         public string Get(string query)
         {
-            return $"{query}";
+            return $"The query: {query}";
         }
     }
 }
