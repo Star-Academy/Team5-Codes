@@ -40,7 +40,7 @@ namespace Phase8
             }
             catch (BuildException ex)
             {
-                Console.WriteLine("request didn't build succesfully.");
+                Console.WriteLine("request didn't build successfully.");
             }
             catch (ServerException ex)
             {
