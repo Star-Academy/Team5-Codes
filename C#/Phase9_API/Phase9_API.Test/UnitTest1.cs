@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace Phase9_API.Test
@@ -8,7 +7,6 @@ namespace Phase9_API.Test
         [Fact]
         public void Test1()
         {
-
         }
     }
 }
