@@ -1,13 +1,14 @@
+using System;
 using Xunit;
 
-namespace Test
+namespace Phase9_API.Test
 {
-    public class MainControllerTest
+    public class UnitTest1
     {
         [Fact]
         public void Test1()
         {
-            Assert.Equal(1, 1);
+
         }
     }
 }
