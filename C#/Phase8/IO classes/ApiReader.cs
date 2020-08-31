@@ -1,8 +1,9 @@
 namespace Phase8 {
     public class ApiReader : IReader {
-        public string ReadInput(string query)
+
+        public string ReadInput()
         {
-           return query; 
+            throw new System.NotImplementedException();
         }
     }
 }

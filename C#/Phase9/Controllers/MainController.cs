@@ -8,7 +8,6 @@ namespace Phase9.Controllers
     [Route("[Controller]/[Action]")]
     public class MainController : ControllerBase
     {
-
         [HttpGet]
         public string Get([FromQuery] string query)
         {

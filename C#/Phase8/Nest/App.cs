@@ -18,7 +18,7 @@ namespace Phase8
         {
             var items = ReadItemsFromFile<Person>();
             // await ConnectByHttpClientAsync(items);
-            ISearchResponse<Person> response = GenerateResponse(args, items);
+            var response = GenerateResponse(args, items);
 
             if (ResponseValidator.Check((Nest.ResponseBase)response))
             {
