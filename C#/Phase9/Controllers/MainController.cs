@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nest;
 using Phase8;
+using System.Text;
 
 namespace Phase9.Controllers
 {
@@ -13,7 +14,15 @@ namespace Phase9.Controllers
         {
             var items = Phase8.Program.ReadItemsFromFile<Person>();
             var response = Phase8.Program.GenerateResponse(new string[] { query }, items);
-            return $"The query: {response.Documents}";
+            return TakeOutput(response);
+        }
+
+        private string TakeOutput(ISearchResponse<Person> response)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (var item in response.Documents)
+                stringBuilder.Append(item.ToString() + '\n');
+            return stringBuilder.ToString();
         }
 
 
