@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nest;
 using Phase8;
-using System;
 using System.Text;
 
 namespace Phase9.Controllers
