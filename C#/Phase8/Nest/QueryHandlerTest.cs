@@ -13,7 +13,7 @@ namespace Phase8
             Client = ElasticSearch.GetClient();
             ElasticIndexName = indexName;
         }
-        
+
         public IReadOnlyCollection<Dictionary<string, object>> BoolQuerySample1()
         {
             QueryContainer query = new BoolQuery

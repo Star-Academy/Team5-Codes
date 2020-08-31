@@ -79,7 +79,8 @@ namespace Phase8
             var httpClient = new MyHttpClient(baseAddress, indexName);
             await httpClient.ConnectAsync();
             await httpClient.PutRequestAsync();
-            foreach (var item in items) {
+            foreach (var item in items)
+            {
                 await httpClient.PostRequestAsync(item);
             }
 

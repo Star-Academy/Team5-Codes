@@ -12,8 +12,8 @@ namespace Phase9.Controllers
         [HttpGet]
         public string Get([FromBody] string[] query)
         {
-            var items = Phase8.Program.ReadItemsFromFile<Person>();
-            var response = Phase8.Program.GenerateResponse(query, items);
+            var items = Program.ReadItemsFromFile<Person>();
+            var response = Program.GenerateResponse(query, items);
             return TakeOutput(response);
         }
 

@@ -2,7 +2,7 @@ using System;
 
 namespace Phase8
 {
-    public class ConsoleReader: IReader
+    public class ConsoleReader : IReader
     {
         private readonly string[] args;
         public ConsoleReader(string[] args)
@@ -15,6 +15,6 @@ namespace Phase8
                 return Console.ReadLine();
             return args[0];
         }
-        
+
     }
-} 
+}
