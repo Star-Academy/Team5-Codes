@@ -18,7 +18,6 @@ namespace Phase8
         {
             var items = ReadItemsFromFile<Person>();
             // await ConnectByHttpClientAsync(items);
-
             ISearchResponse<Person> response = GenerateResponse(args, items);
 
             if (ResponseValidator.Check((Nest.ResponseBase)response))
@@ -53,7 +52,7 @@ namespace Phase8
         {
             _ = ElasticSearch.GetClient();
             _ = new IndexHandler<Person>(items, indexName);
-            var input = new InputReader(args).ReadInput();
+            var input = new ConsoleReader(args).ReadInput();
             var processor = new ProcessInput();
             var processedInput = processor.Process(input);
 
