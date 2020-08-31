@@ -13,7 +13,7 @@ namespace Phase9.Controllers
         public string Get([FromBody] string[] query)
         {
             var items = Phase8.Program.ReadItemsFromFile<Person>();
-            var response = Phase8.Program.GenerateResponse(query, items);
+            var response = Phase8.Program.GenerateResponse(query, items); 
             return TakeOutput(response);
         }
 
