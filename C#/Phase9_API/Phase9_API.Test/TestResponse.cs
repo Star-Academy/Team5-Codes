@@ -8,6 +8,11 @@ namespace Phase9_API.Test
 {
     public class TestResponse : ISearchResponse<Person>
     {
+        readonly bool[] forThrow = { false, false, false, false };
+        public TestResponse(int type)
+        {
+            forThrow[type] = true;
+        }
         AggregateDictionary ISearchResponse<Person>.Aggregations => null;
 
         ClusterStatistics ISearchResponse<Person>.Clusters => null;
@@ -32,9 +37,9 @@ namespace Phase9_API.Test
 
         ISuggestDictionary<Person> ISearchResponse<Person>.Suggest => null;
 
-        bool ISearchResponse<Person>.TerminatedEarly => true;
+        bool ISearchResponse<Person>.TerminatedEarly => forThrow[0];
 
-        bool ISearchResponse<Person>.TimedOut => false;
+        bool ISearchResponse<Person>.TimedOut => forThrow[1];
 
         long ISearchResponse<Person>.Took => 0;
 
@@ -44,9 +49,9 @@ namespace Phase9_API.Test
 
         bool IResponse.IsValid => false;
 
-        Exception IResponse.OriginalException => null;
+        Exception IResponse.OriginalException => forThrow[2] ? new Exception() : null;
 
-        ServerError IResponse.ServerError => null;
+        ServerError IResponse.ServerError => forThrow[3] ? new ServerError(new Error(), 404) : null;
 
         IApiCallDetails IElasticsearchResponse.ApiCall { get; set; }
 
