@@ -1,55 +1,56 @@
 ﻿using Elasticsearch.Net;
 using Nest;
+using Phase8;
 using System;
 using System.Collections.Generic;
 
 namespace Phase9_API.Test
 {
-    public class TestResponse<T> : ISearchResponse<T>
+    public class TestResponse : ISearchResponse<Person>
     {
-        public AggregateDictionary Aggregations => throw new NotImplementedException();
+        AggregateDictionary ISearchResponse<Person>.Aggregations => null;
 
-        public ClusterStatistics Clusters => throw new NotImplementedException();
+        ClusterStatistics ISearchResponse<Person>.Clusters => null;
 
-        public IReadOnlyCollection<T> Documents => throw new NotImplementedException();
+        IReadOnlyCollection<Person> ISearchResponse<Person>.Documents => null;
 
-        public IReadOnlyCollection<FieldValues> Fields => throw new NotImplementedException();
+        IReadOnlyCollection<FieldValues> ISearchResponse<Person>.Fields => null;
 
-        public IReadOnlyCollection<IHit<T>> Hits => throw new NotImplementedException();
+        IReadOnlyCollection<IHit<Person>> ISearchResponse<Person>.Hits => null;
 
-        public IHitsMetadata<T> HitsMetadata => throw new NotImplementedException();
+        IHitsMetadata<Person> ISearchResponse<Person>.HitsMetadata => null;
 
-        public double MaxScore => throw new NotImplementedException();
+        double ISearchResponse<Person>.MaxScore => 0;
 
-        public long NumberOfReducePhases => throw new NotImplementedException();
+        long ISearchResponse<Person>.NumberOfReducePhases => 0;
 
-        public Profile Profile => throw new NotImplementedException();
+        Profile ISearchResponse<Person>.Profile => null;
 
-        public string ScrollId => throw new NotImplementedException();
+        string ISearchResponse<Person>.ScrollId => "";
 
-        public ShardStatistics Shards => throw new NotImplementedException();
+        ShardStatistics ISearchResponse<Person>.Shards => null;
 
-        public ISuggestDictionary<T> Suggest => throw new NotImplementedException();
+        ISuggestDictionary<Person> ISearchResponse<Person>.Suggest => null;
 
-        public bool TerminatedEarly => throw new NotImplementedException();
+        bool ISearchResponse<Person>.TerminatedEarly => true;
 
-        public bool TimedOut => throw new NotImplementedException();
+        bool ISearchResponse<Person>.TimedOut => false;
 
-        public long Took => throw new NotImplementedException();
+        long ISearchResponse<Person>.Took => 0;
 
-        public long Total => throw new NotImplementedException();
+        long ISearchResponse<Person>.Total => 0;
 
-        public string DebugInformation => throw new NotImplementedException();
+        string IResponse.DebugInformation => null;
 
-        public bool IsValid => throw new NotImplementedException();
+        bool IResponse.IsValid => false;
 
-        public Exception OriginalException => throw new NotImplementedException();
+        Exception IResponse.OriginalException => null;
 
-        public ServerError ServerError => throw new NotImplementedException();
+        ServerError IResponse.ServerError => null;
 
-        public IApiCallDetails ApiCall { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        IApiCallDetails IElasticsearchResponse.ApiCall { get; set; }
 
-        public bool TryGetServerErrorReason(out string reason)
+        bool IElasticsearchResponse.TryGetServerErrorReason(out string reason)
         {
             throw new NotImplementedException();
         }

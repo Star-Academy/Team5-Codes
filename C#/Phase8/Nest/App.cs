@@ -28,7 +28,7 @@ namespace Phase8
             }
             try
             {
-                ResponseValidator.Validate((ResponseBase)response);
+                ResponseValidator.Validate(response);
             }
             catch (RequestTermination)
             {

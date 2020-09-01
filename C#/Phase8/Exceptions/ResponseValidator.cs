@@ -5,7 +5,7 @@ namespace Phase8
 {
     public class ResponseValidator
     {
-        public static void Validate(ResponseBase response)
+        public static void Validate(ISearchResponse<Person> response)
         {
             if (response is ISearchResponse<Person> res)
             {
