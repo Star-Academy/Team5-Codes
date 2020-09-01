@@ -7,9 +7,8 @@ namespace Phase8
     {
         public static void Validate(ResponseBase response)
         {
-            if (response is ISearchResponse<Person>)
+            if (response is ISearchResponse<Person> res)
             {
-                var res = (ISearchResponse<Person>)response;
                 Output.Write("only " + res.Total + " results found");
                 if (res.TerminatedEarly)
                     throw new RequestTermination("request terminated earlier than it was supposed to.");
@@ -22,7 +21,7 @@ namespace Phase8
                 throw new BuildException("Exception occurred while processing the request.");
 
             if (response.ServerError != null)
-                throw new ServerException("error occurred in the server side of the process.");
+                throw new ServerException("error occurred from the server side of the process.");
 
         }
 

@@ -20,7 +20,7 @@ namespace Phase8
             // await ConnectByHttpClientAsync(items);
             var response = GenerateResponse(args, items);
 
-            if (ResponseValidator.Check((Nest.ResponseBase)response))
+            if (ResponseValidator.Check((ResponseBase)response))
             {
                 Output.Write("request took " + response.Took + "ms and it has " + response.Total + " results.");
                 ShowResult(response.Documents);
@@ -28,7 +28,7 @@ namespace Phase8
             }
             try
             {
-                ResponseValidator.Validate((Nest.ResponseBase)response);
+                ResponseValidator.Validate((ResponseBase)response);
             }
             catch (RequestTermination)
             {
