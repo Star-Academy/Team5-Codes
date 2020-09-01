@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Nest;
 using Phase8;
 using System.Text;
@@ -10,11 +11,11 @@ namespace Phase9.Controllers
     public class MainController : ControllerBase
     {
         [HttpGet]
-        public string Get([FromBody] string[] query)
+        public IActionResult Get([FromBody] string[] query)
         {
             var items = App.ReadItemsFromFile<Person>();
             var response = App.GenerateResponse(query, items);
-            return TakeOutput(response);
+            return Ok(TakeOutput(response));
         }
 
         private string TakeOutput(ISearchResponse<Person> response)
