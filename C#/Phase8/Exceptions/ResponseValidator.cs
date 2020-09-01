@@ -3,7 +3,7 @@ using Phase8.Exceptions;
 
 namespace Phase8
 {
-    class ResponseValidator
+    public class ResponseValidator
     {
         public static void Validate(ResponseBase response)
         {
