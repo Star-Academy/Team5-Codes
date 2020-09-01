@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace Phase8
 {
-    public class Program
+    public class App
     {
 
         private const string indexName = "index";
@@ -30,19 +30,19 @@ namespace Phase8
             {
                 ResponseValidator.Validate((Nest.ResponseBase)response);
             }
-            catch (RequestTermination ex)
+            catch (RequestTermination)
             {
                 Console.WriteLine("request terminated in your machine :( .");
             }
-            catch (TimeOutException ex)
+            catch (TimeOutException)
             {
                 Console.WriteLine("request lost :( .");
             }
-            catch (BuildException ex)
+            catch (BuildException)
             {
                 Console.WriteLine("request didn't build successfully.");
             }
-            catch (ServerException ex)
+            catch (ServerException)
             {
                 Console.WriteLine("server didn't respond to us.");
             }
