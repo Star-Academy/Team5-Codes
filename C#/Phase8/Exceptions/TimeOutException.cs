@@ -2,7 +2,7 @@
 
 namespace Phase8.Exceptions
 {
-    class TimeOutException : Exception
+    public class TimeOutException : Exception
     {
         public TimeOutException(string message) : base(message)
         {

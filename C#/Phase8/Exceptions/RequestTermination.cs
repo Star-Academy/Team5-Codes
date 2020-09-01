@@ -2,7 +2,7 @@
 
 namespace Phase8.Exceptions
 {
-    class RequestTermination : Exception
+    public class RequestTermination : Exception
     {
         public override string Message { get; }
 

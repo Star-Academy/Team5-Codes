@@ -2,7 +2,7 @@
 
 namespace Phase8.Exceptions
 {
-    class ServerException : Exception
+    public class ServerException : Exception
     {
         public ServerException(string message) : base(message)
         {
