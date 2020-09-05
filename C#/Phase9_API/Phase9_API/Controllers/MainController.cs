@@ -13,8 +13,7 @@ namespace Phase9.Controllers
         [HttpGet]
         public IActionResult Get([FromBody] string[] query)
         {
-            var items = App.ReadItemsFromFile<Person>();
-            var response = App.GenerateResponse(query, items);
+            var response = App.GenerateResponse(query);
             return Ok(TakeOutput(response));
         }
 

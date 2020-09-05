@@ -16,9 +16,8 @@ namespace Phase8
 
         static void Main(string[] args)
         {
-            var items = ReadItemsFromFile<Person>();
             // await ConnectByHttpClientAsync(items);
-            var response = GenerateResponse(args, items);
+            var response = GenerateResponse(args);
 
             if (ResponseValidator.Check((ResponseBase)response))
             {
@@ -48,8 +47,9 @@ namespace Phase8
             }
         }
 
-        public static ISearchResponse<Person> GenerateResponse(string[] args, List<Person> items)
+        public static ISearchResponse<Person> GenerateResponse(string[] args)
         {
+            var items = ReadItemsFromFile<Person>();
             _ = ElasticSearch.GetClient();
             _ = new IndexHandler<Person>(items, indexName);
             var input = new ConsoleReader(args).ReadInput();
