@@ -18,7 +18,7 @@ namespace Phase9.Controllers
             return Ok(TakeOutput(response));
         }
 
-        private string TakeOutput(ISearchResponse<Person> response)
+        private string CreateResponse(ISearchResponse<Person> response)
         {
             StringBuilder stringBuilder = new StringBuilder();
             foreach (var item in response.Documents)
