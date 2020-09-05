@@ -18,7 +18,6 @@ namespace Phase8
         {
             // await ConnectByHttpClientAsync(items);
             var response = GenerateResponse(args);
-
             if (ResponseValidator.Check((ResponseBase)response))
             {
                 Output.Write("request took " + response.Took + "ms and it has " + response.Total + " results.");

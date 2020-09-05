@@ -11,7 +11,7 @@ namespace Phase9.Controllers
     public class MainController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get([FromBody] string[] query)
+        public IActionResult GetSearchResult([FromBody] string[] query)
         {
             var response = App.GenerateResponse(query);
             return Ok(TakeOutput(response));
