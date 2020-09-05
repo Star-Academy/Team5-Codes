@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Nest;
 using Phase8;
+using Phase8.Modules;
 using System.Text;
 
 namespace Phase9.Controllers
@@ -10,7 +11,7 @@ namespace Phase9.Controllers
     public class MainController : ControllerBase
     {
         [HttpGet]
-        public IActionResult GetSearchResult([FromBody] string[] query)
+        public IActionResult GetSearchResult([FromBody] QuerySample query)
         {
             var searchEngine = new Phase8.Nest.SearchEngine();
             var response = searchEngine.GenerateResponse(query);

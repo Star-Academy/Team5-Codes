@@ -12,7 +12,7 @@ namespace Phase8
         {
             var searchEngine = new SearchEngine();
             // await searchEngine.ConnectByHttpClientAsync(items);
-            var response = searchEngine.GenerateResponse(args);
+            var response = searchEngine.GenerateResponse();
             if (ResponseValidator.Check((ResponseBase)response))
             {
                 Output.Write("request took " + response.Took + "ms and it has " + response.Total + " results.");
