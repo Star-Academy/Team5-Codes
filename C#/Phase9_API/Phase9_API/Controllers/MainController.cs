@@ -15,7 +15,7 @@ namespace Phase9.Controllers
         {
             var items = App.ReadItemsFromFile<Person>();
             var response = App.GenerateResponse(query, items);
-            return Ok(TakeOutput(response));
+            return Ok(CreateResponse(response));
         }
 
         private string CreateResponse(ISearchResponse<Person> response)
