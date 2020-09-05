@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Nest;
 using Phase8;
 using System.Text;
@@ -13,7 +12,8 @@ namespace Phase9.Controllers
         [HttpGet]
         public IActionResult GetSearchResult([FromBody] string[] query)
         {
-            var response = App.GenerateResponse(query);
+            var searchEngine = new Phase8.Nest.SearchEngine();
+            var response = searchEngine.GenerateResponse(query);
             return Ok(TakeOutput(response));
         }
 
