@@ -19,6 +19,6 @@ function splitResponse(Response) {
 }
 
 function update() {
-    document.getElementById('results').innerText = localStorage.getItem("response");
+    doUpdate(localStorage.getItem("response"));
     // scrollTo({ top: document.getElementById('results').offsetTop, behavior: 'smooth' });
 }
