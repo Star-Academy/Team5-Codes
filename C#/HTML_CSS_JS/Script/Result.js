@@ -27,6 +27,7 @@ function update() {
     // scrollTo({ top: document.getElementById('results').offsetTop, behavior: 'smooth' });
 }
 
+///// Code for hide the menu-bar /////
 var prevScrollPos = window.pageYOffset;
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;

@@ -10,7 +10,7 @@ hr {
 
 .result-item {
     padding: 10;
-    direction: ltr;
+    direction: rtl;
     margin-left: 50;
 }
 
@@ -43,8 +43,13 @@ a:hover::after {
 }
 
 #results {
+    position: fixed;
+    direction: ltr;
     margin: 50;
     margin-right: 180;
+    overflow-y: scroll;
+    height: 1000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #search-wrapper:focus {
@@ -68,10 +73,11 @@ a:hover::after {
     z-index: 1;
     top: 105px;
     margin-top: 35px;
+    margin-right: 15;
     border: none;
     border-radius: 40px;
     border-color: black;
-    width: 50%;
+    width: 70%;
     height: 50px;
     padding: 20px;
     font-size: large;
