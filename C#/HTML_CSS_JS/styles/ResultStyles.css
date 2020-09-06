@@ -54,11 +54,11 @@ a:hover::after {
 }
 
 #search-wrapper {
-    margin-top: 25px;
+    margin-top: 35px;
     border: none;
     border-radius: 40px;
     border-color: black;
-    width: 600px;
+    width: 50%;
     height: 50px;
     padding: 20px;
     font-size: large;
@@ -66,4 +66,5 @@ a:hover::after {
 
 #image-container {
     margin-left: 0;
+    float: right;
 }
