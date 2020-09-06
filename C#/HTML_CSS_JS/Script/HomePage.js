@@ -1,3 +1,4 @@
+var Ress;
 
 function DoSearch(event) {
     if (event.key === "Enter") {
@@ -6,11 +7,12 @@ function DoSearch(event) {
         const xHttp = new XMLHttpRequest();
         xHttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                setResponse(this.responseText);
-                if (!window.location.href.includes("Result.html")) {
+                localStorage.setItem("response", this.responseText);
+                if (window.location.href.includes("Result.html")) {
+                    update();
+                } else {
                     window.location.replace("Result.html");
                 }
-                update();
             }
         };
         xHttp.open('POST', 'https://localhost:5001/Main/Get');
@@ -18,4 +20,3 @@ function DoSearch(event) {
         xHttp.send(JSON.stringify(request));
     }
 }
-
