@@ -40,14 +40,12 @@ namespace Phase8
                 Console.WriteLine("server didn't respond to us.");
             }
         }
-
-
         public static void ShowResult<T>(IReadOnlyCollection<T> result)
         {
             foreach (var item in result)
                 Output.Write(item.ToString());
         }
 
-        
+
     }
 }
