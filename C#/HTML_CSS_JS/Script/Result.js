@@ -1,5 +1,5 @@
-function update(Response) {
-    text = splitResponse(Response);
+function doUpdate(response) {
+    text = splitResponse(response);
 
     var div = document.createElement('div');
     div.innerHTML = text;
@@ -7,7 +7,7 @@ function update(Response) {
     parent.removeChild(parent.lastChild);
     parent.appendChild(div);
     scrollTo({ top: document.getElementById('results').offsetTop, behavior: 'smooth' });
-}
+} //solve conflict
 
 function splitResponse(Response) {
     resultItems = Response.split("Age:");
@@ -23,6 +23,3 @@ function update() {
     document.getElementById('results').innerText = localStorage.getItem("response");
     scrollTo({ top: document.getElementById('results').offsetTop, behavior: 'smooth' });
 }
-
-function doUpdate(response) {
-    document.getElementById('results').innerText = response;

@@ -61,7 +61,7 @@ a:hover::after {
 #search-wrapper {
     position: sticky;
     z-index: 1;
-    top: 104px;
+    top: 105px;
     margin-top: 35px;
     border: none;
     border-radius: 40px;
