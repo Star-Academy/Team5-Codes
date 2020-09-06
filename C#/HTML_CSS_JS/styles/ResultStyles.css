@@ -32,8 +32,9 @@ a:hover::after {
     display: inline;
 }
 
-.result {
-    margin: 10px;
+#results {
+    margin: 50;
+    margin-right: 180;
 }
 
 #search-wrapper:focus {
@@ -64,5 +65,5 @@ a:hover::after {
 }
 
 #image-container {
-    margin: 0;
+    margin-left: 0;
 }
