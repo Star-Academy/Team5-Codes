@@ -8,6 +8,11 @@ hr {
     margin-LEFT: 80px;
 }
 
+div>hr {
+    height: 4px;
+    margin-right: 0;
+}
+
 a::after {
     position: absolute;
     content: "";
@@ -54,6 +59,9 @@ a:hover::after {
 }
 
 #search-wrapper {
+    position: sticky;
+    z-index: 1;
+    top: 104px;
     margin-top: 35px;
     border: none;
     border-radius: 40px;
@@ -67,4 +75,7 @@ a:hover::after {
 #image-container {
     margin-left: 0;
     float: right;
+    position: sticky;
+    z-index: 1;
+    top: 70;
 }
