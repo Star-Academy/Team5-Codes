@@ -13,6 +13,16 @@ div>hr {
     margin-right: 0;
 }
 
+.result-item {
+    padding: 10;
+    direction: ltr;
+    margin-left: 50;
+}
+
+.result-item:hover {
+    background: #f3d192;
+}
+
 #main-line {
     position: sticky;
     z-index: 1;
