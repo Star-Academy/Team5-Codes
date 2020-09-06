@@ -1,0 +1,45 @@
+.menu-item {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: wheat;
+    display: inline-flex;
+    height: 50px;
+}
+
+#menu-bar {
+    background: #d1a85d;
+    font-size: x-large;
+    width: 100%;
+    padding: 10px;
+}
+
+@font-face {
+    font-family: Homa;
+    src: url(../font/B_Homa.ttf);
+}
+
+@font-face {
+    font-family: sans;
+    src: url(../font/IranianSans.ttf);
+}
+
+* {
+    font-family: Homa, sans, Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: wheat;
+    margin: 0;
+    direction: rtl;
+}
+
+a {
+    position: relative;
+    display: block;
+    padding: 4px 0;
+    font-family: Lato, sans-serif;
+    color: #ecf0f1;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
