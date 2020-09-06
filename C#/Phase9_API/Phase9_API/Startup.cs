@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Phase8.Nest;
 
 namespace Phase9_API
 {
@@ -18,6 +19,7 @@ namespace Phase9_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ISearchEngine, SearchEngine>();
             services.AddCors();
             services.AddControllers();
         }
