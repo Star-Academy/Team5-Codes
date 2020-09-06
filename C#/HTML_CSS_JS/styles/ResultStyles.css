@@ -71,14 +71,12 @@ a:hover::after {
 #search-wrapper {
     position: sticky;
     z-index: 1;
-    top: 10px;
+    top: 105px;
     margin-top: 35px;
-    margin-right: 150;
-    margin-left: 80;
     border: none;
     border-radius: 40px;
     border-color: black;
-    width: 70%;
+    width: 50%;
     height: 50px;
     padding: 20px;
     font-size: large;
