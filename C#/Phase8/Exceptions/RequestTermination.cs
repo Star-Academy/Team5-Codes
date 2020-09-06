@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Phase8.Exceptions
 {
-    class RequestTermination : Exception
+    public class RequestTermination : Exception
     {
         public override string Message { get; }
 
