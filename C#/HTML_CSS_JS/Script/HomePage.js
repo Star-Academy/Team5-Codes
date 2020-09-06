@@ -1,13 +1,18 @@
+var Ress;
 
 function DoSearch(event) {
     if (event.key === "Enter") {
         let searchWrapper = document.getElementById("search-wrapper");
-        const input = searchWrapper.value;
-        const request = input;
+        const request = searchWrapper.value;
         const xHttp = new XMLHttpRequest();
         xHttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                update(this.responseText);
+                localStorage.setItem("response", this.responseText);
+                if (window.location.href.includes("Result.html")) {
+                    update();
+                } else {
+                    window.location.replace("Result.html");
+                }
             }
         };
         xHttp.open('POST', 'https://localhost:5001/Main/Get');
@@ -15,4 +20,3 @@ function DoSearch(event) {
         xHttp.send(JSON.stringify(request));
     }
 }
-
