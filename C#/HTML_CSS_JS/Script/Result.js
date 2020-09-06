@@ -12,7 +12,7 @@ function splitResponse(Response) {
     resultItems = Response.split("Age:");
     var text = '';
     resultItems.forEach(element => {
-        if (element != '')
+        if (element !== '')
             text += "Age:" + element + "<hr>";
     });
     return text;
