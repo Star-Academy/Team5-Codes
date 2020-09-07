@@ -5,7 +5,6 @@ import {HttpClient} from '@angular/common/http';
 export class SearchService {
   constructor(private http: HttpClient) {
   }
-
   // will return a string we should add a token at server side and tokenize it after receiving it
   public async searchRequest(searchKey: string): Promise<string> {
     return new Promise<string>((resolve) => {
