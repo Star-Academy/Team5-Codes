@@ -10,7 +10,7 @@ import { SearchService } from './Service/SearchService';
 export class HomeBodyComponent implements OnInit {
   public result: string;
 
-  constructor(private service: SearchService) { }
+  // constructor(private service: SearchService) { }
 
   // tslint:disable-next-line:typedef
   async ngOnInit() {
@@ -18,6 +18,6 @@ export class HomeBodyComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   public async searchPhrase(value: string) {
-    this.result = await this.service.searchRequest(value);
+    // this.result = await this.service.searchRequest(value);
   }
 }
