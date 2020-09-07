@@ -1,6 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import { SearchService } from './Service/SearchService';
-
+import {SearchService} from 'src/app/home-body/Service/SearchService';
 
 @Component({
   selector: 'app-home-body',
@@ -12,11 +11,9 @@ export class HomeBodyComponent implements OnInit {
 
   constructor(private service: SearchService) { }
 
-  // tslint:disable-next-line:typedef
   async ngOnInit() {
-    this.searchPhrase('');
+    this.searchPhrase('labore');
   }
-  // tslint:disable-next-line:typedef
   public async searchPhrase(value: string) {
     this.result = await this.service.searchRequest(value);
   }
