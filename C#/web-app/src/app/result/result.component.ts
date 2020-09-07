@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result.component.scss']
 })
 export class ResultComponent implements OnInit {
+  resultText: string;
 
-  constructor() { }
+  constructor() {
+    this.resultText = '';
+  }
 
   ngOnInit(): void {
   }
