@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class SearchService {
@@ -7,9 +7,10 @@ export class SearchService {
   }
 
   // will return a string we should add a token at server side and tokenize it after receiving it
-  public async searchRequest(searchkey: string): Promise<string> {
+  public async searchRequest(searchKey: string): Promise<string> {
     return new Promise<string>((resolve) => {
-      this.http.post('https://localhost:5001/Main/Get', { searchkey }).subscribe((result: string) => {
+      this.http.post('https://localhost:5001/Main/Get', searchKey, {headers: {'Content-Type':'application/json', accept: '*/*'}})
+        .subscribe((result: string) => {
         resolve(result);
       });
     });
