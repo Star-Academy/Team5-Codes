@@ -23,6 +23,9 @@ import {HomeModule} from './home-body/home-body.module'
     HomeModule
   ],
   providers: [],
+  exports: [
+    ResultContainerComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
