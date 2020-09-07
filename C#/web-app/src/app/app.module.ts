@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeBodyComponent } from './home-body/home-body.component';
 import { SearchBarComponent } from './home-body/search-bar/search-bar.component';
 import { ResultComponent } from './result/result.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ResultComponent } from './result/result.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
