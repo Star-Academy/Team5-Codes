@@ -11,14 +11,11 @@ function doUpdate(response) {
 function splitResponse(Response) {
     resultItems = Response.split("Age:");
     var text = '';
-    if (resultItems.length == 1) {
-        text = "No result ):"
-    } else {
-        resultItems.forEach(element => {
-            if (element != '')
-                text += "<div class=\"result-item\">Age:" + element + "</div><hr>";
-        });
-    }
+    resultItems.forEach(element => {
+        if (element !== '')
+            text += "Age:" + element + "<hr>";
+    });
+
     return text;
 }
 
