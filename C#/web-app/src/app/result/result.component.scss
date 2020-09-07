@@ -1,8 +1,11 @@
 p {
-  backdrop-filter: blur(10px);
-  font-size: xx-large;
-  border-radius: 10px;
-  margin: 10px 80px;
-  text-align: center;
-  overflow: hidden;
+  backdrop-filter: blur(20px);
+  font-size: large;
+  border-radius: 30px;
+  margin: 10px 190px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  &:hover {
+    box-shadow: 0 10px 14px 0 rgba(0, 0, 0, 0.3), 0 12px 25px 0 rgba(0, 0, 0, 0.25);
+  }
 }
