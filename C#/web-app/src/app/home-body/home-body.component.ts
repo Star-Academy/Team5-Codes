@@ -12,7 +12,7 @@ export class HomeBodyComponent implements OnInit {
   constructor(private service: SearchService) { }
 
   async ngOnInit() {
-    this.searchPhrase('labore');
+    this.searchPhrase('');
   }
   public async searchPhrase(value: string) {
     this.result = await this.service.searchRequest(value);
