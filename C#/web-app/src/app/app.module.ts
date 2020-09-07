@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeBodyComponent } from './home-body/home-body.component';
 import { SearchBarComponent } from './home-body/search-bar/search-bar.component';
 import { ResultComponent } from './result/result.component';
+import {FormsModule} from '@angular/forms';
 import { ResultContainerComponent } from './result-container/result-container.component';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ResultContainerComponent } from './result-container/result-container.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
