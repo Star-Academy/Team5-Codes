@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeBodyComponent } from './home-body/home-body.component';
 import { SearchBarComponent } from './home-body/search-bar/search-bar.component';
 import { ResultComponent } from './result/result.component';
+import { ResultContainerComponent } from './result-container/result-container.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ResultComponent } from './result/result.component';
     HomeBodyComponent,
     SearchBarComponent,
     ResultComponent,
+    ResultContainerComponent,
   ],
   imports: [
     BrowserModule,
