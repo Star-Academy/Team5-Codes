@@ -1,6 +1,7 @@
 # WebApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
+don't make mistakes, we've seen this part and decided to leave it this way.
 
 ## Development server
 
