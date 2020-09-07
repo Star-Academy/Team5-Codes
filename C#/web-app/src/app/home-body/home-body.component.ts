@@ -9,12 +9,12 @@ import {SearchService} from 'src/app/home-body/Service/SearchService';
 export class HomeBodyComponent implements OnInit {
   public result: string;
 
-  // constructor(private service: SearchService) { }
+  constructor(private service: SearchService) { }
 
   async ngOnInit() {
     this.searchPhrase('labore');
   }
   public async searchPhrase(value: string) {
-    // this.result = await this.service.searchRequest(value);
+    this.result = await this.service.searchRequest(value);
   }
 }
