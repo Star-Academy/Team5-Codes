@@ -7,7 +7,7 @@ import {SearchService} from 'src/app/home-body/Service/SearchService';
   styleUrls: ['./home-body.component.scss']
 })
 export class HomeBodyComponent implements OnInit {
-  public result: string;
+  public result: string[];
 
   constructor(private service: SearchService) { }
 
@@ -15,7 +15,7 @@ export class HomeBodyComponent implements OnInit {
     this.searchPhrase('!@#$%^&*())dasfasdfasdf');
   }
   public async searchPhrase(value: string) {
-    this.result = await this.service.searchRequest(value);
+    this.result = (await this.service.searchRequest(value)).split(value);
     alert(this.result);
   }
 }
