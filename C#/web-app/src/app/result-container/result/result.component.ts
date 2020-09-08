@@ -9,7 +9,7 @@ export class ResultComponent implements OnInit {
   resultText: string;
 
   constructor() {
-    this.resultText = 'default';
+    this.resultText = '';
   }
 
   ngOnInit(): void {
