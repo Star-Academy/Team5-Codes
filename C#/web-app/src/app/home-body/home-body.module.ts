@@ -5,6 +5,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchService } from './Service/SearchService';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {ResultContainerModule} from '../result-container/result-container.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     HttpClientModule,
     FormsModule,
+    ResultContainerModule,
   ],
   exports: [
     HomeBodyComponent

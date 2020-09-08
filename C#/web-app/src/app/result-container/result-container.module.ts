@@ -1,7 +1,7 @@
-import { ResultContainerComponent } from './result-container.component';
-import { ResultComponent } from './result/result.component';
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import {ResultContainerComponent} from './result-container.component';
+import {ResultComponent} from './result/result.component';
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -16,4 +16,5 @@ import { NgModule } from '@angular/core';
   ],
   providers: [],
 })
-export class ToursModule { }
+export class ResultContainerModule {
+}
