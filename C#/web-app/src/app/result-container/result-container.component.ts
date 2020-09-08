@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ResultContainerComponent implements OnInit {
 
   @Input()
-  public results: string[]; // bayad tokenize beshe
+  public results: string[];
 
   constructor() {
   }

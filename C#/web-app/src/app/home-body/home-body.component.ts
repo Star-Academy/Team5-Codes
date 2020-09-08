@@ -9,13 +9,15 @@ import {SearchService} from 'src/app/home-body/Service/SearchService';
 export class HomeBodyComponent implements OnInit {
   public result: string[];
 
-  constructor(private service: SearchService) { }
+  constructor(private service: SearchService) {
+  }
 
   async ngOnInit() {
     this.searchPhrase('!@#$%^&*())dasfasdfasdf');
   }
 
-  function (){}
+  function() {
+  }
 
   public async searchPhrase(value: string) {
     const temp = (await this.service.searchRequest(value)).split('Age:');
