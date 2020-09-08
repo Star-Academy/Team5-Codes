@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { ResultComponent } from './result/result.component';
+import { ResultComponent } from './result-container/result/result.component';
 import {FormsModule} from '@angular/forms';
 import { ResultContainerComponent } from './result-container/result-container.component';
 import {HomeModule} from './home-body/home-body.module'
