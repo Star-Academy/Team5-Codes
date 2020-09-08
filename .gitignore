@@ -1,9 +1,9 @@
 C#/Phase5/SampleLibrary/Docs/EnglishData/*
 C#/Phase5/SampleLibrary/SampleLibrary/Properties/*
 C#/Phase9_API/Phase9_API/people.json
-C#/HTML_CSS_JS/.dist
-C#/HTML_CSS_JS/.idea
-C#/HTML_CSS_JS/.vscode
+Web/HTML_CSS_JS/.dist
+Web/HTML_CSS_JS/.idea
+Web/HTML_CSS_JS/.vscode
 **/.vs/*
 .vs/*
 **/.vscode/*
