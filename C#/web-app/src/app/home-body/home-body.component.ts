@@ -15,6 +15,6 @@ export class HomeBodyComponent implements OnInit {
     this.searchPhrase('!@#$%^&*())dasfasdfasdf');
   }
   public async searchPhrase(value: string) {
-    this.result = (await this.service.searchRequest(value)).split('age');
+    this.result = (await this.service.searchRequest(value)).split('Age:');
   }
 }
