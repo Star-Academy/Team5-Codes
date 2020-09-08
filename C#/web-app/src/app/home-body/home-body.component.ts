@@ -19,7 +19,6 @@ export class HomeBodyComponent implements OnInit {
 
   public async searchPhrase(value: string) {
     const temp = (await this.service.searchRequest(value)).split('Age:');
-    this.result = temp
-      .splice(1, temp.length - 1);
+    this.result = temp.splice(1, temp.length - 1);
   }
 }
