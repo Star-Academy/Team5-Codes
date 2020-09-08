@@ -14,6 +14,9 @@ export class HomeBodyComponent implements OnInit {
   async ngOnInit() {
     this.searchPhrase('!@#$%^&*())dasfasdfasdf');
   }
+
+  function (){}
+
   public async searchPhrase(value: string) {
     this.result = (await this.service.searchRequest(value)).split(value);
     alert(this.result);

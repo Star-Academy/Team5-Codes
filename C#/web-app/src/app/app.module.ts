@@ -13,8 +13,6 @@ import {HomeModule} from './home-body/home-body.module'
   declarations: [
     AppComponent,
     MenuComponent,
-    ResultComponent,
-    ResultContainerComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +22,6 @@ import {HomeModule} from './home-body/home-body.module'
   ],
   providers: [],
   exports: [
-    ResultContainerComponent
   ],
   bootstrap: [AppComponent]
 })
