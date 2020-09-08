@@ -12,9 +12,10 @@ export class HomeBodyComponent implements OnInit {
   constructor(private service: SearchService) { }
 
   async ngOnInit() {
-    this.searchPhrase('');
+    this.searchPhrase('!@#$%^&*())dasfasdfasdf');
   }
   public async searchPhrase(value: string) {
     this.result = await this.service.searchRequest(value);
+    alert(this.result);
   }
 }
