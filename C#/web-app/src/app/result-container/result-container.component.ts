@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-result-container',
@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultContainerComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  public results: string[]; // bayad tokenize beshe
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

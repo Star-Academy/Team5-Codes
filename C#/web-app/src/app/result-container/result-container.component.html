@@ -1,12 +1,12 @@
 <div>
-  <app-result></app-result>
-  <app-result></app-result>
-  <app-result></app-result>
-  <app-result></app-result>
-  <app-result></app-result>
-  <app-result></app-result>
-  <app-result></app-result>
-  <app-result></app-result>
-  <app-result></app-result>
-  <app-result></app-result>
+  <app-result *ngFor="let res of results" [resultText] = res></app-result>
+<!--  <app-result></app-result>-->
+<!--  <app-result></app-result>-->
+<!--  <app-result></app-result>-->
+<!--  <app-result></app-result>-->
+<!--  <app-result></app-result>-->
+<!--  <app-result></app-result>-->
+<!--  <app-result></app-result>-->
+<!--  <app-result></app-result>-->
+<!--  <app-result></app-result>-->
 </div>
