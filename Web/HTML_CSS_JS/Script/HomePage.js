@@ -1,5 +1,3 @@
-var Ress;
-
 function DoSearch(event) {
     if (event.key === "Enter") {
         let searchWrapper = document.getElementById("search-wrapper");
